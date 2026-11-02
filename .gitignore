@@ -1,0 +1,5 @@
+assets/raw/
+versions/
+__pycache__/
+tools/chrome-*/
+tools/*.png

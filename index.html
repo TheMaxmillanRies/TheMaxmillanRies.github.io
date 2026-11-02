@@ -1,0 +1,1609 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maxmillan Ries · Portfolio</title>
+  <meta name="description" content="Projects by Maxmillan Ries: robotics, computer vision, machine learning for health, procedural generation, AR and tools.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Jost:wght@200;300;400;500&display=swap">
+  <link rel="stylesheet" href="boards.css">
+  <link rel="stylesheet" href="diagrams.css">
+</head>
+<body>
+
+<header class="tabs"><div class="tabs-in">
+  <span class="tabs-name">Maxmillan Ries</span>
+  <nav role="tablist" aria-label="Sections">
+    <a href="#projects" role="tab" aria-controls="projects">Projects</a>
+    <a href="#phd" role="tab" aria-controls="phd">PhD research</a>
+  </nav>
+</div></header>
+
+<main class="panel" id="projects" role="tabpanel">
+<section class="board cover">
+
+<div class="cover-name" style="grid-area:1 / 1 / 4 / 8">
+  <p class="meta">Portfolio · Selected work 2020 – 2026</p>
+  <h1>Maxmillan Ries</h1>
+  <p class="sum">I build things that see, move and render: a chess-playing robot arm, computer vision and deep learning projects, an augmented reality maths game, research on forecasting patients’ clinical courses from health records, and lately a procedural world engine and a virtual tabletop.</p>
+  <p class="meta">BSc University of Groningen · MSc TU Delft · <a href="https://github.com/TheMaxmillanRies">GitHub</a></p>
+</div>
+<figure style="grid-area:4 / 1 / 9 / 8"><img src="assets/img/procedural-world/cobble.webp" alt="Procedurally generated cobblestone walls with crenellations, an arched window, a round tower and a wooden fence on grass" loading="lazy"><figcaption>Procedural World: cobble walls and a round tower, every stone laid along a drawn curve.</figcaption></figure>
+<nav class="contents" style="grid-area:1 / 8 / 9 / 13">
+  <p class="meta">Contents</p>
+  <a href="#chess-arm"><span>01</span>Robot Chess Arm<em>2020 – 21</em></a>
+  <a href="#procedural-world"><span>02</span>Procedural World<em>2026</em></a>
+  <a href="#dnd-vtt"><span>03</span>D&amp;D VTT<em>2023 – now</em></a>
+  <a href="#mathisfactory"><span>04</span>Mathisfactory<em>2023</em></a>
+  <a href="#kidney-stones"><span>05</span>Kidney Stone Classification<em>2021</em></a>
+  <a href="#kidney-stones"><span>06</span>Indoor Localization<em>2022</em></a>
+  <a href="#style-transfer"><span>07</span>Neural Style Transfer<em>2022</em></a>
+  <a href="#other"><span>+</span>Smaller work<em>2020 – 22</em></a>
+  <a href="#phd"><span>→</span>PhD research<em>2025 – 26</em></a>
+</nav>
+<footer class="foot"><span>Maxmillan Ries · Portfolio</span><span>Contents</span><span>00</span></footer>
+</section>
+<section class="board" id="chess-arm">
+
+<figure class="marked" style="grid-area:1 / 1 / 9 / 7"><svg class="marks" viewBox="0 0 1200 1600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="The robot arm leaning over a chessboard, with a depth camera mounted above"><image href="assets/img/chess-arm/arm-photo.webp" width="1200" height="1600"/>
+<line x1="505" y1="330" x2="330" y2="430" class="lead"/>
+<circle cx="505" cy="330" r="7" class="pt"/>
+<circle cx="330" cy="430" r="26" class="mk"/>
+<text x="330" y="440" class="mkn" text-anchor="middle">1</text>
+<line x1="770" y1="232" x2="700" y2="470" class="lead"/>
+<circle cx="770" cy="232" r="7" class="pt"/>
+<circle cx="700" cy="470" r="26" class="mk"/>
+<text x="700" y="480" class="mkn" text-anchor="middle">2</text>
+<line x1="915" y1="665" x2="720" y2="650" class="lead"/>
+<circle cx="915" cy="665" r="7" class="pt"/>
+<circle cx="720" cy="650" r="26" class="mk"/>
+<text x="720" y="660" class="mkn" text-anchor="middle">3</text>
+<line x1="985" y1="945" x2="1150" y2="790" class="lead"/>
+<circle cx="985" cy="945" r="7" class="pt"/>
+<circle cx="1150" cy="790" r="26" class="mk"/>
+<text x="1150" y="800" class="mkn" text-anchor="middle">4</text>
+<line x1="1000" y1="1170" x2="1150" y2="1330" class="lead"/>
+<circle cx="1000" cy="1170" r="7" class="pt"/>
+<circle cx="1150" cy="1330" r="26" class="mk"/>
+<text x="1150" y="1340" class="mkn" text-anchor="middle">5</text>
+</svg><figcaption>1 Gripper · 2 Aluminium truss · 3 Dynamixel servo · 4 MX-106 servo · 5 Rotating base</figcaption></figure>
+<div class="text" style="grid-area:1 / 7 / 5 / 13"><p class="no">01</p><h2>Robot Chess Arm</h2><p class="meta">2020 – 2021 · Personal project</p><p class="sum">A six-axis arm that plays chess on a real board. I extended a PhantomX Reactor kit with an aluminium truss and an extra elbow rotation, driven by Dynamixel servos from a MATLAB app. A RealSense depth camera looks down on the board. Instead of recognising pieces, it works out which squares are occupied and compares that with the last position to infer your move. Stockfish picks the reply.</p><div class="nums"><div><b>72/96</b><span>boards read perfectly</span></div><div><b>99.1%</b><span>per-square accuracy</span></div><div><b>0.76 s</b><span>per detection</span></div></div><dl><dt>Stack</dt><dd>MATLAB, Robotics Toolbox, Intel RealSense SDK, Stockfish, Dynamixel</dd><dt>Code</dt><dd><a href="https://github.com/TheMaxmillanRies/Robot-Chess-Arm">Robot-Chess-Arm</a> · <a href="https://github.com/TheMaxmillanRies/CV-For-ChessPiece-Recognition">CV-For-ChessPiece-Recognition</a></dd></dl></div>
+<figure style="grid-area:5 / 7 / 7 / 10"><img src="assets/img/chess-arm/rgb-start.webp" alt="RealSense colour frame of the chessboard in the starting position" loading="lazy"><figcaption>Colour frame from the depth camera</figcaption></figure>
+<figure style="grid-area:5 / 10 / 7 / 13"><img src="assets/img/chess-arm/ir-speckle.webp" alt="Infrared image of the board covered in a projected dot pattern" loading="lazy"><figcaption>Projected infrared speckle</figcaption></figure>
+<figure style="grid-area:7 / 7 / 9 / 10"><img src="assets/img/chess-arm/clusters.webp" alt="Point cloud clusters coloured per piece" loading="lazy"><figcaption>Point cloud clusters, board removed</figcaption></figure>
+<figure style="grid-area:7 / 10 / 9 / 13"><img src="assets/img/chess-arm/cad.webp" alt="CAD model of the arm" loading="lazy"><figcaption>CAD of the extended arm</figcaption></figure>
+<footer class="foot"><span>Maxmillan Ries · Portfolio</span><span>Robot Chess Arm</span><span>01</span></footer>
+</section>
+<details class="notes"><summary>Full write-up</summary><div class="notes-body">
+<div class="wu-row"><div class="wu-text"><div class="body">
+      <p>The arm started as a PhantomX Reactor kit. I extended it to six degrees of freedom with an aluminium truss and an extra elbow rotation, loosely modelled on industrial KUKA arms. It is driven by Dynamixel servos (MX-106, MX-64 and others) over a serial bus. Kinematics use Peter Corke's Robotics Toolbox, and the chess engine is Stockfish, talking UCI. Everything runs from a MATLAB app.</p>
+    </div></div><div class="wu-figs"><figure>
+        <img src="assets/img/chess-arm/cad.webp" alt="CAD model of the arm" loading="lazy">
+        <figcaption>CAD of the extended arm.</figcaption>
+      </figure><figure>
+        <img src="assets/img/chess-arm/gui.webp" alt="MATLAB GUI with a chessboard view, Execute Move and Reconsider buttons, a mode knob and Detect Pieces" loading="lazy">
+        <figcaption>Control app: board state, move buttons and the mode knob (Off / Suspend / On / Overwatch).</figcaption>
+      </figure></div></div>
+<div class="wu-row"><div class="wu-text"><div class="body">
+      <h3>Seeing the pieces</h3>
+      <p>My first attempt used an RGB image and a CNN. It broke whenever the lighting changed. Simple thresholding of the depth image was not reliable either. What worked was to stop trying to recognise pieces. The robot already knows the position, so it only has to work out which squares are <em>occupied</em>, compare that with the previous state, and infer the move.</p>
+      <p>An Intel RealSense D435 looks down on the board. It projects an infrared speckle pattern so that depth works even on plain surfaces. The depth image becomes a point cloud, the board plane is removed, and the remaining points are clustered into objects, each assigned to a square.</p>
+      <p>Calibration is one piece placed on the centre of the board. The median of its points gives the centre, and the cloud is clipped to the 30 cm board around it. The first segmentation simply counted points per square, and it failed whenever a piece leaned over two squares. Clustering fixed that: the cloud is flattened, split into clusters at least 5 mm apart, and refined iteratively. A cluster wider than 1.3 squares is split in two with k-means, and clusters stacked close together are fused. The CNN experiments before that used about 600 photos per class.</p>
+
+      <h3>Moving the pieces</h3>
+      <p>The arm is modelled as six revolute joints in Denavit–Hartenberg form, with joint limits, and inverse kinematics finds the pose for each square. The board centre sits 27.5 cm from the base, and each square is 37 mm. Each piece type has its own pick height, from 30 mm for a pawn to 57 mm for the king. The servos are on a Dynamixel bus at 1 Mbps. The shoulder carries the most load, so it is driven by two servos working as a pair. A MATLAB wrapper speaks UCI to Stockfish 11 and passes it the position as FEN.</p>
+    </div></div><div class="wu-figs"><figure>
+        <img src="assets/img/chess-arm/rgb-start.webp" alt="RealSense colour frame of the chessboard in the starting position" loading="lazy">
+        <figcaption>Colour frame from the RealSense.</figcaption>
+      </figure><figure>
+        <img src="assets/img/chess-arm/ir-speckle.webp" alt="Infrared image of the board covered in a projected dot pattern" loading="lazy">
+        <figcaption>The infrared speckle pattern the camera projects onto the board.</figcaption>
+      </figure><figure>
+        <img src="assets/img/chess-arm/clusters.webp" alt="Point cloud clusters coloured per piece" loading="lazy">
+        <figcaption>What is left of the point cloud once the board is removed, coloured by cluster.</figcaption>
+      </figure></div></div>
+<!--dg:chess-move-->
+    <figure class="diagram">
+<svg class="dg dg-move" viewBox="0 0 1000 256" role="img" aria-label="Two occupancy grids before and after a move, their difference, and the move it implies, e2 to e4">
+<defs><marker id="ah-chess-move" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 L7.5 4 L0 7.5" fill="none" stroke="currentColor" stroke-width="1"/></marker></defs>
+<text x="40" y="22" class="lb">01  Occupied squares, before</text>
+<text x="320" y="22" class="lb">02  Occupied squares, after</text>
+<text x="600" y="22" class="lb">03  Difference</text>
+<text x="850" y="22" class="lb">04  Move</text>
+<circle cx="51.0" cy="51.0" r="6" class="dot"/>
+<rect x="62" y="40" width="22" height="22" class="sq"/>
+<circle cx="73.0" cy="51.0" r="6" class="dot"/>
+<circle cx="95.0" cy="51.0" r="6" class="dot"/>
+<rect x="106" y="40" width="22" height="22" class="sq"/>
+<circle cx="117.0" cy="51.0" r="6" class="dot"/>
+<circle cx="139.0" cy="51.0" r="6" class="dot"/>
+<rect x="150" y="40" width="22" height="22" class="sq"/>
+<circle cx="161.0" cy="51.0" r="6" class="dot"/>
+<circle cx="183.0" cy="51.0" r="6" class="dot"/>
+<rect x="194" y="40" width="22" height="22" class="sq"/>
+<circle cx="205.0" cy="51.0" r="6" class="dot"/>
+<rect x="40" y="62" width="22" height="22" class="sq"/>
+<circle cx="51.0" cy="73.0" r="6" class="dot"/>
+<circle cx="73.0" cy="73.0" r="6" class="dot"/>
+<rect x="84" y="62" width="22" height="22" class="sq"/>
+<circle cx="95.0" cy="73.0" r="6" class="dot"/>
+<circle cx="117.0" cy="73.0" r="6" class="dot"/>
+<rect x="128" y="62" width="22" height="22" class="sq"/>
+<circle cx="139.0" cy="73.0" r="6" class="dot"/>
+<circle cx="161.0" cy="73.0" r="6" class="dot"/>
+<rect x="172" y="62" width="22" height="22" class="sq"/>
+<circle cx="183.0" cy="73.0" r="6" class="dot"/>
+<circle cx="205.0" cy="73.0" r="6" class="dot"/>
+<rect x="62" y="84" width="22" height="22" class="sq"/>
+<rect x="106" y="84" width="22" height="22" class="sq"/>
+<rect x="150" y="84" width="22" height="22" class="sq"/>
+<rect x="194" y="84" width="22" height="22" class="sq"/>
+<rect x="40" y="106" width="22" height="22" class="sq"/>
+<rect x="84" y="106" width="22" height="22" class="sq"/>
+<rect x="128" y="106" width="22" height="22" class="sq"/>
+<rect x="172" y="106" width="22" height="22" class="sq"/>
+<rect x="62" y="128" width="22" height="22" class="sq"/>
+<rect x="106" y="128" width="22" height="22" class="sq"/>
+<rect x="150" y="128" width="22" height="22" class="sq"/>
+<rect x="194" y="128" width="22" height="22" class="sq"/>
+<rect x="40" y="150" width="22" height="22" class="sq"/>
+<rect x="84" y="150" width="22" height="22" class="sq"/>
+<rect x="128" y="150" width="22" height="22" class="sq"/>
+<rect x="172" y="150" width="22" height="22" class="sq"/>
+<circle cx="51.0" cy="183.0" r="6" class="dot"/>
+<rect x="62" y="172" width="22" height="22" class="sq"/>
+<circle cx="73.0" cy="183.0" r="6" class="dot"/>
+<circle cx="95.0" cy="183.0" r="6" class="dot"/>
+<rect x="106" y="172" width="22" height="22" class="sq"/>
+<circle cx="117.0" cy="183.0" r="6" class="dot"/>
+<circle cx="139.0" cy="183.0" r="6" class="dot"/>
+<rect x="150" y="172" width="22" height="22" class="sq"/>
+<circle cx="161.0" cy="183.0" r="6" class="dot"/>
+<circle cx="183.0" cy="183.0" r="6" class="dot"/>
+<rect x="194" y="172" width="22" height="22" class="sq"/>
+<circle cx="205.0" cy="183.0" r="6" class="dot"/>
+<rect x="40" y="194" width="22" height="22" class="sq"/>
+<circle cx="51.0" cy="205.0" r="6" class="dot"/>
+<circle cx="73.0" cy="205.0" r="6" class="dot"/>
+<rect x="84" y="194" width="22" height="22" class="sq"/>
+<circle cx="95.0" cy="205.0" r="6" class="dot"/>
+<circle cx="117.0" cy="205.0" r="6" class="dot"/>
+<rect x="128" y="194" width="22" height="22" class="sq"/>
+<circle cx="139.0" cy="205.0" r="6" class="dot"/>
+<circle cx="161.0" cy="205.0" r="6" class="dot"/>
+<rect x="172" y="194" width="22" height="22" class="sq"/>
+<circle cx="183.0" cy="205.0" r="6" class="dot"/>
+<circle cx="205.0" cy="205.0" r="6" class="dot"/>
+<rect x="40" y="40" width="176" height="176" class="frame"/>
+<text x="51" y="231" class="tiny" text-anchor="middle">a</text>
+<text x="73" y="231" class="tiny" text-anchor="middle">b</text>
+<text x="95" y="231" class="tiny" text-anchor="middle">c</text>
+<text x="117" y="231" class="tiny" text-anchor="middle">d</text>
+<text x="139" y="231" class="tiny" text-anchor="middle">e</text>
+<text x="161" y="231" class="tiny" text-anchor="middle">f</text>
+<text x="183" y="231" class="tiny" text-anchor="middle">g</text>
+<text x="205" y="231" class="tiny" text-anchor="middle">h</text>
+<text x="31" y="55" class="tiny" text-anchor="middle">8</text>
+<text x="31" y="77" class="tiny" text-anchor="middle">7</text>
+<text x="31" y="99" class="tiny" text-anchor="middle">6</text>
+<text x="31" y="121" class="tiny" text-anchor="middle">5</text>
+<text x="31" y="143" class="tiny" text-anchor="middle">4</text>
+<text x="31" y="165" class="tiny" text-anchor="middle">3</text>
+<text x="31" y="187" class="tiny" text-anchor="middle">2</text>
+<text x="31" y="209" class="tiny" text-anchor="middle">1</text>
+<circle cx="331.0" cy="51.0" r="6" class="dot"/>
+<rect x="342" y="40" width="22" height="22" class="sq"/>
+<circle cx="353.0" cy="51.0" r="6" class="dot"/>
+<circle cx="375.0" cy="51.0" r="6" class="dot"/>
+<rect x="386" y="40" width="22" height="22" class="sq"/>
+<circle cx="397.0" cy="51.0" r="6" class="dot"/>
+<circle cx="419.0" cy="51.0" r="6" class="dot"/>
+<rect x="430" y="40" width="22" height="22" class="sq"/>
+<circle cx="441.0" cy="51.0" r="6" class="dot"/>
+<circle cx="463.0" cy="51.0" r="6" class="dot"/>
+<rect x="474" y="40" width="22" height="22" class="sq"/>
+<circle cx="485.0" cy="51.0" r="6" class="dot"/>
+<rect x="320" y="62" width="22" height="22" class="sq"/>
+<circle cx="331.0" cy="73.0" r="6" class="dot"/>
+<circle cx="353.0" cy="73.0" r="6" class="dot"/>
+<rect x="364" y="62" width="22" height="22" class="sq"/>
+<circle cx="375.0" cy="73.0" r="6" class="dot"/>
+<circle cx="397.0" cy="73.0" r="6" class="dot"/>
+<rect x="408" y="62" width="22" height="22" class="sq"/>
+<circle cx="419.0" cy="73.0" r="6" class="dot"/>
+<circle cx="441.0" cy="73.0" r="6" class="dot"/>
+<rect x="452" y="62" width="22" height="22" class="sq"/>
+<circle cx="463.0" cy="73.0" r="6" class="dot"/>
+<circle cx="485.0" cy="73.0" r="6" class="dot"/>
+<rect x="342" y="84" width="22" height="22" class="sq"/>
+<rect x="386" y="84" width="22" height="22" class="sq"/>
+<rect x="430" y="84" width="22" height="22" class="sq"/>
+<rect x="474" y="84" width="22" height="22" class="sq"/>
+<rect x="320" y="106" width="22" height="22" class="sq"/>
+<rect x="364" y="106" width="22" height="22" class="sq"/>
+<rect x="408" y="106" width="22" height="22" class="sq"/>
+<rect x="452" y="106" width="22" height="22" class="sq"/>
+<rect x="342" y="128" width="22" height="22" class="sq"/>
+<rect x="386" y="128" width="22" height="22" class="sq"/>
+<circle cx="419.0" cy="139.0" r="6" class="dot"/>
+<rect x="430" y="128" width="22" height="22" class="sq"/>
+<rect x="474" y="128" width="22" height="22" class="sq"/>
+<rect x="320" y="150" width="22" height="22" class="sq"/>
+<rect x="364" y="150" width="22" height="22" class="sq"/>
+<rect x="408" y="150" width="22" height="22" class="sq"/>
+<rect x="452" y="150" width="22" height="22" class="sq"/>
+<circle cx="331.0" cy="183.0" r="6" class="dot"/>
+<rect x="342" y="172" width="22" height="22" class="sq"/>
+<circle cx="353.0" cy="183.0" r="6" class="dot"/>
+<circle cx="375.0" cy="183.0" r="6" class="dot"/>
+<rect x="386" y="172" width="22" height="22" class="sq"/>
+<circle cx="397.0" cy="183.0" r="6" class="dot"/>
+<rect x="430" y="172" width="22" height="22" class="sq"/>
+<circle cx="441.0" cy="183.0" r="6" class="dot"/>
+<circle cx="463.0" cy="183.0" r="6" class="dot"/>
+<rect x="474" y="172" width="22" height="22" class="sq"/>
+<circle cx="485.0" cy="183.0" r="6" class="dot"/>
+<rect x="320" y="194" width="22" height="22" class="sq"/>
+<circle cx="331.0" cy="205.0" r="6" class="dot"/>
+<circle cx="353.0" cy="205.0" r="6" class="dot"/>
+<rect x="364" y="194" width="22" height="22" class="sq"/>
+<circle cx="375.0" cy="205.0" r="6" class="dot"/>
+<circle cx="397.0" cy="205.0" r="6" class="dot"/>
+<rect x="408" y="194" width="22" height="22" class="sq"/>
+<circle cx="419.0" cy="205.0" r="6" class="dot"/>
+<circle cx="441.0" cy="205.0" r="6" class="dot"/>
+<rect x="452" y="194" width="22" height="22" class="sq"/>
+<circle cx="463.0" cy="205.0" r="6" class="dot"/>
+<circle cx="485.0" cy="205.0" r="6" class="dot"/>
+<rect x="320" y="40" width="176" height="176" class="frame"/>
+<rect x="622" y="40" width="22" height="22" class="sq"/>
+<rect x="666" y="40" width="22" height="22" class="sq"/>
+<rect x="710" y="40" width="22" height="22" class="sq"/>
+<rect x="754" y="40" width="22" height="22" class="sq"/>
+<rect x="600" y="62" width="22" height="22" class="sq"/>
+<rect x="644" y="62" width="22" height="22" class="sq"/>
+<rect x="688" y="62" width="22" height="22" class="sq"/>
+<rect x="732" y="62" width="22" height="22" class="sq"/>
+<rect x="622" y="84" width="22" height="22" class="sq"/>
+<rect x="666" y="84" width="22" height="22" class="sq"/>
+<rect x="710" y="84" width="22" height="22" class="sq"/>
+<rect x="754" y="84" width="22" height="22" class="sq"/>
+<rect x="600" y="106" width="22" height="22" class="sq"/>
+<rect x="644" y="106" width="22" height="22" class="sq"/>
+<rect x="688" y="106" width="22" height="22" class="sq"/>
+<rect x="732" y="106" width="22" height="22" class="sq"/>
+<rect x="622" y="128" width="22" height="22" class="sq"/>
+<rect x="666" y="128" width="22" height="22" class="sq"/>
+<circle cx="699.0" cy="139.0" r="7" class="ac-f"/>
+<rect x="710" y="128" width="22" height="22" class="sq"/>
+<rect x="754" y="128" width="22" height="22" class="sq"/>
+<rect x="600" y="150" width="22" height="22" class="sq"/>
+<rect x="644" y="150" width="22" height="22" class="sq"/>
+<rect x="688" y="150" width="22" height="22" class="sq"/>
+<rect x="732" y="150" width="22" height="22" class="sq"/>
+<rect x="622" y="172" width="22" height="22" class="sq"/>
+<rect x="666" y="172" width="22" height="22" class="sq"/>
+<circle cx="699.0" cy="183.0" r="6.5" class="ac-o"/>
+<rect x="710" y="172" width="22" height="22" class="sq"/>
+<rect x="754" y="172" width="22" height="22" class="sq"/>
+<rect x="600" y="194" width="22" height="22" class="sq"/>
+<rect x="644" y="194" width="22" height="22" class="sq"/>
+<rect x="688" y="194" width="22" height="22" class="sq"/>
+<rect x="732" y="194" width="22" height="22" class="sq"/>
+<rect x="600" y="40" width="176" height="176" class="frame"/>
+<line x1="226" y1="128" x2="308" y2="128" class="ln" marker-end="url(#ah-chess-move)"/>
+<line x1="506" y1="128" x2="588" y2="128" class="ln" marker-end="url(#ah-chess-move)"/>
+<line x1="786" y1="128" x2="842" y2="128" class="ln" marker-end="url(#ah-chess-move)"/>
+<text x="850" y="120" class="big">e2 → e4</text>
+<text x="850" y="146" class="sm">sent to Stockfish</text>
+<text x="850" y="164" class="sm">as UCI “e2e4”</text>
+<circle cx="606" cy="236" r="5" class="ac-o"/>
+<text x="618" y="240" class="sm">vacated</text>
+<circle cx="686" cy="236" r="5.5" class="ac-f"/>
+<text x="698" y="240" class="sm">newly occupied</text>
+</svg>
+      <figcaption>The move is never recognised directly. The camera only reports which squares are occupied; comparing two readings gives the move.</figcaption>
+    </figure>
+    <!--/dg:chess-move-->
+<div class="wu-cols"><div class="body">
+      <h3>Results</h3>
+      <p>I wrote the detection work up as a short paper, comparing segmentation and clustering approaches on 96 board positions. Counting a position as solved only if every square is right, the best method, passive iterative clustering, read 72 of 96 boards perfectly.</p>
+    </div></div>
+<div class="results">
+      <div><b>72 / 96</b><span>boards read perfectly</span></div>
+      <div><b>99.1%</b><span>per-square accuracy</span></div>
+      <div><b>0.76 s</b><span>per detection</span></div>
+    </div>
+<div class="wu-cols"><div class="body">
+      <p>Combined with the move inference, that is reliable enough for the arm to play complete games.</p>
+    </div></div>
+</div></details>
+<section class="board" id="procedural-world">
+
+<figure class="hero" style="grid-area:1 / 1 / 6 / 10"><img src="assets/img/procedural-world/trees.webp" alt="A grove of cherry blossom, autumn maple and green broadleaf trees with flared roots" loading="lazy"><figcaption>Trees grown by species, each with its own root flare, branching and crown.</figcaption></figure>
+<div class="text" style="grid-area:1 / 10 / 9 / 13"><p class="no">02</p><h2>Procedural World</h2><p class="meta">2026 · Personal project</p><p class="sum">A tool for building 3D game worlds from rules instead of hand-placed models. The world is a graph of pure nodes, and each node’s fingerprint hashes its type, parameters, seed and inputs, so an edit re-cooks only what it touches. Eight packs add ground, cliffs, walls, trees, caves, water, sea life and props, and the renderer is written straight on wgpu. Cliffs are drawn as Bezier curves, caves are dug as distance fields, and walls interlock course by course.</p><div class="nums"><div><b>8</b><span>packs</span></div><div><b>18</b><span>crates</span></div></div><dl><dt>Stack</dt><dd>Rust, wgpu / WGSL, egui, Bevy (app shell), Rapier physics</dd><dt>Code</dt><dd>Private. Pictures only.</dd></dl></div>
+<figure style="grid-area:6 / 1 / 9 / 5"><img src="assets/img/procedural-world/cave-hall.webp" alt="Inside a lamp-lit cave hall: stalactites hang from a vaulted ceiling over stalagmites, columns, fallen blocks, mushrooms and crystals" loading="lazy"><figcaption>Underground: a hall of stalactites in a generated cave</figcaption></figure>
+<figure style="grid-area:6 / 5 / 9 / 10"><img src="assets/img/procedural-world/cliff.webp" alt="A grey layered rock mesa with a grassy top rising from green ground, generated from a drawn outline" loading="lazy"><figcaption>A cliff in the world: layered rock grown from its drawn edge</figcaption></figure>
+<footer class="foot"><span>Maxmillan Ries · Portfolio</span><span>Procedural World</span><span>02</span></footer>
+</section>
+<details class="notes"><summary>Full write-up</summary><div class="notes-body">
+<div class="wu-cols"><div class="body">
+      <p>Procedural generation usually means a script that produces a whole level in one go: change one thing and everything is regenerated. I wanted a world you could edit directly, by dragging a wall or digging a cave, and see the result straight away, while still having it generated from rules.</p>
+
+      <h3>The world is a graph</h3>
+      <p>A world is saved as a directed acyclic graph (DAG) of nodes. A ground box, a cliff curve, a wall path and a scatter of trees are all nodes, and an edge means "this node reads that one's output". Cooking the graph turns it into meshes, textures and instances for the renderer. The whole design rests on one rule: <strong>every node is a pure function</strong>. Given its type, its parameters, its random seed and the outputs it reads, it always produces exactly the same result, and it touches nothing else. That rule is what makes the rest possible.</p>
+      <h4>1. Every node gets a key</h4>
+      <p>Before anything cooks, each node is given a fingerprint: a hash of its type, its parameters, its seed and the keys of the nodes it reads. Because a node's key contains its inputs' keys, it summarises everything upstream of it, like a Merkle tree, or the way build systems such as Bazel and Nix decide what needs rebuilding.</p>
+      <h4>2. An edit changes keys downstream, and only there</h4>
+      <p>Resize a ground box and its parameters change, so its key changes. That change flows along the edges: every node that reads the box gets a new key, and so does everything that reads those. Nodes upstream or beside the edit keep their keys, because nothing they depend on changed.</p>
+      <h4>3. Same key, same result</h4>
+      <p>The cooker walks the graph in dependency order. If a node's key is already in the cache, its stored result is used as is. Only nodes with new keys cook, and nodes whose inputs are ready cook together in parallel waves. The key itself is the dirty check, so there are no dirty flags that someone could forget to set.</p>
+      <h4>4. Reading less means redoing less</h4>
+      <p>A key is only as fine as what it hashes. If a cliff hashed the whole terrain, every terrain edit anywhere would rebuild every cliff. So a node can declare which part of an input it actually reads, usually a set of terrain tiles, and only the hashes of those tiles go into its key. In the diagram below, the wall reads a tile the edit changed and cooks again, while the cliff reads tiles that stayed the same and keeps its mesh. Large nodes also keep memos inside themselves: the terrain re-lays only the boxes an edit touched.</p>
+      <h4>5. Randomness has to be repeatable</h4>
+      <p>Procedural content is full of random numbers, and caching only works if they come out the same every time. Each node's seed is derived from the graph seed and the node's id, never from the order nodes were added, and ids are never reused. So adding a new tree never changes how the existing ones look. The random hash (PCG-RXS-M-XS) is implemented identically in Rust and in the GPU shaders, so work can move between CPU and GPU and still draw the same numbers.</p>
+      <p>The cache lives in memory and drops the least recently used results beyond a budget of about 1.5 GB. A saved world also records the revision of every node type and data table it was made with, and refuses to load if a generator has changed underneath it, rather than quietly producing a different world.</p>
+    </div></div>
+<!--dg:pw-dag-->
+    <figure class="diagram">
+<svg class="dg dg-dag" viewBox="0 0 1000 360" role="img" aria-label="A node graph: resizing ground box 2 changes its key and the terrain's; the wall reads a changed tile and re-cooks, while the cliff reads unchanged tiles and comes from the cache">
+<defs><marker id="ah-pw-dag" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 L7.5 4 L0 7.5" fill="none" stroke="currentColor" stroke-width="1"/></marker></defs>
+<rect x="30" y="30" width="210" height="44" class="nd"/>
+<text x="42" y="49" class="nm">ground box 1</text>
+<text x="42" y="65" class="key">#a41f…</text>
+<text x="230" y="65" class="st" text-anchor="end">cached</text>
+<rect x="30" y="92" width="210" height="44" class="nd ac-n"/>
+<text x="42" y="111" class="nm">ground box 2  (resized)</text>
+<text x="42" y="127" class="key">#e7d0… → #5b12…</text>
+<text x="230" y="127" class="st ac-t" text-anchor="end">re-cooked</text>
+<rect x="30" y="178" width="210" height="44" class="nd"/>
+<text x="42" y="197" class="nm">cliff curve</text>
+<text x="42" y="213" class="key">#71ae…</text>
+<text x="230" y="213" class="st" text-anchor="end">cached</text>
+<rect x="30" y="240" width="210" height="44" class="nd"/>
+<text x="42" y="259" class="nm">wall path</text>
+<text x="42" y="275" class="key">#09c3…</text>
+<text x="230" y="275" class="st" text-anchor="end">cached</text>
+<rect x="340" y="61" width="230" height="44" class="nd ac-n"/>
+<text x="352" y="80" class="nm">terrain  (re-lays box 2 only)</text>
+<text x="352" y="96" class="key">#40b9… → #f2a7…</text>
+<text x="560" y="96" class="st ac-t" text-anchor="end">re-cooked</text>
+<rect x="700" y="145" width="270" height="44" class="nd"/>
+<text x="712" y="164" class="nm">cliff  · reads tiles 3–4</text>
+<text x="712" y="180" class="key">#c8e5…</text>
+<text x="960" y="180" class="st" text-anchor="end">cached</text>
+<rect x="700" y="230" width="270" height="44" class="nd ac-n"/>
+<text x="712" y="249" class="nm">wall  · reads tile 7</text>
+<text x="712" y="265" class="key">#9d03… → #1c6e…</text>
+<text x="960" y="265" class="st ac-t" text-anchor="end">re-cooked</text>
+<line x1="240" y1="52" x2="338" y2="76" class="ln" marker-end="url(#ah-pw-dag)"/>
+<line x1="240" y1="114" x2="338" y2="92" class="ln ac-l" marker-end="url(#ah-pw-dag)"/>
+<line x1="570" y1="90" x2="698" y2="160" class="ln" marker-end="url(#ah-pw-dag)"/>
+<line x1="570" y1="98" x2="698" y2="246" class="ln ac-l" marker-end="url(#ah-pw-dag)"/>
+<line x1="240" y1="200" x2="698" y2="172" class="ln" marker-end="url(#ah-pw-dag)"/>
+<line x1="240" y1="262" x2="698" y2="258" class="ln" marker-end="url(#ah-pw-dag)"/>
+<text x="600" y="120" class="sm">tiles 3–4 unchanged</text>
+<text x="560" y="200" class="sm ac-t">tile 7 changed</text>
+<text x="30" y="322" class="mono">key = hash( type, parameters, seed, keys of what the node reads )</text>
+<text x="30" y="346" class="sm">Same key: the result comes from the cache.  New key: the node cooks again.</text>
+</svg>
+      <figcaption>Resizing one ground box. Its key changes, so the terrain cooks again, but only for the tiles under that box. The wall reads one of those tiles and cooks again; the cliff reads tiles that did not change, so its key is the same and its mesh comes from the cache.</figcaption>
+    </figure>
+    <!--/dg:pw-dag-->
+<div class="wu-strip"><div class="gallery">
+      <figure class="wide">
+        <img src="assets/img/procedural-world/cook-cache.webp" alt="The builder app with a node list on the left, most ground nodes marked cached, and a terrain box being resized in the viewport" width="1920" height="1080" loading="lazy">
+        <figcaption>Incremental cooking in an early version of the editor. The list on the left is the graph. After resizing one ground box, only that box (3.7 ms) and a stone wall (0.7 ms) are re-cooked. The other seven boxes are marked "cached" and come from the cache.</figcaption>
+      </figure>
+    </div></div>
+<div class="wu-row"><div class="wu-text"><div class="body">
+      <h3>Packs</h3>
+      <p>The core knows nothing about walls or caves. That knowledge lives in eight packs: ground, rock and cliffs, stone walls and ruins, trees, caves, water, sea, and a kit of props such as carts, docks, wells and barrels. A pack never depends on another pack. Packs only exchange a small fixed set of data types (height fields, solids, point sets, curves, stones, parts, scatters and trees), and each can carry named layers like a Houdini attribute, which is what lets the output of one pack feed into another. About 160 of the node types are recipes written as data rather than code. Every pack's shaders are checked against every render pass in the test suite.</p>
+      <p>The terrain is an unbounded, sparse height field made of shared 16 m tiles at 25 cm resolution. Each tile carries its own hash and named layers such as grass, stone and water level. It is shaped from boxes and painted outlines, and the renderer re-bakes only the tiles that changed.</p>
+
+      <h3>Caves</h3>
+      <p>A cave is dug, not modelled. Rooms (grotto, hall, fissure, pool or cut stone) and tunnels (level, ramp, stairs or ladder) are blended into one signed distance field, roughened with noise and meshed inside out. The dig also cuts the ground open where the cave comes to the surface. Entrances can be a hole or shaft, a door in a cliff, a burial mound or a heap of boulders. Dressing nodes then fill it in: rock chiselled into blocks, dripstone, flowstone and curtains, pools with rimstone terraces, fallen stones settled with physics, mushrooms, crystals and lamps. The dressing stays where it is when the cave is edited upstream.</p>
+    </div></div><div class="wu-figs"><figure>
+        <img src="assets/img/procedural-world/cave-hall.webp" alt="Inside a lamp-lit cave hall: stalactites hang from a vaulted ceiling over stalagmites, columns, fallen blocks, mushrooms and crystals" width="1600" height="900" loading="lazy">
+        <figcaption>Inside a hall. Stalactites, stalagmites and columns, fallen blocks, mushrooms and crystals are all dressing nodes, and the light comes from the cave's own lamps.</figcaption>
+      </figure><figure>
+        <img src="assets/img/procedural-world/cave-cut-stone.webp" alt="A cave room lined with pale dressed stone blocks under a rough rock ceiling, with two round tunnels leading off" width="1600" height="900" loading="lazy">
+        <figcaption>A "cut stone" room: the rock chiselled into blocks, with two tunnels leading off.</figcaption>
+      </figure><figure>
+        <img src="assets/img/procedural-world/cave-editor.webp" alt="Underground view of cave tunnels with a room outline being edited and a settings card for the room's shape" width="1600" height="936" loading="lazy">
+        <figcaption>Editing underground. Rooms and tunnels are laid out by hand, and their shape (grotto, hall, fissure, pool) is chosen from a card.</figcaption>
+      </figure></div></div>
+<div class="wu-row"><div class="wu-text"><div class="body">
+      <h3>Walls</h3>
+      <p>Walls are drawn as paths. Where paths meet, the wall pack builds a junction graph: it welds ends, splits T and X crossings, and turns sharp corners into piers. A whole network shares one table of stone courses, and the bond alternates course by course at every junction, so walls interlock the way masonry does. The fill then jitters joints, splits tall blocks and knocks off top stones, and the courses step with the ground. Styles include ashlar, cobble, fieldstone and slate, timber fences, half-timbering, brick and plaster. Windows, arched passages with voussoirs and a keystone, and battlements are cut out of the courses themselves rather than pasted on, and every wall has a decay setting that runs from whole to ruin. Each stone becomes one record on the GPU, drawn instanced from a set of templates.</p>
+    </div></div><div class="wu-figs"><figure>
+        <img src="assets/img/procedural-world/cobble.webp" alt="Procedurally generated cobblestone walls with crenellations, an arched window, a round tower and a wooden fence on grass" width="1280" height="800" loading="lazy">
+        <figcaption>Cobble walls from the earlier browser prototype. Each wall is drawn as a curve, every stone is laid along it, and mortar is set back behind the stones.</figcaption>
+      </figure><figure>
+        <img src="assets/img/procedural-world/ruins.webp" alt="Curved crenellated stone walls, a round tower, a fence and trees on rolling grass" width="1600" height="900" loading="lazy">
+        <figcaption>Ruined walls and a tower, from the earlier prototype that came before the graph rewrite.</figcaption>
+      </figure></div></div>
+<div class="wu-row"><div class="wu-text"><div class="body">
+      <h3>Props built from parts</h3>
+      <p>Small built things such as barrels, carts, wells, lanterns, furniture and rope come from the kit pack, and they are assembled the way a craftsman would make them. A component node makes one kind of part. <code>kit.staves</code> bends a ring of planks into a barrel's belly, <code>kit.hoop</code> binds an iron band around whatever it is wired onto, and <code>kit.head</code> closes the end with boards. A recipe such as <code>kit.barrel</code> wires those components together. Parts fit each other through sockets and measurements rather than fixed numbers: a hoop measures the staves it binds, and a lid finds the rim of the pot it sits on, so making a barrel taller moves everything with it.</p>
+      <p>Each part is its own small mesh in its own frame, so the same hoop on a barrel and on a well is one piece drawn instanced. Because the result keeps that structure, a barrel can also come apart: the editor can pull a recipe apart one level at a time, and every component carries a damage hint that says how it breaks. Piles work like physics without a physics engine. <code>kit.pile</code> drops copies one at a time onto a height field of everything already down, tips them over edges, slides them down slopes steeper than their angle of repose and rolls logs into the groove below. A heap of coins is one coin drawn thousands of times.</p>
+    </div></div><div class="wu-figs"><figure>
+        <img src="assets/img/procedural-world/barrels.webp" alt="Staved barrels with iron hoops, one broken open with loose staves, a bucket, a tub of water, a barrel on a stand with a tap, a cauldron, a brazier and a clay pot" width="1600" height="900" loading="lazy">
+        <figcaption>The cooper's kit: staved barrels, a bucket, a tub, a tapped barrel on a stand, plus turned and thrown pieces. One barrel is pulled apart into its staves and hoops.</figcaption>
+      </figure><figure>
+        <img src="assets/img/procedural-world/wheels.webp" alt="Procedurally built wagons, carts, wheelbarrows, a waterwheel, a spinning wheel and swings" width="1600" height="900" loading="lazy">
+        <figcaption>The wheelwright's kit: wagons, carts and barrows. The wheels are built from hub, spokes and felloes, and each vehicle rests on its own wheels.</figcaption>
+      </figure><figure>
+        <img src="assets/img/procedural-world/piles.webp" alt="Piles of logs, crates, sacks, hay and barrels settled on the ground" width="1600" height="900" loading="lazy">
+        <figcaption>Piles: logs, sacks, hay and stores, each piece dropped and settled onto the ones below it.</figcaption>
+      </figure></div></div>
+<div class="wu-row"><div class="wu-text"><div class="body">
+      <h3>Ships</h3>
+      <p>A ship is planked from three numbers: length, depth and beam. The hull generator is a port of an earlier one I made in Blender. Bottoms can be round, pointed, hard-chined, flat or hollow, bows pointed, round or hollow, and sterns square, pointed or round. Fullness presets (runner, trader, carrier) and settings for transom, deadrise, tumblehome, stem rake and sheer spring shape it further. The plan, sheer and section curves can be drawn directly on the ship's handle, the same way cliffs are drawn. A keel curve can lift the bottom into arches, and the keel timber, sternpost, rudder, ladders and pump all follow the hull they are fitted to. Decks, hatches, masts, sails and a capstan are kit parts like any other, so one graph can hold a boxy barge, a long elvish runner and a deep dwarvish carrier side by side.</p>
+    </div></div><div class="wu-figs"><figure>
+        <img src="assets/img/procedural-world/ship.webp" alt="A planked two-masted ship floating on shallow sea" width="1280" height="800" loading="lazy">
+        <figcaption>A planked two-master on the sea.</figcaption>
+      </figure><figure>
+        <img src="assets/img/procedural-world/ship-deck.webp" alt="Deck close-up with a capstan, a grated hatch, a stair hatch, masts and sails" width="1280" height="800" loading="lazy">
+        <figcaption>On deck: capstan, grated hatch, stair hatch, masts and sails.</figcaption>
+      </figure><figure>
+        <img src="assets/img/procedural-world/ship-interior.webp" alt="A ship drawn with a see-through hull, showing the decks and frames inside" width="1280" height="800" loading="lazy">
+        <figcaption>The hull made see-through to show what is built inside it.</figcaption>
+      </figure></div></div>
+<div class="wu-row"><div class="wu-text"><div class="body">
+      <h3>Cliffs drawn as curves</h3>
+      <p>A cliff is drawn, not placed. You drag along the line where its edge should run, and the stroke becomes a smooth Bezier curve through evenly spaced knobs. The cliff is laid along that curve as a chain of pieces, which can be moved, resized and re-jointed afterwards.</p>
+      <p>Across the curve, the rock face follows a section profile, the way an architect's section drawing cuts through a wall. There are five: vertical, talus, overhang, undercut and ledged. Each is a cubic Bezier path from foot to lip, and a cliff can mix several of them. The design is a port of an earlier cliff script made in Blender.</p>
+      <p>Pieces are chained end to start into walls of rock, and the section, top and roughness are blended over the joints. Walls whose rock meets are fused into one field. On top of the profile come rock strata that stay level across the whole world, cracks that open along joints, weathered beds and ribs, a rounded lip at the top and a fillet into the ground. The field is meshed on the GPU with surface nets, about 14 compute passes, and a prefix sum keeps the vertex order identical on every run. A CPU copy of the same field is meshed for picking and collision. The rock face mixes 13 stone textures in zones along the cliff. Rubble at the foot is settled and culled entirely on the GPU. A tunnel wired into a cliff opens the rock around it and flares to a portal, although the cliff itself knows nothing about caves.</p>
+    </div></div><div class="wu-figs"><figure>
+        <img src="assets/img/procedural-world/cliff-draw.webp" alt="A white curve with round knobs being dragged along the foot of a plain green cliff" width="1240" height="680" loading="lazy">
+        <figcaption>Laying a cliff edge. The white stroke is the curve, and the dots are its knobs.</figcaption>
+      </figure><figure>
+        <img src="assets/img/procedural-world/cliff-plan.webp" alt="Plan view of a bent cliff chain with coloured outline curves, yellow diamond knobs and white cross joint knobs" width="1320" height="1020" loading="lazy">
+        <figcaption>A chain of cliff pieces seen from above. Red and orange lines trace the top, blue and cyan the foot. Yellow diamonds resize a piece, and white crosses move the joints between pieces.</figcaption>
+      </figure></div></div>
+<div class="wu-wide"><figure class="wide drawing">
+        <svg class="sections" viewBox="0 0 1182 200" role="img" aria-label="The five cliff section profiles drawn as cubic Bezier curves with their control handles">
+        <defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="currentColor" stroke-width="0.8" opacity=".55"/></pattern></defs>
+        <g>
+        <path d="M0 166 L93 166 C96 113.5 88.5 61 93 16 L0 16 Z" fill="url(#hatch)"/>
+        <line x1="0" y1="166" x2="222" y2="166" class="ground"/>
+        <path d="M93 166 L96 113.5 M93 16 L88.5 61" class="handle"/>
+        <path d="M93 166 C96 113.5 88.5 61 93 16" class="curve"/>
+        <rect x="90" y="163" width="6" height="6" class="anchor"/>
+        <circle cx="96" cy="113.5" r="2.6" class="ctrl"/>
+        <circle cx="88.5" cy="61" r="2.6" class="ctrl"/>
+        <rect x="90" y="13" width="6" height="6" class="anchor"/>
+        <text x="0" y="190">01  Vertical</text>
+        </g>
+        <g>
+        <path d="M240 166 L445.5 166 C415.5 148 378 121 354 103 C342 88 324 46 315 16 L240 16 Z" fill="url(#hatch)"/>
+        <line x1="240" y1="166" x2="462" y2="166" class="ground"/>
+        <path d="M445.5 166 L415.5 148 M354 103 L378 121" class="handle"/>
+        <path d="M354 103 L342 88 M315 16 L324 46" class="handle"/>
+        <path d="M445.5 166 C415.5 148 378 121 354 103 C342 88 324 46 315 16" class="curve"/>
+        <rect x="442.5" y="163" width="6" height="6" class="anchor"/>
+        <circle cx="415.5" cy="148" r="2.6" class="ctrl"/>
+        <circle cx="378" cy="121" r="2.6" class="ctrl"/>
+        <rect x="351" y="100" width="6" height="6" class="anchor"/>
+        <circle cx="342" cy="88" r="2.6" class="ctrl"/>
+        <circle cx="324" cy="46" r="2.6" class="ctrl"/>
+        <rect x="312" y="13" width="6" height="6" class="anchor"/>
+        <text x="240" y="190">02  Talus</text>
+        </g>
+        <g>
+        <path d="M480 166 L573 166 C570 128.5 564 98.5 567 79 C570 67 618 64 648 52 C660 47.5 657 23.5 648 16 L480 16 Z" fill="url(#hatch)"/>
+        <line x1="480" y1="166" x2="702" y2="166" class="ground"/>
+        <path d="M573 166 L570 128.5 M567 79 L564 98.5" class="handle"/>
+        <path d="M567 79 L570 67 M648 52 L618 64" class="handle"/>
+        <path d="M648 52 L660 47.5 M648 16 L657 23.5" class="handle"/>
+        <path d="M573 166 C570 128.5 564 98.5 567 79 C570 67 618 64 648 52 C660 47.5 657 23.5 648 16" class="curve"/>
+        <rect x="570" y="163" width="6" height="6" class="anchor"/>
+        <circle cx="570" cy="128.5" r="2.6" class="ctrl"/>
+        <circle cx="564" cy="98.5" r="2.6" class="ctrl"/>
+        <rect x="564" y="76" width="6" height="6" class="anchor"/>
+        <circle cx="570" cy="67" r="2.6" class="ctrl"/>
+        <circle cx="618" cy="64" r="2.6" class="ctrl"/>
+        <rect x="645" y="49" width="6" height="6" class="anchor"/>
+        <circle cx="660" cy="47.5" r="2.6" class="ctrl"/>
+        <circle cx="657" cy="23.5" r="2.6" class="ctrl"/>
+        <rect x="645" y="13" width="6" height="6" class="anchor"/>
+        <text x="480" y="190">03  Overhang</text>
+        </g>
+        <g>
+        <path d="M720 166 L825 166 C804 166 768 158.5 771 143.5 C774 128.5 816 133 819 115 C822 76 801 46 804 16 L720 16 Z" fill="url(#hatch)"/>
+        <line x1="720" y1="166" x2="942" y2="166" class="ground"/>
+        <path d="M825 166 L804 166 M771 143.5 L768 158.5" class="handle"/>
+        <path d="M771 143.5 L774 128.5 M819 115 L816 133" class="handle"/>
+        <path d="M819 115 L822 76 M804 16 L801 46" class="handle"/>
+        <path d="M825 166 C804 166 768 158.5 771 143.5 C774 128.5 816 133 819 115 C822 76 801 46 804 16" class="curve"/>
+        <rect x="822" y="163" width="6" height="6" class="anchor"/>
+        <circle cx="804" cy="166" r="2.6" class="ctrl"/>
+        <circle cx="768" cy="158.5" r="2.6" class="ctrl"/>
+        <rect x="768" y="140.5" width="6" height="6" class="anchor"/>
+        <circle cx="774" cy="128.5" r="2.6" class="ctrl"/>
+        <circle cx="816" cy="133" r="2.6" class="ctrl"/>
+        <rect x="816" y="112" width="6" height="6" class="anchor"/>
+        <circle cx="822" cy="76" r="2.6" class="ctrl"/>
+        <circle cx="801" cy="46" r="2.6" class="ctrl"/>
+        <rect x="801" y="13" width="6" height="6" class="anchor"/>
+        <text x="720" y="190">04  Undercut</text>
+        </g>
+        <g>
+        <path d="M960 166 L1071 166 C1071 148 1068 127 1062 119.5 C1053 113.5 1038 116.5 1029 113.5 C1023 106 1026 82 1020 71.5 C1011 65.5 999 68.5 990 65.5 C984 53.5 987 28 984 16 L960 16 Z" fill="url(#hatch)"/>
+        <line x1="960" y1="166" x2="1182" y2="166" class="ground"/>
+        <path d="M1071 166 L1071 148 M1062 119.5 L1068 127" class="handle"/>
+        <path d="M1062 119.5 L1053 113.5 M1029 113.5 L1038 116.5" class="handle"/>
+        <path d="M1029 113.5 L1023 106 M1020 71.5 L1026 82" class="handle"/>
+        <path d="M1020 71.5 L1011 65.5 M990 65.5 L999 68.5" class="handle"/>
+        <path d="M990 65.5 L984 53.5 M984 16 L987 28" class="handle"/>
+        <path d="M1071 166 C1071 148 1068 127 1062 119.5 C1053 113.5 1038 116.5 1029 113.5 C1023 106 1026 82 1020 71.5 C1011 65.5 999 68.5 990 65.5 C984 53.5 987 28 984 16" class="curve"/>
+        <rect x="1068" y="163" width="6" height="6" class="anchor"/>
+        <circle cx="1071" cy="148" r="2.6" class="ctrl"/>
+        <circle cx="1068" cy="127" r="2.6" class="ctrl"/>
+        <rect x="1059" y="116.5" width="6" height="6" class="anchor"/>
+        <circle cx="1053" cy="113.5" r="2.6" class="ctrl"/>
+        <circle cx="1038" cy="116.5" r="2.6" class="ctrl"/>
+        <rect x="1026" y="110.5" width="6" height="6" class="anchor"/>
+        <circle cx="1023" cy="106" r="2.6" class="ctrl"/>
+        <circle cx="1026" cy="82" r="2.6" class="ctrl"/>
+        <rect x="1017" y="68.5" width="6" height="6" class="anchor"/>
+        <circle cx="1011" cy="65.5" r="2.6" class="ctrl"/>
+        <circle cx="999" cy="68.5" r="2.6" class="ctrl"/>
+        <rect x="987" y="62.5" width="6" height="6" class="anchor"/>
+        <circle cx="984" cy="53.5" r="2.6" class="ctrl"/>
+        <circle cx="987" cy="28" r="2.6" class="ctrl"/>
+        <rect x="981" y="13" width="6" height="6" class="anchor"/>
+        <text x="960" y="190">05  Ledged</text>
+        </g>
+        </svg>
+        <figcaption>The five section profiles, from foot (bottom) to lip (top), with the rock hatched on the left. Squares are the curve's anchor points and circles are its control handles. Drawn from the control points in the code.</figcaption>
+      </figure></div>
+<div class="wu-cols"><div class="body">
+      <h3>Rendering</h3>
+      <p>The renderer is written directly on wgpu (Rust's WebGPU) and WGSL rather than on a game engine, because the worlds it draws are unusual: millions of small stones, props and plants that are all generated, not authored. The approach is to do as much as possible on the GPU and as little as possible every frame.</p>
+      <p><strong>Draw only what changed.</strong> An editor spends most of its time showing a still picture. Once the image has settled, the renderer stops drawing. If only the wind is moving, the still parts of the frame are held, and only the vegetation and the water are re-lit. The sun's shadow maps are kept until the light or the scene changes, with a separate set for things that sway.</p>
+      <p><strong>Let the GPU decide what to draw.</strong> Every stone in a wall is a single record on the GPU, instanced from a set of templates. Compute shaders cull every instance against the view, pick a level of detail and write the draw lists, which are drawn with multi-draw indirect, so the CPU never loops over the instances. Occlusion culling runs in two passes. The big solids are drawn first, a depth pyramid (a hierarchical Z-buffer) is built from them, and then the small props, plants and stones are tested against it. A pebble behind a wall is never drawn. Distant foliage turns into impostors, and grass is generated as tufts in four levels of detail that thin with distance without disappearing.</p>
+      <p><strong>Light once per pixel.</strong> It is a deferred renderer. Geometry writes a G-buffer, and a single compute pass then lights each pixel once, however many objects overlap it. Global illumination traces one ray per texel at half resolution, falling back to a baked irradiance volume on weak GPUs. The frame is drawn below screen resolution with a jitter and upscaled with temporal anti-aliasing, and the resolution adjusts itself to keep GPU time within budget. Water is an FFT ocean with a wind sea and two swells in three cascades. There are three quality tiers, the lowest aimed at integrated graphics. Blender served as the reference: I rendered scenes there and matched the real-time output against them.</p>
+    </div></div>
+<!--dg:pw-frame-->
+    <figure class="diagram">
+<svg class="dg dg-frame" viewBox="0 0 1000 190" role="img" aria-label="One frame of the renderer in six steps: prepare, cull, shadows, G-buffer, re-cull against a new depth pyramid, and lighting with upscaling">
+<defs><marker id="ah-pw-frame" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 L7.5 4 L0 7.5" fill="none" stroke="currentColor" stroke-width="1"/></marker></defs>
+<rect x="2" y="30" width="158" height="92" class="nd"/>
+<text x="14" y="54" class="nm">01  Prepare</text>
+<text x="14" y="80" class="sm">sky, ocean, GI bake,</text>
+<text x="14" y="98" class="sm">only when they change</text>
+<rect x="169" y="30" width="158" height="92" class="nd ac-n"/>
+<text x="181" y="54" class="nm">02  Cull</text>
+<text x="181" y="80" class="sm">every instance on GPU,</text>
+<text x="181" y="98" class="sm">against the frustums</text>
+<line x1="160" y1="76" x2="167" y2="76" class="ln" marker-end="url(#ah-pw-frame)"/>
+<rect x="336" y="30" width="158" height="92" class="nd"/>
+<text x="348" y="54" class="nm">03  Shadows</text>
+<text x="348" y="80" class="sm">2 cascades, held</text>
+<text x="348" y="98" class="sm">until the light moves</text>
+<line x1="327" y1="76" x2="334" y2="76" class="ln" marker-end="url(#ah-pw-frame)"/>
+<rect x="503" y="30" width="158" height="92" class="nd"/>
+<text x="515" y="54" class="nm">04  G-buffer</text>
+<text x="515" y="80" class="sm">big solids first,</text>
+<text x="515" y="98" class="sm">multi-draw indirect</text>
+<line x1="494" y1="76" x2="501" y2="76" class="ln" marker-end="url(#ah-pw-frame)"/>
+<rect x="670" y="30" width="158" height="92" class="nd ac-n"/>
+<text x="682" y="54" class="nm">05  Re-cull</text>
+<text x="682" y="80" class="sm">depth pyramid (HZB);</text>
+<text x="682" y="98" class="sm">small things tested</text>
+<line x1="661" y1="76" x2="668" y2="76" class="ln" marker-end="url(#ah-pw-frame)"/>
+<rect x="837" y="30" width="158" height="92" class="nd"/>
+<text x="849" y="54" class="nm">06  Light</text>
+<text x="849" y="80" class="sm">GI rays, lighting,</text>
+<text x="849" y="98" class="sm">water, TAA upscale</text>
+<line x1="828" y1="76" x2="835" y2="76" class="ln" marker-end="url(#ah-pw-frame)"/>
+<text x="10" y="156" class="sm">Settled: once nothing changes, no frame is drawn at all.</text>
+<text x="10" y="176" class="sm">Wind only: the still frame is held, and only the vegetation and the water are relit and resolved.</text>
+</svg>
+      <figcaption>One frame, in the order the passes run. Steps 02 to 05 are occlusion culling on the GPU: the big solids are drawn first, a depth pyramid is built from them, and the small props, plants and stones are tested against it, so whatever is hidden behind a hill or a wall is never drawn.</figcaption>
+    </figure>
+    <!--/dg:pw-frame-->
+<div class="wu-cols"><div class="body">
+      <h3>Trees</h3>
+      <p>There are seven species. Broadleaf crowns are grown by space colonisation (Runions et al., 2007) inside a seeded envelope, bending toward light and drooping under their own weight, and branch thickness follows the pipe model. Conifers grow in tiers of drooping boughs. Trunks flare at the foot into fluted roots that run out over the ground. Leaves are cards on sprays, and a test keeps the wind sway identical between CPU and GPU.</p>
+
+      <h3>Editor and export</h3>
+      <p>The app is a Bevy shell with egui drawn over the frame. Editing works like Blender: G, S and E to move, scale and raise, X, Y and Z to lock an axis, typed numbers, and one undo step per gesture. Brush strokes are traced back into Bezier outlines, so painted areas stay editable. Worlds save to a versioned package with a recovery checkpoint every minute. They export to glTF files that pass Khronos validation with no errors or warnings, and to tiled, calibrated top-down maps for use in a virtual tabletop. The workspace runs more than 540 tests.</p>
+    </div></div>
+</div></details>
+<section class="board" id="dnd-vtt">
+
+<div class="text" style="grid-area:1 / 1 / 9 / 4"><p class="no">03</p><h2>D&amp;D VTT</h2><p class="meta">2023 – present · Personal project</p><p class="sum">A desktop virtual tabletop for playing D&amp;D online: maps, character sheets, dice, chat, music and combat in one window. It is built from 92 plugins, each its own webpack build loaded at runtime with Module Federation, which will each get their own repository and CI/CD pipeline. Plugins never share state; they send each other intents, such as “roll these dice”. The rules engine knows no particular game, and D&amp;D 5e is one plugin, with more than 20 sourcebooks. The desktop app keeps campaigns in SQLite; only the small Node and mediasoup server, which handles rooms, voice and video, runs in Docker.</p><div class="nums"><div><b>92</b><span>plugins</span></div><div><b>1</b><span>container: the server</span></div></div><dl><dt>Stack</dt><dd>Electron, React 19, TypeScript, Zustand, webpack 5 Module Federation, SQLite; Node, Express, Socket.IO and mediasoup server in Docker</dd><dt>Code</dt><dd>Private. Pictures only.</dd></dl></div>
+<figure class="hero" style="grid-area:1 / 4 / 6 / 13"><img src="assets/img/dnd-app/workspace.webp" alt="The D&amp;D VTT workspace: a battle map of a rocky cove with tokens and a druid's character sheet, floating over the campaign canvas and its art" loading="lazy"><figcaption>The workspace during a game. Every panel is a window you can move, pin or pop out.</figcaption></figure>
+<figure style="grid-area:6 / 4 / 9 / 7"><img src="assets/img/dnd-app/map-3d.webp" alt="A festival battle map with stalls and fireworks, tilted in a 3D perspective view with round character tokens standing on it" loading="lazy"><figcaption>A battle map tilted into 3D</figcaption></figure>
+<figure style="grid-area:6 / 7 / 9 / 10"><img src="assets/img/dnd-app/dice-tray.webp" alt="Red dice landed in a wooden dice tray, two d20s showing 19 and 1, with the dice palette below" loading="lazy"><figcaption>Dice rolled in the 3D tray</figcaption></figure>
+<figure style="grid-area:6 / 10 / 9 / 13"><img src="assets/img/dnd-app/ship-combat.webp" alt="A ship battle map of a ship in surf on a grid, next to a ship combat panel listing a caravel, a galleon and a sloop" loading="lazy"><figcaption>Ship combat</figcaption></figure>
+<footer class="foot"><span>Maxmillan Ries · Portfolio</span><span>D&amp;D VTT</span><span>03</span></footer>
+</section>
+<details class="notes"><summary>Full write-up</summary><div class="notes-body">
+<div class="wu-cols"><div class="body">
+      <p>The first prototype dates from 2023, and most of the work happened in 2026. The design problem is that a tabletop game is many small programs that all touch the same table: a die roll changes a character's hit points, which ends a spell, which redraws the map. Wiring those together directly turns into a knot. So the project is split into three parts with hard boundaries between them: an Electron desktop app that each player installs, a small multiplayer server, and 92 plugins that hold almost all of the features. A good part of the plugins is sourcebook data written as typed code, so the compiler checks every spell and monster.</p>
+
+      <h3>Built from plugins</h3>
+      <p>Almost everything is a plugin, loaded at runtime: the dice, the map, the chat, the music player and the D&amp;D 5th edition rules themselves. Plugins declare what they provide and what they need, and the platform refuses to load a set whose dependencies form a cycle. Plugins never share state directly. Each kind of data has one store that owns it, and plugins send each other only <em>intents</em>, such as "roll these dice" or "apply this damage". That rule is what has kept the project workable at this size.</p>
+      <p>Plugins are separate webpack builds joined with Module Federation. The desktop app is the host container. It exposes a public API and shares one copy of React, MUI, Zustand and the WebRTC client with every plugin, and plugins that draw in 3D also share three.js. Each plugin is its own remote with its own <code>remoteEntry.js</code>, and plugins can import modules from each other: the dice plugin alone exposes about 26. At startup the host reads the manifests, puts the plugins in dependency order, and loads each remote's script into the shared scope. Cross-plugin contracts are typed handles (<code>defineCapability</code> for state and services, <code>defineEvent</code> for announcements), and there are written specs for about 220 capabilities and 130 events.</p>
+    </div></div>
+<!--dg:altar-arch-->
+    <figure class="diagram">
+<svg class="dg dg-altar" viewBox="0 0 1000 262" role="img" aria-label="Plugins send intents to a shared channel and read state from stores; they never share state directly">
+<defs><marker id="ah-altar-arch" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 L7.5 4 L0 7.5" fill="none" stroke="currentColor" stroke-width="1"/></marker></defs>
+<text x="30" y="58" class="lb">plugins</text>
+<text x="30" y="146" class="lb ac-t">intents</text>
+<text x="30" y="228" class="lb">stores</text>
+<rect x="130" y="30" width="118" height="46" class="nd"/>
+<text x="189" y="58" class="nm" text-anchor="middle">Dice</text>
+<line x1="175" y1="78" x2="175" y2="136" class="ln ac-l" marker-end="url(#ah-altar-arch)"/>
+<line x1="203" y1="200" x2="203" y2="80" class="ln dash" marker-end="url(#ah-altar-arch)"/>
+<rect x="264" y="30" width="118" height="46" class="nd"/>
+<text x="323" y="58" class="nm" text-anchor="middle">Map</text>
+<line x1="309" y1="78" x2="309" y2="136" class="ln ac-l" marker-end="url(#ah-altar-arch)"/>
+<line x1="337" y1="200" x2="337" y2="80" class="ln dash" marker-end="url(#ah-altar-arch)"/>
+<rect x="398" y="30" width="118" height="46" class="nd"/>
+<text x="457" y="58" class="nm" text-anchor="middle">Chat</text>
+<line x1="443" y1="78" x2="443" y2="136" class="ln ac-l" marker-end="url(#ah-altar-arch)"/>
+<line x1="471" y1="200" x2="471" y2="80" class="ln dash" marker-end="url(#ah-altar-arch)"/>
+<rect x="532" y="30" width="118" height="46" class="nd"/>
+<text x="591" y="58" class="nm" text-anchor="middle">Music</text>
+<line x1="577" y1="78" x2="577" y2="136" class="ln ac-l" marker-end="url(#ah-altar-arch)"/>
+<line x1="605" y1="200" x2="605" y2="80" class="ln dash" marker-end="url(#ah-altar-arch)"/>
+<rect x="666" y="30" width="118" height="46" class="nd"/>
+<text x="725" y="58" class="nm" text-anchor="middle">D&amp;D 5e rules</text>
+<line x1="711" y1="78" x2="711" y2="136" class="ln ac-l" marker-end="url(#ah-altar-arch)"/>
+<line x1="739" y1="200" x2="739" y2="80" class="ln dash" marker-end="url(#ah-altar-arch)"/>
+<rect x="800" y="30" width="118" height="46" class="nd dash"/>
+<text x="859" y="58" class="nm" text-anchor="middle">…</text>
+<line x1="845" y1="78" x2="845" y2="136" class="ln ac-l" marker-end="url(#ah-altar-arch)"/>
+<line x1="873" y1="200" x2="873" y2="80" class="ln dash" marker-end="url(#ah-altar-arch)"/>
+<line x1="130" y1="141" x2="918" y2="141" class="bus ac-l"/>
+<rect x="130" y="202" width="788" height="44" class="nd fill"/>
+<text x="144" y="229" class="sm">shared state</text>
+<line x1="682" y1="14" x2="708" y2="14" class="ln ac-l" marker-end="url(#ah-altar-arch)"/>
+<text x="716" y="18" class="sm">send an intent</text>
+<line x1="822" y1="14" x2="848" y2="14" class="ln dash" marker-end="url(#ah-altar-arch)"/>
+<text x="856" y="18" class="sm">read state</text>
+</svg>
+      <figcaption>Plugins never touch each other’s state. They send intents such as “roll these dice” or “apply this damage”, and read shared state from stores.</figcaption>
+    </figure>
+    <!--/dg:altar-arch-->
+<div class="wu-row"><div class="wu-text"><div class="body">
+      <h3>A build pipeline per plugin</h3>
+      <p>Each plugin has its own <code>package.json</code>, a development and a production webpack config, and a manifest block with its id, category and dependencies. The production build pulls in every dependency of the plugins you select and builds them in tiers, dependencies first. It hashes each plugin's sources and skips any plugin whose hash has not changed, so a change to one plugin rebuilds one plugin. Each build writes a checked <code>plugin.json</code> listing what the plugin uses and provides, and the build fails if a dependency is missing. A custom tsc step then emits the federated TypeScript types, so plugins type-check against each other's exposed modules. In development, any plugin can run either from its last bundle or from a live dev server with hot reload, so only the plugins being worked on need a server.</p>
+      <p>Today all of this runs locally from one monorepo. The next step is to give every plugin its own repository with its own CI/CD pipeline. On every push, a plugin's pipeline will install it against the published types of the plugins it depends on, type-check it, run its rules tests headlessly, build the production remote, check its <code>plugin.json</code>, and publish a versioned bundle (the <code>remoteEntry.js</code>, its chunks and the manifest) to a plugin registry. The desktop app then only needs the list of plugin versions to load: it resolves their dependencies and fetches the remotes, so a fix to one plugin ships without rebuilding or reinstalling the app. Module Federation is what makes this possible, because a plugin is already a separate build that is joined to the host only at runtime.</p>
+
+      <h3>Server and multiplayer</h3>
+      <p>Only the server runs in Docker. The desktop app is a normal Electron install on each player's machine, and it keeps its data locally in SQLite. Each campaign is a folder with its own database, opened with better-sqlite3 in Electron's main process in write-ahead-log mode. The schema is a small document store: collections of JSON documents, a table of uploaded assets keyed by their content hash, and a change log. Every write appends to the log, and the main process batches the changes and sends them to the app's windows once per frame in a single message, which is how pop-out windows stay in sync. The server is deliberately small and stateless. It is Node, Express and Socket.IO for rooms and messaging, plus mediasoup as a WebRTC relay (an SFU) for voice and video, so each player uploads their camera once instead of once per player.</p>
+      <p>The server ships as a two-stage Docker image on Node 22, which mediasoup needs. The base stage installs dependencies straight from the lockfile, including mediasoup's native C++ worker, which needs Python to build, and the production stage compiles the TypeScript. Compose exposes the signalling port and a UDP and TCP port range for media. For a Linux VM there is a second compose file with host networking, because Docker's bridge NAT rewrites the addresses that WebRTC advertises and breaks connection setup. The server has no database: rooms live in memory, and a room's uploads are deleted a while after the last player leaves. That keeps hosting cheap and means no player data sits on a server.</p>
+      <p>The game master's client is the authority on the rules. A player's action is sent to the game master, whose client runs it through the rules engine and broadcasts the result. Because all rules run on one machine, two players can never disagree about what happened, and the server never needs to understand D&amp;D.</p>
+
+      <h3>Rules engine</h3>
+      <p>The rules engine does not know any particular game. It has a dice-expression parser and an engine that runs <em>flows</em>. An attack, a spell or a saving throw is a sequence of steps, such as roll, branch, loop, prompt the player, interrupt or change a value, so it can be inspected and interrupted halfway, for example by a reaction. Rules are driven by tags and modifiers rather than special cases in code. D&amp;D 5e is one plugin on top of it, with more than 20 sourcebook plugins and roughly 760 creatures.</p>
+      <p>The tests live outside the repo and run every spell, feature, monster and item through the engine headlessly. A live tier drives the real Electron app with Playwright. In the last full run the monster flows passed about 7,100 cases and the item and spell tiers several thousand more, with no failures.</p>
+    </div></div><div class="wu-figs"><figure>
+        <img src="assets/img/dnd-app/character-sheet.webp" alt="A druid's character sheet with a portrait, hit points, ability scores, spellcasting and the skills list" width="1600" height="1178" loading="lazy">
+        <figcaption>Character sheet. Concentration, hit points, actions and turn economy are tracked live during combat.</figcaption>
+      </figure><figure>
+        <img src="assets/img/dnd-app/combat-hud.webp" alt="A compact combat panel showing spell slots, hit points, conditions and action buttons" width="880" height="1600" loading="lazy">
+        <figcaption>The compact combat panel a player keeps open on their turn.</figcaption>
+      </figure></div></div>
+<div class="wu-row"><div class="wu-text"><div class="body">
+      <h3>Dice</h3>
+      <p>The dice are physically simulated with Rapier and rendered in 3D. The whole throw is simulated ahead of time at 120 steps a second and recorded, and the face that lands is read from the final orientation. The animation then plays back the recording, so every player sees the same roll. Each die is modelled and baked in Blender, and the materials range from wood and brass to elemental dice that crackle, burn or freeze when they land.</p>
+    </div></div><div class="wu-figs"><figure>
+        <img src="assets/img/dnd-app/dice-tray.webp" alt="Red dice landed in a wooden dice tray, two d20s showing 19 and 1, with the dice palette below" width="1600" height="1028" loading="lazy">
+        <figcaption>A roll in the dice tray. The dice are thrown from the palette below, and each glows as it lands.</figcaption>
+      </figure><figure>
+        <img src="assets/img/dnd-app/dice-materials.webp" alt="A grid of d20 dice in many materials: woods, metals, stone, bone, and elemental effects like fire, lightning and water" width="1500" height="1600" loading="lazy">
+        <figcaption>Material test sheet: every d20 finish, from oak and steel to the elemental damage types.</figcaption>
+      </figure><figure>
+        <img src="assets/img/dnd-app/dice-roll.webp" alt="Nine frames of a purple lightning d20 being rolled, glowing and bursting into a pink shield" width="1200" height="1200" loading="lazy">
+        <figcaption>Roll effect frames for one die: tumble, glow on landing, and the burst when the result resolves.</figcaption>
+      </figure></div></div>
+<div class="wu-row"><div class="wu-text"><div class="body">
+      <h3>Rendering, ships and spells</h3>
+      <p>Rendering uses WebGPU only, through three.js's WebGPU renderer and hand-written WGSL shaders, with no WebGL fallback. All viewers share one GPU device, and PixiJS 8 draws a few 2D layers. The map has fog of war, dynamic lighting with wall occlusion, and weather. Beyond the rulebook there is ship-to-ship combat with crews and cannon arcs, spell effects drawn on the map, an auto-DJ for background music, and importers for maps from other tabletop tools.</p>
+    </div></div><div class="wu-figs"><figure>
+        <img src="assets/img/dnd-app/map-3d.webp" alt="A festival battle map with stalls and fireworks, tilted in a 3D perspective view with round character tokens standing on it" width="1800" height="986" loading="lazy">
+        <figcaption>The same battle map can be tilted into a 3D view, with the tokens standing on it.</figcaption>
+      </figure><figure>
+        <img src="assets/img/dnd-app/ship-combat.webp" alt="A ship battle map of a ship in surf on a grid, next to a ship combat panel listing a caravel, a galleon and a sloop" width="1800" height="986" loading="lazy">
+        <figcaption>Ship combat. The panel tracks the wind, a shared pool of momentum and peril, each ship's hull and crew, and crises such as a deck fire, flooding or fouled rigging.</figcaption>
+      </figure></div></div>
+<div class="wu-wide"><figure class="wide">
+        <img src="assets/img/dnd-app/spell-vfx.webp" alt="Eight frames of a golden spell circle forming around targets and a projectile being thrown" width="2400" height="693" loading="lazy">
+        <figcaption>Spell casting effect, frame by frame: the circle forms over the targets, then the spell is thrown. Top row: arcane casting. Bottom row: divine.</figcaption>
+      </figure></div>
+</div></details>
+<section class="board" id="mathisfactory">
+
+<figure class="hero" style="grid-area:1 / 1 / 6 / 9"><img src="assets/img/mathisfactory/lava.webp" alt="View through a HoloLens: yellow level curves and red lava flowing over a physical volcano model on a table" loading="lazy"><figcaption>Through the headset: level curves on the real volcano model, and the simulated lava flow.</figcaption></figure>
+<div class="stack" style="grid-area:1 / 9 / 6 / 13">
+  <figure style="grid-area:auto"><img src="assets/img/mathisfactory/arrows.webp" alt="Steepest-descent arrows over the volcano model with red spheres marking lava sources" loading="lazy"><figcaption>Steepest-descent arrows</figcaption></figure>
+  <figure style="grid-area:auto"><img src="assets/img/mathisfactory/level-curves.webp" alt="Level curves projected on the volcano with the game's play menu floating beside it" loading="lazy"><figcaption>Level curves and the in-game menu</figcaption></figure>
+</div>
+<div class="text wide" style="grid-area:6 / 1 / 9 / 13"><p class="no">04</p><h2>Mathisfactory</h2><p class="meta">2023 · TU Delft · Group project</p><p class="sum">An augmented reality game for HoloLens 2 that teaches first-year Earth Sciences students to read level curves and gradients, projected onto a physical volcano model. You explore the mountain, build research stations where they look safe, then run the eruption: the lava follows the gradient. We tested it with 12 students.</p><div class="nums"><div><b>75%</b><span>said it helped them understand level curves</span></div><div><b>75%</b><span>found the build–simulate loop useful</span></div><div><b>66%</b><span>said AR improved their learning</span></div></div><dl><dt>Stack</dt><dd>Unity 2020.3, MRTK 2.7, OpenXR, URP, HoloLens 2, a 3D-printed volcano</dd><dt>Code</dt><dd><a href="https://github.com/cristianrosiu/mathisfactory">github.com/cristianrosiu/mathisfactory</a> · <a href="https://github.com/cristianrosiu/mathisfactory/blob/main/report.pdf">report (PDF)</a></dd></dl></div>
+<footer class="foot"><span>Maxmillan Ries · Portfolio</span><span>Mathisfactory</span><span>04</span></footer>
+</section>
+<details class="notes"><summary>Full write-up</summary><div class="notes-body">
+<div class="wu-row"><div class="wu-text"><div class="body">
+      <p>Level curves and directional derivatives are easy to define and hard to picture. We wanted students to see them on a real object they could walk around. The question in our report was how AR can help reinforce level curves and directional derivatives in an intuitive, interactive way, framed as carrying maths over into engineering. The player is a government project manager who has to place research buildings on a volcano so that they suffer as little damage as possible in the next eruption. The volcano is a 3D-printed model on the table, and the HoloLens draws the game onto it.</p>
+
+      <h3>How it plays</h3>
+      <p>The game runs in a loop. You <strong>explore</strong> the mountain by switching on level curves (with adjustable density), directional-derivative arrows, or steepest-descent paths. You <strong>build</strong> stations where you think they are safe. Then you <strong>simulate</strong> the eruption: the lava follows the gradient of the terrain, and you can pause or rewind it to see why a station was hit. The <strong>feedback</strong> scores you on stations lost and placement height, and there are five levels.</p>
+      <p>Each level is a planning phase followed by a simulation phase. Planning has no time limit. The derivative arrows answer "where will the lava go?": touching the volcano with the hand ray shows the direction of steepest descent at that point and around it for a few seconds, and several spots can be marked at once. The level curves answer "how fast will it go?": where the rings crowd together the slope is steep, and a slider changes the height between rings live. A virtual copy of the volcano can be laid over the print. In the simulation, buildings hit by lava turn red and stay on the mountain as wrecks, and the lava can be paused and rewound with the tools still in hand. Each surviving building scores by its importance and by its height, which pushes players to build higher up, and every level has a pass mark, so playing it too safe is not enough.</p>
+      <p>The lava model is deliberately simple. Droplets start at random points around the crater and run downhill by gradient descent over the terrain's height map, with a little inertia. Spheres follow those paths, and as they pass they fill a 3D grid that a marching cubes mesh turns into a lava surface. Rewinding steps back through the recorded grid.</p>
+      <!--dg:math-loop-->
+    <figure class="diagram">
+<svg class="dg dg-loop" viewBox="0 0 720 380" role="img" aria-label="The game loop: explore, build, simulate, feedback, and back to explore">
+<defs><marker id="ah-math-loop" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 L7.5 4 L0 7.5" fill="none" stroke="currentColor" stroke-width="1"/></marker></defs>
+<circle cx="360" cy="190" r="110" class="ln"/>
+<line x1="433.539" y1="107.976" x2="440.61" y2="115.047" class="ln ac-l" marker-end="url(#ah-math-loop)"/>
+<line x1="442.024" y1="263.539" x2="434.953" y2="270.61" class="ln ac-l" marker-end="url(#ah-math-loop)"/>
+<line x1="286.461" y1="272.024" x2="279.39" y2="264.953" class="ln ac-l" marker-end="url(#ah-math-loop)"/>
+<line x1="277.976" y1="116.461" x2="285.047" y2="109.39" class="ln ac-l" marker-end="url(#ah-math-loop)"/>
+<circle cx="360" cy="80" r="8" class="mk2"/>
+<text x="360" y="18" class="nm" text-anchor="middle">01  Explore</text>
+<text x="360" y="36" class="sm" text-anchor="middle">level curves, gradient arrows,</text>
+<text x="360" y="52" class="sm" text-anchor="middle">steepest-descent paths</text>
+<circle cx="470" cy="190" r="8" class="mk2"/>
+<text x="492" y="184" class="nm">02  Build</text>
+<text x="492" y="202" class="sm">place research stations</text>
+<text x="492" y="218" class="sm">where they look safe</text>
+<circle cx="360" cy="300" r="8" class="mk2"/>
+<text x="360" y="330" class="nm" text-anchor="middle">03  Simulate</text>
+<text x="360" y="348" class="sm" text-anchor="middle">lava follows the gradient;</text>
+<text x="360" y="364" class="sm" text-anchor="middle">pause or rewind</text>
+<circle cx="250" cy="190" r="8" class="mk2"/>
+<text x="228" y="184" class="nm" text-anchor="end">04  Feedback</text>
+<text x="228" y="202" class="sm" text-anchor="end">stations lost and</text>
+<text x="228" y="218" class="sm" text-anchor="end">placement height</text>
+<text x="360" y="195" class="lb" text-anchor="middle">five levels</text>
+</svg>
+      <figcaption>The game loop.</figcaption>
+    </figure>
+    <!--/dg:math-loop-->
+    </div></div><div class="wu-figs"><figure>
+        <img src="assets/img/mathisfactory/arrows.webp" alt="Steepest-descent arrows over the volcano model with red spheres marking lava sources" width="1332" height="740" loading="lazy">
+        <figcaption>Steepest-descent arrows. The red spheres are lava sources.</figcaption>
+      </figure><figure>
+        <img src="assets/img/mathisfactory/level-curves.webp" alt="Level curves projected on the volcano with the game's play menu floating beside it" width="1800" height="1023" loading="lazy">
+        <figcaption>Level curves and the in-game menu.</figcaption>
+      </figure><figure>
+        <img src="assets/img/mathisfactory/unity-render.webp" alt="Unity scene render of the volcano terrain" width="917" height="691" loading="lazy">
+        <figcaption>The terrain in Unity.</figcaption>
+      </figure></div></div>
+<div class="wu-cols"><div class="body">
+      <h3>One height map behind everything</h3>
+      <p>The whole game is driven by a single height map of the volcano. The level curves are its contour lines, the arrows are its negative gradient, and the lava runs down that same gradient. So what a student reads off the curves is exactly what the simulation then does. Where the rings crowd together the slope is steep and the lava is fast. The lava always crosses the rings at right angles, because the gradient is perpendicular to the level curves. And it collects in the valleys between ridges, where the curves bend back towards the summit. These are the ideas the course teaches on paper. The game asks students to predict them before the eruption and then shows whether they were right.</p>
+    </div></div>
+<div class="wu-wide"><figure>
+        <img src="assets/img/mathisfactory/height-map.webp" alt="Greyscale height map of the volcano, brighter where it is higher" width="700" height="700" loading="lazy">
+        <figcaption>The height map: brighter is higher. Everything else is computed from it.</figcaption>
+      </figure><figure>
+        <img src="assets/img/mathisfactory/contours-plan.webp" alt="Top-down contour map of the volcano with yellow and dark level curves" width="695" height="692" loading="lazy">
+        <figcaption>Its level curves from above. Where the rings crowd together, the ground is steep.</figcaption>
+      </figure><figure>
+        <img src="assets/img/mathisfactory/contours-3d.webp" alt="Yellow level curves wrapped around the 3D terrain in the editor" width="974" height="541" loading="lazy">
+        <figcaption>The same curves wrapped around the terrain in the editor.</figcaption>
+      </figure><figure>
+        <img src="assets/img/mathisfactory/lava-paths.webp" alt="Red lava flow paths running down the grey volcano terrain" width="885" height="599" loading="lazy">
+        <figcaption>Lava paths found by gradient descent, collecting in the valleys.</figcaption>
+      </figure></div>
+<div class="wu-cols"><div class="body">
+      <h3>What we found</h3>
+      <p>We tested the game in several play sessions with 12 first-year Earth Sciences students. Each got a short briefing, played, and then filled in a survey with open questions and five-point ratings. Eleven of them had never used a HoloLens. Most found the headset overwhelming at first but got used to it, only one found it slightly hard to use, and all but one found the mechanics easy to pick up.</p>
+    </div></div>
+<div class="results">
+      <div><b>75%</b><span>said it helped them understand level curves</span></div>
+      <div><b>75%</b><span>found the build–simulate loop useful</span></div>
+      <div><b>66%</b><span>said AR improved their learning</span></div>
+    </div>
+<div class="wu-cols"><div class="body">
+      <p>Directional derivatives worked less well: about half the students saw no benefit there, and the results for fluid flow were mixed. Part of the reason was practical. The arrows were hard to see, the menus got left behind when players walked around the model, and the HoloLens 2 has a narrow field of view and limited gestures. Our report concluded that the pedagogical benefit was limited: clear for level curves, much less so for derivatives. The sample was also small and from a single faculty. The next steps would be menus that follow the player, clearer arrows, and other real-world scenarios for other parts of the maths curriculum.</p>
+    </div></div>
+</div></details>
+<section class="board pair" id="kidney-stones">
+
+<div class="text" style="grid-area:1 / 1 / 5 / 5"><p class="no">05</p><h2>Kidney Stone Classification</h2><p class="meta">2021 · BSc thesis, University of Groningen</p><p class="sum">Identifying the type of a kidney stone from endoscope images, so a urologist can tell during the procedure instead of waiting for a lab. I fine-tuned ImageNet-pretrained networks and explored multi-task learning. The clinical images are private, so the page shows the set-up instead.</p><dl><dt>Stack</dt><dd>Python, TensorFlow / Keras</dd><dt>Code</dt><dd><a href="https://github.com/TheMaxmillanRies/KidneyStoneClassification">KidneyStoneClassification</a></dd></dl></div>
+<figure class="dgm" style="grid-area:1 / 5 / 5 / 13"><svg class="dg dg-kidney" viewBox="0 0 1000 196" role="img" aria-label="An endoscope image passes through a pretrained backbone to shared features, which feed a stone type head and other task heads">
+<defs><marker id="ah-kidney-model-b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 L7.5 4 L0 7.5" fill="none" stroke="currentColor" stroke-width="1"/></marker></defs>
+<rect x="30" y="70" width="150" height="56" class="nd"/>
+<text x="42" y="92" class="nm">Endoscope image</text>
+<text x="42" y="110" class="sm">surface or section</text>
+<rect x="240" y="50" width="250" height="96" class="nd fill"/>
+<text x="252" y="72" class="nm">Pretrained backbone</text>
+<text x="252" y="90" class="sm">ResNet152V2 or</text>
+<text x="252" y="108" class="sm">InceptionResNetV2, ImageNet</text>
+<text x="252" y="126" class="sm">weights, fine-tuned</text>
+<rect x="550" y="70" width="140" height="56" class="nd"/>
+<text x="562" y="92" class="nm">Shared features</text>
+<rect x="760" y="20" width="210" height="56" class="nd ac-n"/>
+<text x="772" y="42" class="nm">Stone type</text>
+<text x="772" y="60" class="sm">the main task</text>
+<rect x="760" y="120" width="210" height="56" class="nd dash"/>
+<text x="772" y="142" class="nm">Related tasks</text>
+<text x="772" y="160" class="sm">multi-task heads</text>
+<line x1="180" y1="98" x2="238" y2="98" class="ln" marker-end="url(#ah-kidney-model-b)"/>
+<line x1="490" y1="98" x2="548" y2="98" class="ln" marker-end="url(#ah-kidney-model-b)"/>
+<line x1="690" y1="92" x2="758" y2="52" class="ln ac-l" marker-end="url(#ah-kidney-model-b)"/>
+<line x1="690" y1="104" x2="758" y2="144" class="ln" marker-end="url(#ah-kidney-model-b)"/>
+</svg><figcaption>Transfer learning from ImageNet, with extra task heads sharing the same features</figcaption></figure>
+<div class="text" style="grid-area:5 / 1 / 9 / 5"><p class="no">06</p><h2>Indoor Localization</h2><p class="meta">2022 · TU Delft · Group project</p><p class="sum">Two Android apps that locate a phone indoors using WiFi signal strengths and the phone’s motion sensors. The second splits the floor into 13 cells and updates its belief with Bayes’ rule, one access point at a time, until one cell reaches 90%.</p><dl><dt>Stack</dt><dd>Java, Android</dd><dt>Code</dt><dd><a href="https://github.com/TheMaxmillanRies/Indoor-Localization">Indoor-Localization</a></dd></dl></div>
+<figure class="dgm" style="grid-area:5 / 5 / 9 / 13"><svg class="dg dg-bayes" viewBox="0 0 1000 314" role="img" aria-label="Bar charts of belief over 13 cells, sharpening with each access point until one cell passes 90 percent">
+<defs><marker id="ah-indoor-bayes-b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 L7.5 4 L0 7.5" fill="none" stroke="currentColor" stroke-width="1"/></marker></defs>
+<text x="30" y="92" class="nm">Prior</text>
+<line x1="150" y1="98" x2="688" y2="98" class="ln"/>
+<rect x="150" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="192" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="234" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="276" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="318" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="360" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="402" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="444" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="486" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="528" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="570" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="612" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="654" y="94.0" width="34" height="4.0" class="bar"/>
+<text x="30" y="156" class="nm">After AP 1</text>
+<line x1="150" y1="162" x2="688" y2="162" class="ln"/>
+<rect x="150" y="157.8" width="34" height="4.2" class="bar"/>
+<rect x="192" y="157.0" width="34" height="5.0" class="bar"/>
+<rect x="234" y="155.3" width="34" height="6.7" class="bar"/>
+<rect x="276" y="151.9" width="34" height="10.1" class="bar"/>
+<rect x="318" y="154.5" width="34" height="7.5" class="bar"/>
+<rect x="360" y="157.8" width="34" height="4.2" class="bar"/>
+<rect x="402" y="159.1" width="34" height="2.9" class="bar"/>
+<rect x="444" y="159.5" width="34" height="2.5" class="bar"/>
+<rect x="486" y="159.9" width="34" height="2.1" class="bar"/>
+<rect x="528" y="159.9" width="34" height="2.1" class="bar"/>
+<rect x="570" y="160.3" width="34" height="1.7" class="bar"/>
+<rect x="612" y="160.3" width="34" height="1.7" class="bar"/>
+<rect x="654" y="160.7" width="34" height="1.3" class="bar"/>
+<text x="30" y="220" class="nm">After AP 2</text>
+<line x1="150" y1="226" x2="688" y2="226" class="ln"/>
+<rect x="150" y="224.5" width="34" height="1.5" class="bar"/>
+<rect x="192" y="223.0" width="34" height="3.0" class="bar"/>
+<rect x="234" y="218.9" width="34" height="7.1" class="bar"/>
+<rect x="276" y="204.8" width="34" height="21.2" class="bar"/>
+<rect x="318" y="214.9" width="34" height="11.1" class="bar"/>
+<rect x="360" y="223.0" width="34" height="3.0" class="bar"/>
+<rect x="402" y="224.5" width="34" height="1.5" class="bar"/>
+<rect x="444" y="225.0" width="34" height="1.0" class="bar"/>
+<rect x="486" y="225.5" width="34" height="0.5" class="bar"/>
+<rect x="528" y="225.5" width="34" height="0.5" class="bar"/>
+<rect x="570" y="225.5" width="34" height="0.5" class="bar"/>
+<rect x="612" y="225.5" width="34" height="0.5" class="bar"/>
+<rect x="654" y="225.5" width="34" height="0.5" class="bar"/>
+<text x="30" y="284" class="nm">After AP n</text>
+<line x1="150" y1="290" x2="688" y2="290" class="ln"/>
+<rect x="150" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="192" y="289.5" width="34" height="0.5" class="bar"/>
+<rect x="234" y="287.9" width="34" height="2.1" class="bar"/>
+<rect x="276" y="242.2" width="34" height="47.8" class="bar ac-n"/>
+<rect x="318" y="288.4" width="34" height="1.6" class="bar"/>
+<rect x="360" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="402" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="444" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="486" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="528" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="570" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="612" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="654" y="290.0" width="34" height="0.0" class="bar"/>
+<line x1="150" y1="243.2" x2="688" y2="243.2" class="ln dash"/>
+<text x="700" y="247.2" class="sm">90%: stop</text>
+<text x="167" y="308" class="tiny" text-anchor="middle">1</text>
+<text x="209" y="308" class="tiny" text-anchor="middle">2</text>
+<text x="251" y="308" class="tiny" text-anchor="middle">3</text>
+<text x="293" y="308" class="tiny" text-anchor="middle">4</text>
+<text x="335" y="308" class="tiny" text-anchor="middle">5</text>
+<text x="377" y="308" class="tiny" text-anchor="middle">6</text>
+<text x="419" y="308" class="tiny" text-anchor="middle">7</text>
+<text x="461" y="308" class="tiny" text-anchor="middle">8</text>
+<text x="503" y="308" class="tiny" text-anchor="middle">9</text>
+<text x="545" y="308" class="tiny" text-anchor="middle">10</text>
+<text x="587" y="308" class="tiny" text-anchor="middle">11</text>
+<text x="629" y="308" class="tiny" text-anchor="middle">12</text>
+<text x="671" y="308" class="tiny" text-anchor="middle">13</text>
+<text x="150" y="20" class="lb">belief over the 13 cells, updated with Bayes’ rule one access point at a time</text>
+</svg><figcaption>Bayesian localization, illustrated (schematic bar heights)</figcaption></figure>
+<footer class="foot"><span>Maxmillan Ries · Portfolio</span><span>Kidney Stones · Indoor Localization</span><span>05 – 06</span></footer>
+</section>
+<details class="notes"><summary>Full write-up · Kidney stones</summary><div class="notes-body">
+<div class="wu-cols"><div class="body">
+      <p>The type of a kidney stone determines how it is treated and how to prevent the next one. The usual way to find out is to remove the stone and send it to a lab. Experienced urologists can often tell by looking at the stone's surface and cross-section through the endoscope, so the question was whether a neural network could learn to do the same.</p>
+      <p>I fine-tuned ImageNet-pretrained networks (ResNet152V2 and InceptionResNetV2) on endoscopic images of stones, and explored multi-task learning, where one network is trained on several related prediction tasks at once. The image data is clinical and private, so there are no pictures here.</p>
+
+      <h3>What the experiments showed</h3>
+      <p>The data set was small: about 300 training and 100 validation images at 224 × 224, for a two-class problem. That decided most of the outcome. InceptionResNetV2 trained from scratch reached about 96% accuracy on the training images and stayed at chance, around 50%, on validation, which is overfitting in its plainest form. The pretrained ResNet152V2 did much better. Over 100 epochs its validation accuracy peaked at 89.6% and averaged about 84% over the last ten epochs, while training accuracy reached 100%. Data augmentation barely changed the validation curve. With a validation set of 100 images these numbers are rough, but the gap between pretrained and from-scratch models was clear.</p>
+    </div></div>
+<!--dg:kidney-model-->
+    <figure class="diagram">
+<svg class="dg dg-kidney" viewBox="0 0 1000 196" role="img" aria-label="An endoscope image passes through a pretrained backbone to shared features, which feed a stone type head and other task heads">
+<defs><marker id="ah-kidney-model" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 L7.5 4 L0 7.5" fill="none" stroke="currentColor" stroke-width="1"/></marker></defs>
+<rect x="30" y="70" width="150" height="56" class="nd"/>
+<text x="42" y="92" class="nm">Endoscope image</text>
+<text x="42" y="110" class="sm">surface or section</text>
+<rect x="240" y="50" width="250" height="96" class="nd fill"/>
+<text x="252" y="72" class="nm">Pretrained backbone</text>
+<text x="252" y="90" class="sm">ResNet152V2 or</text>
+<text x="252" y="108" class="sm">InceptionResNetV2, ImageNet</text>
+<text x="252" y="126" class="sm">weights, fine-tuned</text>
+<rect x="550" y="70" width="140" height="56" class="nd"/>
+<text x="562" y="92" class="nm">Shared features</text>
+<rect x="760" y="20" width="210" height="56" class="nd ac-n"/>
+<text x="772" y="42" class="nm">Stone type</text>
+<text x="772" y="60" class="sm">the main task</text>
+<rect x="760" y="120" width="210" height="56" class="nd dash"/>
+<text x="772" y="142" class="nm">Related tasks</text>
+<text x="772" y="160" class="sm">multi-task heads</text>
+<line x1="180" y1="98" x2="238" y2="98" class="ln" marker-end="url(#ah-kidney-model)"/>
+<line x1="490" y1="98" x2="548" y2="98" class="ln" marker-end="url(#ah-kidney-model)"/>
+<line x1="690" y1="92" x2="758" y2="52" class="ln ac-l" marker-end="url(#ah-kidney-model)"/>
+<line x1="690" y1="104" x2="758" y2="144" class="ln" marker-end="url(#ah-kidney-model)"/>
+</svg>
+      <figcaption>Set-up: transfer learning from ImageNet, with extra task heads sharing the same features.</figcaption>
+    </figure>
+    <!--/dg:kidney-model-->
+</div></details>
+<details class="notes"><summary>Full write-up · Indoor localization</summary><div class="notes-body">
+<div class="wu-cols"><div class="body">
+      <p>GPS does not work indoors, but every building is full of WiFi access points, and the signal strength from each one changes as you move. If you record those strengths at known spots (a "fingerprint"), you can later compare a fresh scan against them to estimate where you are.</p>
+
+      <h3>App 1: activity and room</h3>
+      <p>The first app classifies the user's activity from the accelerometer, using k-nearest neighbours. It cuts the signal into windows of 20 samples and describes each window by its range (largest minus smallest value) on the x, y and z axes, which is enough to tell standing still from walking. The classifier uses k = 7. A second k-NN classifier (k = 5) uses signal strengths from four access points to decide which of four areas the phone is in.</p>
+
+      <h3>App 2: Bayesian localization</h3>
+      <p>The second app divides the floor into 13 cells. During training it records 30 scans per cell and builds a 100-bin histogram of signal strengths for every access point in every cell. Each histogram is smoothed with a Gaussian kernel, so a strength that never came up in training still gets a small probability instead of zero. To locate the phone, it starts with an even belief across all cells and updates it with Bayes' rule, one access point at a time, until a single cell reaches 90% confidence. Access points that appear in fewer than 80% of scans are ignored, because their absence says more about scan timing than position. A parallel variant scores every access point independently and takes a majority vote, and it gives no answer on a tie. The access point and training logic have unit tests.</p>
+    </div></div>
+<!--dg:indoor-bayes-->
+    <figure class="diagram">
+<svg class="dg dg-bayes" viewBox="0 0 1000 314" role="img" aria-label="Bar charts of belief over 13 cells, sharpening with each access point until one cell passes 90 percent">
+<defs><marker id="ah-indoor-bayes" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 L7.5 4 L0 7.5" fill="none" stroke="currentColor" stroke-width="1"/></marker></defs>
+<text x="30" y="92" class="nm">Prior</text>
+<line x1="150" y1="98" x2="688" y2="98" class="ln"/>
+<rect x="150" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="192" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="234" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="276" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="318" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="360" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="402" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="444" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="486" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="528" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="570" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="612" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="654" y="94.0" width="34" height="4.0" class="bar"/>
+<text x="30" y="156" class="nm">After AP 1</text>
+<line x1="150" y1="162" x2="688" y2="162" class="ln"/>
+<rect x="150" y="157.8" width="34" height="4.2" class="bar"/>
+<rect x="192" y="157.0" width="34" height="5.0" class="bar"/>
+<rect x="234" y="155.3" width="34" height="6.7" class="bar"/>
+<rect x="276" y="151.9" width="34" height="10.1" class="bar"/>
+<rect x="318" y="154.5" width="34" height="7.5" class="bar"/>
+<rect x="360" y="157.8" width="34" height="4.2" class="bar"/>
+<rect x="402" y="159.1" width="34" height="2.9" class="bar"/>
+<rect x="444" y="159.5" width="34" height="2.5" class="bar"/>
+<rect x="486" y="159.9" width="34" height="2.1" class="bar"/>
+<rect x="528" y="159.9" width="34" height="2.1" class="bar"/>
+<rect x="570" y="160.3" width="34" height="1.7" class="bar"/>
+<rect x="612" y="160.3" width="34" height="1.7" class="bar"/>
+<rect x="654" y="160.7" width="34" height="1.3" class="bar"/>
+<text x="30" y="220" class="nm">After AP 2</text>
+<line x1="150" y1="226" x2="688" y2="226" class="ln"/>
+<rect x="150" y="224.5" width="34" height="1.5" class="bar"/>
+<rect x="192" y="223.0" width="34" height="3.0" class="bar"/>
+<rect x="234" y="218.9" width="34" height="7.1" class="bar"/>
+<rect x="276" y="204.8" width="34" height="21.2" class="bar"/>
+<rect x="318" y="214.9" width="34" height="11.1" class="bar"/>
+<rect x="360" y="223.0" width="34" height="3.0" class="bar"/>
+<rect x="402" y="224.5" width="34" height="1.5" class="bar"/>
+<rect x="444" y="225.0" width="34" height="1.0" class="bar"/>
+<rect x="486" y="225.5" width="34" height="0.5" class="bar"/>
+<rect x="528" y="225.5" width="34" height="0.5" class="bar"/>
+<rect x="570" y="225.5" width="34" height="0.5" class="bar"/>
+<rect x="612" y="225.5" width="34" height="0.5" class="bar"/>
+<rect x="654" y="225.5" width="34" height="0.5" class="bar"/>
+<text x="30" y="284" class="nm">After AP n</text>
+<line x1="150" y1="290" x2="688" y2="290" class="ln"/>
+<rect x="150" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="192" y="289.5" width="34" height="0.5" class="bar"/>
+<rect x="234" y="287.9" width="34" height="2.1" class="bar"/>
+<rect x="276" y="242.2" width="34" height="47.8" class="bar ac-n"/>
+<rect x="318" y="288.4" width="34" height="1.6" class="bar"/>
+<rect x="360" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="402" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="444" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="486" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="528" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="570" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="612" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="654" y="290.0" width="34" height="0.0" class="bar"/>
+<line x1="150" y1="243.2" x2="688" y2="243.2" class="ln dash"/>
+<text x="700" y="247.2" class="sm">90%: stop</text>
+<text x="167" y="308" class="tiny" text-anchor="middle">1</text>
+<text x="209" y="308" class="tiny" text-anchor="middle">2</text>
+<text x="251" y="308" class="tiny" text-anchor="middle">3</text>
+<text x="293" y="308" class="tiny" text-anchor="middle">4</text>
+<text x="335" y="308" class="tiny" text-anchor="middle">5</text>
+<text x="377" y="308" class="tiny" text-anchor="middle">6</text>
+<text x="419" y="308" class="tiny" text-anchor="middle">7</text>
+<text x="461" y="308" class="tiny" text-anchor="middle">8</text>
+<text x="503" y="308" class="tiny" text-anchor="middle">9</text>
+<text x="545" y="308" class="tiny" text-anchor="middle">10</text>
+<text x="587" y="308" class="tiny" text-anchor="middle">11</text>
+<text x="629" y="308" class="tiny" text-anchor="middle">12</text>
+<text x="671" y="308" class="tiny" text-anchor="middle">13</text>
+<text x="150" y="20" class="lb">belief over the 13 cells, updated with Bayes’ rule one access point at a time</text>
+</svg>
+      <figcaption>Bayesian localization, illustrated. The bar heights are schematic, not measured data.</figcaption>
+    </figure>
+    <!--/dg:indoor-bayes-->
+</div></details>
+<section class="board" id="style-transfer">
+
+<div class="trio" style="grid-area:1 / 1 / 5 / 13">
+  <figure style="grid-area:auto"><img src="assets/img/style-transfer/content.webp" alt="Photo of a living room" loading="lazy"><figcaption>Content</figcaption></figure>
+  <span class="op">+</span>
+  <figure style="grid-area:auto"><img src="assets/img/style-transfer/style.webp" alt="Stained-glass window of a dragon" loading="lazy"><figcaption>Style</figcaption></figure>
+  <span class="op">=</span>
+  <figure style="grid-area:auto"><img src="assets/img/style-transfer/result-stvae.webp" alt="The living room rendered as stained glass" loading="lazy"><figcaption>Result: the room in stained glass (ST-VAE)</figcaption></figure>
+</div>
+<div class="text" style="grid-area:5 / 1 / 9 / 5"><p class="no">07</p><h2>Neural Style Transfer</h2><p class="meta">2022 · TU Delft · With Nafie El Coudi El Amrani</p><p class="sum">Repainting a photo in the style of another image. We reproduced ST-VAE, a variational method built on a VGG-19 autoencoder, then swapped its backbone for ResNet-50. Without retraining on a large dataset, the ResNet version kept only a faint trace of the content, which showed how much the method relies on VGG’s features.</p><dl><dt>Stack</dt><dd>Python, PyTorch</dd><dt>Code</dt><dd><a href="https://github.com/TheMaxmillanRies/Style-Transfer-Computer-Vision">Style-Transfer-Computer-Vision</a></dd></dl></div>
+<figure style="grid-area:5 / 5 / 9 / 9"><img src="assets/img/style-transfer/result-resnet.webp" alt="ResNet-50 variant output where most of the room's structure is lost" loading="lazy"><figcaption>Same inputs, ResNet-50 backbone</figcaption></figure>
+<figure style="grid-area:5 / 9 / 9 / 13"><img src="assets/img/style-transfer/archer.webp" alt="A fantasy archer illustration restyled with ST-VAE" loading="lazy"><figcaption>ST-VAE on a fantasy illustration</figcaption></figure>
+<footer class="foot"><span>Maxmillan Ries · Portfolio</span><span>Neural Style Transfer</span><span>07</span></footer>
+</section>
+<details class="notes"><summary>Full write-up</summary><div class="notes-body">
+<div class="wu-strip"><div class="gallery three">
+      <figure>
+        <img src="assets/img/style-transfer/content.webp" alt="Photo of a living room" loading="lazy">
+        <figcaption>Content image.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/img/style-transfer/style.webp" alt="Stained-glass window of a dragon" loading="lazy">
+        <figcaption>Style image.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/img/style-transfer/result-stvae.webp" alt="The living room rendered as stained glass" loading="lazy">
+        <figcaption>ST-VAE result: the room, built out of stained glass.</figcaption>
+      </figure>
+    </div></div>
+<div class="wu-row"><div class="wu-text"><div class="body">
+      <p>ST-VAE (Liu et al., ICIP 2021) encodes images with a VGG-19 autoencoder and models style in a learned latent space, so that styles can be mixed and interpolated. Between encoder and decoder sits a variational linear transformation: it describes the style by the covariance of the features and learns a transform that moves the content features toward it. The loss compares Gram matrices through a separate VGG-16. Getting the published code to run took about the first two weeks, because it depended on outdated libraries and the paper did not quite match the code.</p>
+
+      <h3>Swapping the backbone</h3>
+      <p>We then replaced VGG-19 with a ResNet-50 encoder and a decoder we wrote ourselves. That meant reworking the latent space, the loss and the way the transformation reshapes its tensors. Early fixes that were mathematically valid produced pure noise. There was no time to train on COCO, so the encoder used generic ImageNet weights, and the ResNet version kept only a faint trace of the content image: the outline of a person, the pillars of the library. Some of our changes to the loss were made to get it running rather than from a principled argument, and we came away unsure whether ResNet-50 suits this method at all. It showed us how much ST-VAE relies on VGG's particular features.</p>
+
+      <h3>Comparing optimisation methods</h3>
+      <p>We also ran three implementations of the classic Gatys-style optimisation on the same stained-glass style: one with Sobel edge regularisation, one with colour preservation, and a patch-based (MRF) variant. Colour preservation gave the best stained glass, with sharp lead lines and flat panes of colour. The comparison was by eye: the lowest numerical loss is not the best-looking image. In hindsight the project was too ambitious for the time and compute we had. Video style transfer with temporal smoothing was the planned next step.</p>
+    </div></div><div class="wu-figs"><figure>
+        <img src="assets/img/style-transfer/result-resnet.webp" alt="ResNet-50 variant output where most of the room's structure is lost" loading="lazy">
+        <figcaption>Same inputs with our ResNet-50 backbone. The content mostly dissolves.</figcaption>
+      </figure><figure>
+        <img src="assets/img/style-transfer/archer.webp" alt="A fantasy archer illustration restyled with ST-VAE" loading="lazy">
+        <figcaption>ST-VAE on a fantasy illustration.</figcaption>
+      </figure></div></div>
+</div></details>
+<section class="appendix" id="other"><p class="meta">Appendix · Smaller work</p>
+<ul class="minor">
+      <li><span class="y">2022</span><span><strong>CenterTrack reproduction</strong>: a reproducibility study of the CenterTrack object tracker on MOT17, with Nafie El Coudi El Amrani, Cristian Rosiu and Jasper Konijn. Raising the batch size from 1 to 12 lifted tracking accuracy (MOTA) from 54.4% to 65.8%.</span></li>
+      <li><span class="y">2022</span><span><strong>Array processing</strong>: direction-of-arrival estimation (ESPRIT, beamformers) and multi-microphone speech enhancement (delay-and-sum, MVDR, multichannel Wiener filter). TU Delft, with Chaufang Lin.</span></li>
+      <li><span class="y">2021</span><span><strong>UReason data generator</strong>: a Flask and JavaScript tool for generating synthetic time-series data.</span></li>
+      <li><span class="y">2020</span><span><strong>Machine learning clustering</strong>: course project on clustering methods, University of Groningen, with Cristian Rosiu.</span></li>
+      <li><span class="y">2020</span><span><strong>Teaching assistant</strong>: Introduction to Scientific Writing, University of Groningen.</span></li>
+    </ul>
+</section>
+</main>
+
+<main class="panel" id="phd" role="tabpanel">
+<section class="board" id="patient-trajectories">
+
+<div class="text" style="grid-area:1 / 1 / 9 / 5"><p class="no">PhD</p><h2>Forecasting Patient Trajectories</h2><p class="meta">2025 – 2026 · PhD research</p><p class="sum">My PhD is on forecasting how patients move between clinical states, such as levels of breathing support in intensive care, from large databases of health records. The three papers share the same groundwork: building cohorts and states from raw records, treating missing values as information, and testing on later patients or later years. The SAIL data stays in its secure environment, so these pages show the models, not patients.</p><div class="nums"><div><b>≈13M</b><span>people in SAIL, Wales</span></div><div><b>50,873</b><span>ICU stays, MIMIC-IV</span></div></div><dl><dt>Stack</dt><dd>Python, PyTorch</dd><dt>Data</dt><dd>SAIL Databank, MIMIC-III and IV, eICU, ELSA, PBC2</dd></dl></div>
+<figure class="dgm" style="grid-area:1 / 5 / 4 / 13"><svg class="dg dg-health" viewBox="0 0 1000 150" role="img" aria-label="Records go through cohort selection, state building and model training inside the secure environment; only checked aggregate results leave it for the paper">
+<defs><marker id="ah-health-data-b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 L7.5 4 L0 7.5" fill="none" stroke="currentColor" stroke-width="1"/></marker></defs>
+<rect x="162.0" y="22" width="672" height="122" class="nd dash"/>
+<text x="172" y="16" class="lb">inside the secure environment</text>
+<rect x="2" y="38" width="152" height="92" class="nd"/>
+<text x="14" y="62" class="nm">Records</text>
+<text x="14" y="88" class="sm">linked, anonymised</text>
+<text x="14" y="106" class="sm">hospital, GP, deaths</text>
+<rect x="170" y="38" width="152" height="92" class="nd"/>
+<text x="182" y="62" class="nm">Cohort</text>
+<text x="182" y="88" class="sm">who is in, and when;</text>
+<text x="182" y="106" class="sm">censoring rules</text>
+<line x1="154" y1="84" x2="168" y2="84" class="ln" marker-end="url(#ah-health-data-b)"/>
+<rect x="338" y="38" width="152" height="92" class="nd"/>
+<text x="350" y="62" class="nm">States</text>
+<text x="350" y="88" class="sm">events on a grid;</text>
+<text x="350" y="106" class="sm">value, mask, gap</text>
+<line x1="322" y1="84" x2="336" y2="84" class="ln" marker-end="url(#ah-health-data-b)"/>
+<rect x="506" y="38" width="152" height="92" class="nd"/>
+<text x="518" y="62" class="nm">Train, test</text>
+<text x="518" y="88" class="sm">split by patient</text>
+<text x="518" y="106" class="sm">or by calendar year</text>
+<line x1="490" y1="84" x2="504" y2="84" class="ln" marker-end="url(#ah-health-data-b)"/>
+<rect x="674" y="38" width="152" height="92" class="nd ac-n"/>
+<text x="686" y="62" class="nm">Output check</text>
+<text x="686" y="88" class="sm">aggregates only,</text>
+<text x="686" y="106" class="sm">small counts removed</text>
+<line x1="658" y1="84" x2="672" y2="84" class="ln" marker-end="url(#ah-health-data-b)"/>
+<rect x="842" y="38" width="152" height="92" class="nd"/>
+<text x="854" y="62" class="nm">Paper</text>
+<text x="854" y="88" class="sm">tables and curves,</text>
+<text x="854" y="106" class="sm">no patient rows</text>
+<line x1="826" y1="84" x2="840" y2="84" class="ln" marker-end="url(#ah-health-data-b)"/>
+</svg><figcaption>How the SAIL work runs: the records never leave the secure environment, and only checked aggregates do</figcaption></figure>
+<nav class="contents flat" style="grid-area:4 / 5 / 9 / 13">
+  <p class="meta">Papers</p>
+  <a href="#tracer"><span>01</span><div>TraCeR<small>Competing risks: which outcome happens first, and when</small></div><em>Under review</em></a>
+  <a href="#nmsm"><span>02</span><div>nMSM · ML4H<small>States and measurements forecast together</small></div><em>Accepted</em></a>
+  <a href="#apc"><span>03</span><div>APC<small>Calendar drift: age, period and cohort in neural models</small></div><em>Under review</em></a>
+</nav>
+<footer class="foot"><span>Maxmillan Ries · Portfolio</span><span>Forecasting Patient Trajectories</span><span>PhD · 00</span></footer>
+</section>
+<details class="notes"><summary>Full write-up · Working with patient databases</summary><div class="notes-body">
+<div class="wu-cols"><div class="body">
+      <p>Most clinical prediction asks one question: will this patient have the event, and when? Real courses are messier. An ICU patient can go from no breathing support to high-flow oxygen, onto a ventilator, back down again, and then home. A multi-state model describes this directly: a small graph of clinical states, and the probability of moving along each edge at each step.</p>
+      <p>Three papers came out of this, all built on the same groundwork: large databases of patient records.</p>
+      <h3>Working with large patient databases</h3>
+      <p>The data are electronic health records: the admissions, diagnosis codes, test results and prescriptions a health system logged, linked across hospitals and GP practices. The SAIL Databank holds anonymised records for approximately 13 million people in Wales. MIMIC-IV holds the intensive-care stays of a Boston hospital. Neither is a dataset in the machine-learning sense. They are logs, written to run hospitals rather than for research, and most of the work is turning them into a question a model can answer.</p>
+      <h4>Access</h4>
+      <p>MIMIC-IV is open to credentialed researchers through PhysioNet, after ethics training and under a data use agreement. SAIL is never downloaded at all. A project is approved by its governance panel, and the analysis runs on remote machines inside its secure environment, with only the compute provided there. Anything that leaves, whether a table or a plot, is checked first, and only aggregate results get out. That shapes the research: a model has to train on the hardware inside, and every result has to be planned as an aggregate from the start.</p>
+      <h4>Cohorts and censoring</h4>
+      <p>A cohort is a precise rule for who is in a study and from when: the inclusion criteria, the date follow-up starts, and when each person leaves it. Leaving because the data end or a stay is cut off is censoring, not an outcome, and the models have to treat it that way: the person was event-free up to that point, and nothing is known after. On MIMIC-IV, for example, only each patient's first eligible ICU stay is used, so one person cannot count twice.</p>
+      <h4>From events to states</h4>
+      <p>Records are a stream of events, so they have to be put on a time grid and turned into states. On MIMIC-IV a state is the breathing support for that hour: none, high-flow oxygen, non-invasive or invasive ventilation, with discharge and death as exits. On SAIL it is a band of how many times someone was admitted to hospital in a quarter.</p>
+      <h4>Missing values carry information</h4>
+      <p>Measurements are irregular. A blood test is taken when a doctor is worried, so whether a value exists says something about the patient. Filling the gaps and pretending the table is complete throws that away. All three models instead see the last value, a mask of what was actually measured, and the time since it was measured.</p>
+      <h4>Testing honestly</h4>
+      <p>Data are split by patient, never by row, so no one appears in both training and testing. Where the question is drift, the split is by calendar year instead: train before a cutoff and test after it, the way a model would actually be deployed. Differences between models are tested across folds with corrections for repeated comparisons, because many small gaps between methods turn out to be noise.</p>
+    </div></div>
+<!--dg:health-data-->
+    <figure class="diagram">
+<svg class="dg dg-health" viewBox="0 0 1000 150" role="img" aria-label="Records go through cohort selection, state building and model training inside the secure environment; only checked aggregate results leave it for the paper">
+<defs><marker id="ah-health-data" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 L7.5 4 L0 7.5" fill="none" stroke="currentColor" stroke-width="1"/></marker></defs>
+<rect x="162.0" y="22" width="672" height="122" class="nd dash"/>
+<text x="172" y="16" class="lb">inside the secure environment</text>
+<rect x="2" y="38" width="152" height="92" class="nd"/>
+<text x="14" y="62" class="nm">Records</text>
+<text x="14" y="88" class="sm">linked, anonymised</text>
+<text x="14" y="106" class="sm">hospital, GP, deaths</text>
+<rect x="170" y="38" width="152" height="92" class="nd"/>
+<text x="182" y="62" class="nm">Cohort</text>
+<text x="182" y="88" class="sm">who is in, and when;</text>
+<text x="182" y="106" class="sm">censoring rules</text>
+<line x1="154" y1="84" x2="168" y2="84" class="ln" marker-end="url(#ah-health-data)"/>
+<rect x="338" y="38" width="152" height="92" class="nd"/>
+<text x="350" y="62" class="nm">States</text>
+<text x="350" y="88" class="sm">events on a grid;</text>
+<text x="350" y="106" class="sm">value, mask, gap</text>
+<line x1="322" y1="84" x2="336" y2="84" class="ln" marker-end="url(#ah-health-data)"/>
+<rect x="506" y="38" width="152" height="92" class="nd"/>
+<text x="518" y="62" class="nm">Train, test</text>
+<text x="518" y="88" class="sm">split by patient</text>
+<text x="518" y="106" class="sm">or by calendar year</text>
+<line x1="490" y1="84" x2="504" y2="84" class="ln" marker-end="url(#ah-health-data)"/>
+<rect x="674" y="38" width="152" height="92" class="nd ac-n"/>
+<text x="686" y="62" class="nm">Output check</text>
+<text x="686" y="88" class="sm">aggregates only,</text>
+<text x="686" y="106" class="sm">small counts removed</text>
+<line x1="658" y1="84" x2="672" y2="84" class="ln" marker-end="url(#ah-health-data)"/>
+<rect x="842" y="38" width="152" height="92" class="nd"/>
+<text x="854" y="62" class="nm">Paper</text>
+<text x="854" y="88" class="sm">tables and curves,</text>
+<text x="854" y="106" class="sm">no patient rows</text>
+<line x1="826" y1="84" x2="840" y2="84" class="ln" marker-end="url(#ah-health-data)"/>
+</svg>
+      <figcaption>How the SAIL work runs. The records never leave the secure environment, and everything that does is checked first. MIMIC-IV is downloaded under a data use agreement instead, but the same rule holds for anything published.</figcaption>
+    </figure>
+    <!--/dg:health-data-->
+</div></details>
+<section class="board" id="tracer">
+
+<div class="text" style="grid-area:1 / 1 / 9 / 5"><p class="no">01</p><h2>TraCeR</h2><p class="meta">Competing risks · Under review</p><p class="sum">A Transformer for competing risks. When several outcomes can end a patient’s follow-up, it forecasts the probability of each one over time, from an irregular history full of gaps.</p><div class="nums"><div><b>0.840</b><span>time-dependent AUC, MIMIC-IV</span></div><div><b>0.808</b><span>Dynamic-DeepHit</span></div></div><dl><dt>Stack</dt><dd>Python, PyTorch</dd><dt>Data</dt><dd>MIMIC-IV, MIMIC-III, eICU, PBC2, synthetic</dd></dl></div>
+<figure class="dgm" style="grid-area:1 / 5 / 5 / 13"><svg class="dg dg-tracer" viewBox="0 0 1000 240" role="img" aria-label="TraCeR: a grid of measurements by hours, some missing; attention runs along each row and then down each column; each future hour gets a score per cause, and a softmax with a fixed no-event score turns them into hazards that sum to one">
+<defs><marker id="ah-tracer-b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 L7.5 4 L0 7.5" fill="none" stroke="currentColor" stroke-width="1"/></marker></defs>
+<text x="20" y="22" class="lb">history: measurements × hours</text>
+<text x="20" y="56" class="sm">heart rate</text>
+<rect x="112" y="42" width="30" height="20" class="nd fill"/>
+<rect x="146" y="42" width="30" height="20" class="nd fill"/>
+<rect x="180" y="42" width="30" height="20" class="nd fill"/>
+<rect x="214" y="42" width="30" height="20" class="nd fill"/>
+<rect x="248" y="42" width="30" height="20" class="nd fill"/>
+<rect x="282" y="42" width="30" height="20" class="nd fill"/>
+<rect x="316" y="42" width="30" height="20" class="nd fill"/>
+<rect x="350" y="42" width="30" height="20" class="nd fill"/>
+<text x="20" y="80" class="sm">resp. rate</text>
+<rect x="112" y="66" width="30" height="20" class="nd fill"/>
+<rect x="146" y="66" width="30" height="20" class="nd fill"/>
+<rect x="180" y="66" width="30" height="20" class="nd dash"/>
+<rect x="214" y="66" width="30" height="20" class="nd fill"/>
+<rect x="248" y="66" width="30" height="20" class="nd fill"/>
+<rect x="282" y="66" width="30" height="20" class="nd fill"/>
+<rect x="316" y="66" width="30" height="20" class="nd fill"/>
+<rect x="350" y="66" width="30" height="20" class="nd fill"/>
+<text x="20" y="104" class="sm">SpO&#8322;</text>
+<rect x="112" y="90" width="30" height="20" class="nd fill"/>
+<rect x="146" y="90" width="30" height="20" class="nd dash"/>
+<rect x="180" y="90" width="30" height="20" class="nd fill"/>
+<rect x="214" y="90" width="30" height="20" class="nd fill"/>
+<rect x="248" y="90" width="30" height="20" class="nd fill"/>
+<rect x="282" y="90" width="30" height="20" class="nd dash"/>
+<rect x="316" y="90" width="30" height="20" class="nd fill"/>
+<rect x="350" y="90" width="30" height="20" class="nd fill"/>
+<text x="20" y="128" class="sm">lactate</text>
+<rect x="112" y="114" width="30" height="20" class="nd dash"/>
+<rect x="146" y="114" width="30" height="20" class="nd dash"/>
+<rect x="180" y="114" width="30" height="20" class="nd fill"/>
+<rect x="214" y="114" width="30" height="20" class="nd dash"/>
+<rect x="248" y="114" width="30" height="20" class="nd dash"/>
+<rect x="282" y="114" width="30" height="20" class="nd dash"/>
+<rect x="316" y="114" width="30" height="20" class="nd fill"/>
+<rect x="350" y="114" width="30" height="20" class="nd dash"/>
+<text x="20" y="152" class="sm">creatinine</text>
+<rect x="112" y="138" width="30" height="20" class="nd dash"/>
+<rect x="146" y="138" width="30" height="20" class="nd fill"/>
+<rect x="180" y="138" width="30" height="20" class="nd dash"/>
+<rect x="214" y="138" width="30" height="20" class="nd dash"/>
+<rect x="248" y="138" width="30" height="20" class="nd dash"/>
+<rect x="282" y="138" width="30" height="20" class="nd fill"/>
+<rect x="316" y="138" width="30" height="20" class="nd dash"/>
+<rect x="350" y="138" width="30" height="20" class="nd dash"/>
+<rect x="108" y="110" width="276" height="28" class="nd ac-n"/>
+<rect x="312" y="38" width="38" height="124" class="nd ac-n"/>
+<text x="20" y="190" class="sm">1  each measurement attends along its own timeline (a row)</text>
+<text x="20" y="208" class="sm">2  each hour attends across the measurements (a column)</text>
+<text x="20" y="226" class="sm">dashed = not measured: a learned token, decayed by the time since</text>
+<line x1="388" y1="100" x2="440" y2="100" class="ln" marker-end="url(#ah-tracer-b)"/>
+<rect x="442" y="70" width="170" height="60" class="nd fill"/>
+<text x="454" y="94" class="nm">Each hour ahead</text>
+<text x="454" y="114" class="sm">a score per cause</text>
+<line x1="612" y1="100" x2="650" y2="100" class="ln ac-l" marker-end="url(#ah-tracer-b)"/>
+<rect x="652" y="78" width="96" height="44" class="nd ac-n"/>
+<text x="700" y="105" class="nm" text-anchor="middle">softmax</text>
+<line x1="748" y1="100" x2="772" y2="100" class="ln" marker-end="url(#ah-tracer-b)"/>
+<rect x="774" y="86" width="24.72" height="28" class="nd ac-n"/>
+<rect x="798.72" y="86" width="14.42" height="28" class="nd fill"/>
+<rect x="813.14" y="86" width="47.38" height="28" class="nd"/>
+<rect x="860.52" y="86" width="119.48" height="28" class="nd dash"/>
+<text x="774" y="140" class="sm">sepsis · death · discharge · none</text>
+<text x="774" y="158" class="sm">always sum to one</text>
+<text x="454" y="190" class="sm">the fixed “no event” score is the reference, so the</text>
+<text x="454" y="208" class="sm">probability of each cause by any time plus the chance</text>
+<text x="454" y="226" class="sm">of staying event-free add up to one by construction</text>
+</svg><figcaption>Attention along each measurement’s timeline, then across measurements; a softmax with a fixed no-event score</figcaption></figure>
+<div class="papers" style="grid-area:5 / 5 / 9 / 13"><div><p class="meta">Question</p><p>In intensive care, sepsis, death and discharge race to happen first, and each one stops the others from being observed. Treating them as separate survival problems gives probabilities that can add up to more than one.</p></div><div><p class="meta">Method</p><p>Each value becomes a token with a learned “missing” token and a decay for its age. Attention is factorised over time, then over measurements. Each future hour gets a score per cause, against a fixed no-event score.</p></div><div><p class="meta">Result</p><p>On MIMIC-IV, from 24 hours of history: time-dependent AUC 0.840 against 0.808 for Dynamic-DeepHit, and a lower Brier score (0.059 against 0.066). The gains on MIMIC-III were smaller, and every method struggled on eICU.</p></div></div>
+<footer class="foot"><span>Maxmillan Ries · Portfolio</span><span>TraCeR</span><span>PhD · 01</span></footer>
+</section>
+<details class="notes"><summary>Full write-up · TraCeR</summary><div class="notes-body">
+<div class="wu-cols"><div class="body">
+      <h3>TraCeR: competing risks</h3>
+      <p>Some outcomes rule each other out. In intensive care a patient may develop sepsis, die or be discharged, and whichever happens first stops the others from being observed. Modelling each as a separate survival problem gives probabilities that can add up to more than one. TraCeR works in discrete time. For each interval it predicts a score for every cause plus a fixed one for "nothing happens", and a softmax turns them into hazards. The probability of each cause by a given time and the probability of staying event-free then always sum to one, by construction rather than by luck.</p>
+      <p>The history is fed in as tokens that combine the value, a learned "missing" token and a learned decay with the time since the value was measured. Attention is factorised: first along time within each measurement, then across measurements within each interval. That is far cheaper than attending over every value at every time at once, and it matches how a clinician reads a chart: how a value has moved, then how the values relate. On MIMIC-IV (sepsis, death or discharge, from 24 hours of history) it beat Dynamic-DeepHit on time-dependent AUC and Brier score. The gains on MIMIC-III were smaller, and every method struggled on eICU.</p>
+    </div></div>
+<!--dg:tracer-->
+    <figure class="diagram">
+<svg class="dg dg-tracer" viewBox="0 0 1000 240" role="img" aria-label="TraCeR: a grid of measurements by hours, some missing; attention runs along each row and then down each column; each future hour gets a score per cause, and a softmax with a fixed no-event score turns them into hazards that sum to one">
+<defs><marker id="ah-tracer" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 L7.5 4 L0 7.5" fill="none" stroke="currentColor" stroke-width="1"/></marker></defs>
+<text x="20" y="22" class="lb">history: measurements × hours</text>
+<text x="20" y="56" class="sm">heart rate</text>
+<rect x="112" y="42" width="30" height="20" class="nd fill"/>
+<rect x="146" y="42" width="30" height="20" class="nd fill"/>
+<rect x="180" y="42" width="30" height="20" class="nd fill"/>
+<rect x="214" y="42" width="30" height="20" class="nd fill"/>
+<rect x="248" y="42" width="30" height="20" class="nd fill"/>
+<rect x="282" y="42" width="30" height="20" class="nd fill"/>
+<rect x="316" y="42" width="30" height="20" class="nd fill"/>
+<rect x="350" y="42" width="30" height="20" class="nd fill"/>
+<text x="20" y="80" class="sm">resp. rate</text>
+<rect x="112" y="66" width="30" height="20" class="nd fill"/>
+<rect x="146" y="66" width="30" height="20" class="nd fill"/>
+<rect x="180" y="66" width="30" height="20" class="nd dash"/>
+<rect x="214" y="66" width="30" height="20" class="nd fill"/>
+<rect x="248" y="66" width="30" height="20" class="nd fill"/>
+<rect x="282" y="66" width="30" height="20" class="nd fill"/>
+<rect x="316" y="66" width="30" height="20" class="nd fill"/>
+<rect x="350" y="66" width="30" height="20" class="nd fill"/>
+<text x="20" y="104" class="sm">SpO&#8322;</text>
+<rect x="112" y="90" width="30" height="20" class="nd fill"/>
+<rect x="146" y="90" width="30" height="20" class="nd dash"/>
+<rect x="180" y="90" width="30" height="20" class="nd fill"/>
+<rect x="214" y="90" width="30" height="20" class="nd fill"/>
+<rect x="248" y="90" width="30" height="20" class="nd fill"/>
+<rect x="282" y="90" width="30" height="20" class="nd dash"/>
+<rect x="316" y="90" width="30" height="20" class="nd fill"/>
+<rect x="350" y="90" width="30" height="20" class="nd fill"/>
+<text x="20" y="128" class="sm">lactate</text>
+<rect x="112" y="114" width="30" height="20" class="nd dash"/>
+<rect x="146" y="114" width="30" height="20" class="nd dash"/>
+<rect x="180" y="114" width="30" height="20" class="nd fill"/>
+<rect x="214" y="114" width="30" height="20" class="nd dash"/>
+<rect x="248" y="114" width="30" height="20" class="nd dash"/>
+<rect x="282" y="114" width="30" height="20" class="nd dash"/>
+<rect x="316" y="114" width="30" height="20" class="nd fill"/>
+<rect x="350" y="114" width="30" height="20" class="nd dash"/>
+<text x="20" y="152" class="sm">creatinine</text>
+<rect x="112" y="138" width="30" height="20" class="nd dash"/>
+<rect x="146" y="138" width="30" height="20" class="nd fill"/>
+<rect x="180" y="138" width="30" height="20" class="nd dash"/>
+<rect x="214" y="138" width="30" height="20" class="nd dash"/>
+<rect x="248" y="138" width="30" height="20" class="nd dash"/>
+<rect x="282" y="138" width="30" height="20" class="nd fill"/>
+<rect x="316" y="138" width="30" height="20" class="nd dash"/>
+<rect x="350" y="138" width="30" height="20" class="nd dash"/>
+<rect x="108" y="110" width="276" height="28" class="nd ac-n"/>
+<rect x="312" y="38" width="38" height="124" class="nd ac-n"/>
+<text x="20" y="190" class="sm">1  each measurement attends along its own timeline (a row)</text>
+<text x="20" y="208" class="sm">2  each hour attends across the measurements (a column)</text>
+<text x="20" y="226" class="sm">dashed = not measured: a learned token, decayed by the time since</text>
+<line x1="388" y1="100" x2="440" y2="100" class="ln" marker-end="url(#ah-tracer)"/>
+<rect x="442" y="70" width="170" height="60" class="nd fill"/>
+<text x="454" y="94" class="nm">Each hour ahead</text>
+<text x="454" y="114" class="sm">a score per cause</text>
+<line x1="612" y1="100" x2="650" y2="100" class="ln ac-l" marker-end="url(#ah-tracer)"/>
+<rect x="652" y="78" width="96" height="44" class="nd ac-n"/>
+<text x="700" y="105" class="nm" text-anchor="middle">softmax</text>
+<line x1="748" y1="100" x2="772" y2="100" class="ln" marker-end="url(#ah-tracer)"/>
+<rect x="774" y="86" width="24.72" height="28" class="nd ac-n"/>
+<rect x="798.72" y="86" width="14.42" height="28" class="nd fill"/>
+<rect x="813.14" y="86" width="47.38" height="28" class="nd"/>
+<rect x="860.52" y="86" width="119.48" height="28" class="nd dash"/>
+<text x="774" y="140" class="sm">sepsis · death · discharge · none</text>
+<text x="774" y="158" class="sm">always sum to one</text>
+<text x="454" y="190" class="sm">the fixed “no event” score is the reference, so the</text>
+<text x="454" y="208" class="sm">probability of each cause by any time plus the chance</text>
+<text x="454" y="226" class="sm">of staying event-free add up to one by construction</text>
+</svg>
+      <figcaption>TraCeR, schematic. Attention runs along each measurement's own timeline, then across the measurements within each hour, which is far cheaper than attending over every value at once. The probabilities in the bar are illustrative, not a result.</figcaption>
+    </figure>
+    <!--/dg:tracer-->
+</div></details>
+<section class="board" id="nmsm">
+
+<div class="text" style="grid-area:1 / 1 / 9 / 5"><p class="no">02</p><h2>nMSM</h2><p class="meta">ML4H · Accepted</p><p class="sum">A neural multi-state model that forecasts a patient’s states and measurements together, so simulated values steer later transitions, as they would in reality.</p><div class="nums"><div><b>0.061</b><span>integrated Brier score, nMSM-GRU</span></div><div><b>0.064</b><span>next best, Direct MLP</span></div></div><dl><dt>Stack</dt><dd>Python, PyTorch</dd><dt>Data</dt><dd>MIMIC-IV, SAIL Databank, synthetic</dd></dl></div>
+<figure class="dgm" style="grid-area:1 / 5 / 5 / 13"><svg class="dg dg-nmsm" viewBox="0 0 1000 236" role="img" aria-label="One forecasting step: history goes through an encoder to a sampled next state, measurements are generated given that state and fed back. Beside it, four respiratory-support states that can all reach each other, with discharge and death as exits">
+<defs><marker id="ah-nmsm-b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 L7.5 4 L0 7.5" fill="none" stroke="currentColor" stroke-width="1"/></marker></defs>
+<text x="20" y="22" class="lb">one forecasting step</text>
+<rect x="20" y="52" width="140" height="56" class="nd"/>
+<text x="32" y="74" class="nm">History</text>
+<text x="32" y="92" class="sm">values, masks, gaps</text>
+<rect x="192" y="52" width="150" height="56" class="nd fill"/>
+<text x="204" y="74" class="nm">Encoder</text>
+<text x="204" y="92" class="sm">GRU or Transformer</text>
+<rect x="374" y="52" width="128" height="56" class="nd ac-n"/>
+<text x="386" y="74" class="nm">Next state</text>
+<text x="386" y="92" class="sm">sampled</text>
+<rect x="374" y="160" width="128" height="56" class="nd"/>
+<text x="386" y="182" class="nm">Measurements</text>
+<text x="386" y="200" class="sm">given that state</text>
+<line x1="160" y1="80" x2="190" y2="80" class="ln" marker-end="url(#ah-nmsm-b)"/>
+<line x1="342" y1="80" x2="372" y2="80" class="ln ac-l" marker-end="url(#ah-nmsm-b)"/>
+<line x1="438" y1="108" x2="438" y2="158" class="ln" marker-end="url(#ah-nmsm-b)"/>
+<polyline points="374,188 90,188 90,110" class="ln" marker-end="url(#ah-nmsm-b)"/>
+<text x="110" y="180" class="sm">the completed row is fed back</text>
+<text x="540" y="22" class="lb">MIMIC-IV respiratory support, hourly</text>
+<rect x="540" y="40" width="440" height="96" class="nd dash"/>
+<rect x="552" y="52" width="98" height="50" class="nd"/>
+<text x="564" y="74" class="nm">No support</text>
+<text x="564" y="92" class="sm">room air</text>
+<rect x="658" y="52" width="98" height="50" class="nd"/>
+<text x="670" y="74" class="nm">HFNC</text>
+<text x="670" y="92" class="sm">high-flow</text>
+<rect x="764" y="52" width="98" height="50" class="nd"/>
+<text x="776" y="74" class="nm">NIV</text>
+<text x="776" y="92" class="sm">non-invasive</text>
+<rect x="870" y="52" width="98" height="50" class="nd"/>
+<text x="882" y="74" class="nm">INV</text>
+<text x="882" y="92" class="sm">ventilated</text>
+<text x="552" y="124" class="sm">any living state can move to any other</text>
+<rect x="600" y="176" width="140" height="44" class="nd fill"/>
+<text x="612" y="198" class="nm">Discharge</text>
+<rect x="800" y="176" width="140" height="44" class="nd fill"/>
+<text x="812" y="198" class="nm">Death</text>
+<line x1="670" y1="136" x2="670" y2="174" class="ln" marker-end="url(#ah-nmsm-b)"/>
+<line x1="870" y1="136" x2="870" y2="174" class="ln" marker-end="url(#ah-nmsm-b)"/>
+</svg><figcaption>One step of nMSM, and the MIMIC-IV state graph (self-loops omitted)</figcaption></figure>
+<div class="papers" style="grid-area:5 / 5 / 9 / 13"><div><p class="meta">Question</p><p>A falling oxygen level is what moves a patient onto a ventilator, so forecasting the course means forecasting the measurements too. Most multi-state models predict the states alone.</p></div><div><p class="meta">Method</p><p>The model samples the next state from the transitions the graph allows, then generates the next measurements given that state, including whether each is measured at all. 500 rollouts per patient give state probabilities and full paths.</p></div><div><p class="meta">Result</p><p>On 50,873 MIMIC-IV stays, forecasting 48 hours ahead, both nMSM variants had the best integrated Brier score and AUROC of seven methods, ahead of multi-state Cox and SurvNODE. Removing the missingness masks hurt the most.</p></div></div>
+<footer class="foot"><span>Maxmillan Ries · Portfolio</span><span>nMSM</span><span>PhD · 02</span></footer>
+</section>
+<details class="notes"><summary>Full write-up · nMSM</summary><div class="notes-body">
+<div class="wu-cols"><div class="body">
+      <h3>nMSM: states and measurements together</h3>
+      <p>nMSM, the ML4H paper, is a neural multi-state model that forecasts the states and the measurements together. It reads the patient's irregular history: the values, which of them were actually measured, and how long ago. From that it samples the next state, allowing only the transitions the state graph permits, then generates the next measurements given that state, including whether each one would be measured at all, and feeds the completed row back in. Simulated values therefore change later transitions, as they would in reality, without anyone having to write rules for how the measurements evolve. Running the model forward hundreds of times per patient gives both forecasts of how many patients are in each state and full simulated paths, whose transition counts and state durations can be checked against the data.</p>
+      <p>It was tested on synthetic illness–death data, on 50,873 ICU stays from MIMIC-IV (hourly respiratory support, forecast 48 hours ahead from several points in the stay) and on SAIL. Against six other methods, including multi-state Cox models and SurvNODE, both nMSM variants had the best mean integrated Brier score and time-integrated AUROC. Removing the missingness masks and time gaps hurt the most: when something was measured is information in itself.</p>
+    </div></div>
+<!--dg:nmsm-->
+    <figure class="diagram">
+<svg class="dg dg-nmsm" viewBox="0 0 1000 236" role="img" aria-label="One forecasting step: history goes through an encoder to a sampled next state, measurements are generated given that state and fed back. Beside it, four respiratory-support states that can all reach each other, with discharge and death as exits">
+<defs><marker id="ah-nmsm" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 L7.5 4 L0 7.5" fill="none" stroke="currentColor" stroke-width="1"/></marker></defs>
+<text x="20" y="22" class="lb">one forecasting step</text>
+<rect x="20" y="52" width="140" height="56" class="nd"/>
+<text x="32" y="74" class="nm">History</text>
+<text x="32" y="92" class="sm">values, masks, gaps</text>
+<rect x="192" y="52" width="150" height="56" class="nd fill"/>
+<text x="204" y="74" class="nm">Encoder</text>
+<text x="204" y="92" class="sm">GRU or Transformer</text>
+<rect x="374" y="52" width="128" height="56" class="nd ac-n"/>
+<text x="386" y="74" class="nm">Next state</text>
+<text x="386" y="92" class="sm">sampled</text>
+<rect x="374" y="160" width="128" height="56" class="nd"/>
+<text x="386" y="182" class="nm">Measurements</text>
+<text x="386" y="200" class="sm">given that state</text>
+<line x1="160" y1="80" x2="190" y2="80" class="ln" marker-end="url(#ah-nmsm)"/>
+<line x1="342" y1="80" x2="372" y2="80" class="ln ac-l" marker-end="url(#ah-nmsm)"/>
+<line x1="438" y1="108" x2="438" y2="158" class="ln" marker-end="url(#ah-nmsm)"/>
+<polyline points="374,188 90,188 90,110" class="ln" marker-end="url(#ah-nmsm)"/>
+<text x="110" y="180" class="sm">the completed row is fed back</text>
+<text x="540" y="22" class="lb">MIMIC-IV respiratory support, hourly</text>
+<rect x="540" y="40" width="440" height="96" class="nd dash"/>
+<rect x="552" y="52" width="98" height="50" class="nd"/>
+<text x="564" y="74" class="nm">No support</text>
+<text x="564" y="92" class="sm">room air</text>
+<rect x="658" y="52" width="98" height="50" class="nd"/>
+<text x="670" y="74" class="nm">HFNC</text>
+<text x="670" y="92" class="sm">high-flow</text>
+<rect x="764" y="52" width="98" height="50" class="nd"/>
+<text x="776" y="74" class="nm">NIV</text>
+<text x="776" y="92" class="sm">non-invasive</text>
+<rect x="870" y="52" width="98" height="50" class="nd"/>
+<text x="882" y="74" class="nm">INV</text>
+<text x="882" y="92" class="sm">ventilated</text>
+<text x="552" y="124" class="sm">any living state can move to any other</text>
+<rect x="600" y="176" width="140" height="44" class="nd fill"/>
+<text x="612" y="198" class="nm">Discharge</text>
+<rect x="800" y="176" width="140" height="44" class="nd fill"/>
+<text x="812" y="198" class="nm">Death</text>
+<line x1="670" y1="136" x2="670" y2="174" class="ln" marker-end="url(#ah-nmsm)"/>
+<line x1="870" y1="136" x2="870" y2="174" class="ln" marker-end="url(#ah-nmsm)"/>
+</svg>
+      <figcaption>Left: one step of nMSM. The next state is sampled first and the measurements are generated given it, so simulated values steer later transitions. Right: the MIMIC-IV state graph (self-loops omitted).</figcaption>
+    </figure>
+    <!--/dg:nmsm-->
+</div></details>
+<section class="board" id="apc">
+
+<div class="text" style="grid-area:1 / 1 / 9 / 5"><p class="no">03</p><h2>APC</h2><p class="meta">Calendar drift · Under review</p><p class="sum">Where should calendar time go inside a neural multi-state model? Records spanning ten years also span changes in practice, coding and the patients themselves, and a model trained on the past is used on the future.</p><div class="nums"><div><b>3</b><span>places calendar time can enter</span></div><div><b>4</b><span>test sets: simulated, SAIL, ELSA, MIMIC-IV</span></div></div><dl><dt>Stack</dt><dd>Python, PyTorch</dd><dt>Data</dt><dd>SAIL Databank, ELSA, MIMIC-IV, simulations</dd></dl></div>
+<figure class="dgm" style="grid-area:1 / 5 / 5 / 13"><svg class="dg dg-apc" viewBox="0 0 1000 244" role="img" aria-label="Event history, encoder, transition risks and forecast in a row, with three places where calendar context can be added: on each event, in the attention, or as age, period and cohort curves on each transition's risk. A note explains the cohort equals period minus age constraint">
+<defs><marker id="ah-apc-b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 L7.5 4 L0 7.5" fill="none" stroke="currentColor" stroke-width="1"/></marker></defs>
+<rect x="20" y="30" width="170" height="56" class="nd"/>
+<text x="32" y="52" class="nm">Event history</text>
+<text x="32" y="72" class="sm">states, values, masks</text>
+<rect x="240" y="30" width="190" height="56" class="nd fill"/>
+<text x="252" y="52" class="nm">Encoder</text>
+<text x="252" y="72" class="sm">causal Transformer</text>
+<line x1="192" y1="58" x2="238" y2="58" class="ln" marker-end="url(#ah-apc-b)"/>
+<rect x="480" y="30" width="210" height="56" class="nd"/>
+<text x="492" y="52" class="nm">Transition risks</text>
+<text x="492" y="72" class="sm">one intensity per arrow</text>
+<line x1="432" y1="58" x2="478" y2="58" class="ln" marker-end="url(#ah-apc-b)"/>
+<rect x="740" y="30" width="240" height="56" class="nd"/>
+<text x="752" y="52" class="nm">Forecast</text>
+<text x="752" y="72" class="sm">state probabilities over time</text>
+<line x1="692" y1="58" x2="738" y2="58" class="ln" marker-end="url(#ah-apc-b)"/>
+<circle cx="105" cy="128" r="6" class="mk2"/>
+<line x1="105" y1="120" x2="105" y2="88" class="ln ac-l" marker-end="url(#ah-apc-b)"/>
+<text x="20" y="160" class="nm ac-t">r · representation</text>
+<text x="20" y="180" class="sm">calendar time encoded</text>
+<text x="20" y="198" class="sm">on every event</text>
+<circle cx="335" cy="128" r="6" class="mk2"/>
+<line x1="335" y1="120" x2="335" y2="88" class="ln ac-l" marker-end="url(#ah-apc-b)"/>
+<text x="240" y="160" class="nm ac-t">a · attention</text>
+<text x="240" y="180" class="sm">biased towards recent</text>
+<text x="240" y="198" class="sm">and same-era events</text>
+<circle cx="585" cy="128" r="6" class="mk2"/>
+<line x1="585" y1="120" x2="585" y2="88" class="ln ac-l" marker-end="url(#ah-apc-b)"/>
+<text x="480" y="160" class="nm ac-t">h · output</text>
+<text x="480" y="180" class="sm">age, period and cohort</text>
+<text x="480" y="198" class="sm">curves on each transition</text>
+<rect x="740" y="112" width="240" height="96" class="nd dash"/>
+<text x="752" y="136" class="nm">cohort = period − age</text>
+<text x="752" y="158" class="sm">only centred age and one drift</text>
+<text x="752" y="176" class="sm">keep straight lines; the curves</text>
+<text x="752" y="194" class="sm">have zero mean and zero slope</text>
+<text x="20" y="232" class="sm">The combined variant uses all three. Which place works best depends on how the drift arises.</text>
+</svg><figcaption>Three places to add calendar context, and the constraint that makes age, period and cohort identifiable</figcaption></figure>
+<div class="papers" style="grid-area:5 / 5 / 9 / 13"><div><p class="meta">Question</p><p>Age, period and cohort are tied together (cohort = period − age), so they cannot be told apart from the data alone. Which form of calendar context actually helps a neural model forecast after a cutoff year?</p></div><div><p class="meta">Method</p><p>A continuous-time Transformer multi-state model, with context added on each event, as biases in attention, or as age, period and cohort curves on each transition’s risk, plus all three together.</p></div><div><p class="meta">Result</p><p>Trained before a cutoff year and tested after it. Output curves did best when outcome rates drifted; the representation and attention routes did best when measurements changed meaning. On SAIL no variant won on every measure.</p></div></div>
+<footer class="foot"><span>Maxmillan Ries · Portfolio</span><span>APC</span><span>PhD · 03</span></footer>
+</section>
+<details class="notes"><summary>Full write-up · APC</summary><div class="notes-body">
+<div class="wu-cols"><div class="body">
+      <h3>APC: calendar drift, age, period and cohort</h3>
+      <p>Records that span ten years also span changes in clinical practice, in coding and in the patients themselves. Epidemiology separates time into three effects: age (how old someone is), period (the calendar year, which picks up changes in practice and coding) and cohort (the year of birth, which picks up generation). The difficulty is that cohort = period − age, so the three cannot be told apart from the data alone: any straight-line trend can be moved from one to another.</p>
+      <p>This paper asks where that context belongs inside a neural multi-state model. It can be added to each event's representation, used to bias attention towards recent or same-era events, or added as smooth age, period and cohort curves directly to each transition's risk. To make the curves identifiable, only centred age and a single overall drift keep straight-line terms, and the curves themselves are constrained to zero mean and zero slope. That is a statistical choice, not a causal claim.</p>
+      <p>The variants were tested on simulated populations with known drift, then on SAIL, ELSA (the English Longitudinal Study of Ageing) and MIMIC-IV, training before a cutoff year and testing after it. The answer is that it depends on how the drift arises. When outcome rates shift, adding the context at the output works best. When the meaning of the measurements changes, adding it to the representation or the attention works best. Recalibrating on recent data fixed calibration but not discrimination. On the real data the differences were small, and on SAIL no variant won on every measure. A better forecast also does not mean the learned curves are the true effects of time.</p>
+    </div></div>
+<!--dg:apc-->
+    <figure class="diagram">
+<svg class="dg dg-apc" viewBox="0 0 1000 244" role="img" aria-label="Event history, encoder, transition risks and forecast in a row, with three places where calendar context can be added: on each event, in the attention, or as age, period and cohort curves on each transition's risk. A note explains the cohort equals period minus age constraint">
+<defs><marker id="ah-apc" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 L7.5 4 L0 7.5" fill="none" stroke="currentColor" stroke-width="1"/></marker></defs>
+<rect x="20" y="30" width="170" height="56" class="nd"/>
+<text x="32" y="52" class="nm">Event history</text>
+<text x="32" y="72" class="sm">states, values, masks</text>
+<rect x="240" y="30" width="190" height="56" class="nd fill"/>
+<text x="252" y="52" class="nm">Encoder</text>
+<text x="252" y="72" class="sm">causal Transformer</text>
+<line x1="192" y1="58" x2="238" y2="58" class="ln" marker-end="url(#ah-apc)"/>
+<rect x="480" y="30" width="210" height="56" class="nd"/>
+<text x="492" y="52" class="nm">Transition risks</text>
+<text x="492" y="72" class="sm">one intensity per arrow</text>
+<line x1="432" y1="58" x2="478" y2="58" class="ln" marker-end="url(#ah-apc)"/>
+<rect x="740" y="30" width="240" height="56" class="nd"/>
+<text x="752" y="52" class="nm">Forecast</text>
+<text x="752" y="72" class="sm">state probabilities over time</text>
+<line x1="692" y1="58" x2="738" y2="58" class="ln" marker-end="url(#ah-apc)"/>
+<circle cx="105" cy="128" r="6" class="mk2"/>
+<line x1="105" y1="120" x2="105" y2="88" class="ln ac-l" marker-end="url(#ah-apc)"/>
+<text x="20" y="160" class="nm ac-t">r · representation</text>
+<text x="20" y="180" class="sm">calendar time encoded</text>
+<text x="20" y="198" class="sm">on every event</text>
+<circle cx="335" cy="128" r="6" class="mk2"/>
+<line x1="335" y1="120" x2="335" y2="88" class="ln ac-l" marker-end="url(#ah-apc)"/>
+<text x="240" y="160" class="nm ac-t">a · attention</text>
+<text x="240" y="180" class="sm">biased towards recent</text>
+<text x="240" y="198" class="sm">and same-era events</text>
+<circle cx="585" cy="128" r="6" class="mk2"/>
+<line x1="585" y1="120" x2="585" y2="88" class="ln ac-l" marker-end="url(#ah-apc)"/>
+<text x="480" y="160" class="nm ac-t">h · output</text>
+<text x="480" y="180" class="sm">age, period and cohort</text>
+<text x="480" y="198" class="sm">curves on each transition</text>
+<rect x="740" y="112" width="240" height="96" class="nd dash"/>
+<text x="752" y="136" class="nm">cohort = period − age</text>
+<text x="752" y="158" class="sm">only centred age and one drift</text>
+<text x="752" y="176" class="sm">keep straight lines; the curves</text>
+<text x="752" y="194" class="sm">have zero mean and zero slope</text>
+<text x="20" y="232" class="sm">The combined variant uses all three. Which place works best depends on how the drift arises.</text>
+</svg>
+      <figcaption>The three places calendar context can enter a neural multi-state model, and the constraint that makes the age, period and cohort curves identifiable.</figcaption>
+    </figure>
+    <!--/dg:apc-->
+</div></details>
+</main>
+
+<div class="lightbox" id="lightbox"><img alt=""></div>
+<script>
+  // two tabs; without scripts both panels simply show one after the other
+  const panels = [...document.querySelectorAll('.panel')];
+  const tabs = [...document.querySelectorAll('.tabs [role=tab]')];
+  function show(scroll) {
+    const target = location.hash && document.getElementById(location.hash.slice(1));
+    const on = (target && target.closest('.panel')) || panels[0];
+    panels.forEach(p => p.hidden = p !== on);
+    tabs.forEach(t => t.setAttribute('aria-selected', t.getAttribute('aria-controls') === on.id));
+    if (!scroll) return;
+    const behavior = scroll === 'instant' ? 'instant' : 'smooth';
+    if (target && target !== on) target.scrollIntoView({ behavior });
+    else window.scrollTo({ top: 0, behavior });
+  }
+  tabs.forEach(t => t.addEventListener('click', e => {
+    e.preventDefault();
+    history.pushState(null, '', t.getAttribute('href'));
+    show(true);
+  }));
+  window.addEventListener('hashchange', () => show(true));
+  window.addEventListener('popstate', () => show(true));
+  show('instant');
+</script>
+<script>
+  const box = document.getElementById('lightbox');
+  const big = box.querySelector('img');
+  document.querySelectorAll('.board figure img, .notes figure img').forEach(img => {
+    img.addEventListener('click', () => { big.src = img.src; big.alt = img.alt; box.classList.add('open'); });
+  });
+  const close = () => box.classList.remove('open');
+  box.addEventListener('click', close);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+</script>
+
+</body>
+</html>

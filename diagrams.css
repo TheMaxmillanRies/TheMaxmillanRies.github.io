@@ -1,0 +1,54 @@
+/* Line diagrams and photo annotations. Shared by every stylesheet:
+   strokes follow the text colour, highlights use the page's --accent. */
+
+.diagram { margin: 40px 0 48px; overflow-x: auto; }
+.diagram svg { display: block; width: 100%; height: auto; min-width: 640px; color: inherit; }
+.body .diagram { margin: 16px 0 24px; }
+.body .diagram svg { min-width: 0; }
+
+.dg text { fill: currentColor; font-size: 13px; }
+.dg .nm { font-size: 14px; font-weight: 500; }
+.dg .lb { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+.dg .sm, .dg .key, .dg .st, .dg .tiny { fill: var(--muted); }
+.dg .sm { font-size: 12.5px; }
+.dg .tiny { font-size: 10px; }
+.dg .big { font-size: 30px; font-weight: 500; letter-spacing: -0.02em; }
+.dg .key, .dg .mono { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11.5px; }
+.dg .mono { fill: currentColor; font-size: 12.5px; }
+.dg .st { font-size: 11px; }
+
+.dg .ln, .dg .lead { fill: none; stroke: currentColor; stroke-width: 1; }
+.dg .bus { stroke: currentColor; stroke-width: 2.5; }
+.dg .dash { stroke-dasharray: 4 3; }
+.dg .nd { fill: none; stroke: currentColor; stroke-width: 1; }
+.dg .nd.fill { fill: currentColor; fill-opacity: 0.05; }
+.dg .frame { fill: none; stroke: currentColor; stroke-width: 1; }
+.dg .sq { fill: currentColor; fill-opacity: 0.08; }
+.dg .dot { fill: currentColor; }
+.dg .bar { fill: currentColor; fill-opacity: 0.22; }
+.dg .mk2 { fill: var(--accent); }
+.dg marker path { stroke: currentColor; }
+
+.dg .ac-l { stroke: var(--accent); }
+.dg .ac-t { fill: var(--accent); }
+.dg .nd.ac-n { stroke: var(--accent); stroke-width: 1.6; }
+.dg .bar.ac-n { fill: var(--accent); fill-opacity: 1; }
+.dg .ac-f { fill: var(--accent); }
+.dg .ac-o { fill: none; stroke: var(--accent); stroke-width: 1.6; }
+
+/* numbered markers over a photo; they sit on the picture, so they keep fixed colours */
+.annotated { position: relative; }
+.annotated .marks { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.marks .lead { stroke: #fff; stroke-width: 2.4; opacity: 0.9; }
+.marks .pt { fill: #fff; stroke: #111; stroke-width: 2; }
+.marks .mk { fill: #fff; stroke: #111; stroke-width: 2; }
+.marks .mkn { fill: #111; font: 600 28px -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+
+.legend { margin: 12px 0 0; padding: 0; list-style: none; counter-reset: leg; columns: 2 14rem; column-gap: 24px; font-size: 0.85rem; }
+.legend li { counter-increment: leg; break-inside: avoid; padding: 3px 0 3px 2rem; position: relative; }
+.legend li::before {
+  content: counter(leg);
+  position: absolute; left: 0; top: 4px;
+  width: 1.3rem; height: 1.3rem; border: 1px solid currentColor; border-radius: 50%;
+  font-size: 0.72rem; line-height: 1.2rem; text-align: center;
+}
