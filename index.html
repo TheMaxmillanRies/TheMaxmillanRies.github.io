@@ -30,19 +30,153 @@
   <p class="sum">PhD researcher at the University of Edinburgh working on generative sequence modelling, survival analysis and temporal distribution shift. At UReason, I develop predictive-maintenance models for industrial equipment and local LLM systems combining agent orchestration, computer vision and structured retrieval.</p>
   <p class="meta">PhD University of Edinburgh · MSc TU Delft · BSc University of Groningen<br><a href="https://github.com/TheMaxmillanRies">GitHub</a> · <a href="https://www.linkedin.com/in/maxmillanries">LinkedIn</a></p>
 </div>
-<figure style="grid-area:4 / 1 / 9 / 8"><img src="assets/img/procedural-world/cobble.webp" alt="Procedurally generated cobblestone walls with crenellations, an arched window, a round tower and a wooden fence on grass" loading="lazy"><figcaption>Procedural World: cobble walls and a round tower, every stone laid along a drawn curve.</figcaption></figure>
+<figure class="cover-pic" style="grid-area:4 / 1 / 9 / 8"><img src="assets/img/procedural-world/cobble.webp" alt="Procedurally generated cobblestone walls with crenellations, an arched window, a round tower and a wooden fence on grass" loading="lazy"><figcaption>Procedural World: cobble walls and a round tower, every stone laid along a drawn curve.</figcaption></figure>
 <nav class="contents" style="grid-area:1 / 8 / 9 / 13">
   <p class="meta">Contents</p>
-  <a href="#chess-arm"><span>01</span>Robot Chess Arm<em>2020 – 21</em></a>
+  <a href="#chess-arm" data-pic="assets/img/chess-arm/arm-photo.webp" data-alt="The robot arm leaning over a chessboard, with a depth camera mounted above" data-cap="Robot Chess Arm: the arm over the board, with the depth camera above."><span>01</span>Robot Chess Arm<em>2020 – 21</em></a>
   <a href="#procedural-world"><span>02</span>Procedural World<em>2026</em></a>
-  <a href="#dnd-vtt"><span>03</span>D&amp;D VTT<em>2023 – now</em></a>
-  <a href="#mathisfactory"><span>04</span>Mathisfactory<em>2023</em></a>
-  <a href="#kidney-stones"><span>05</span>Kidney Stone Classification<em>2021</em></a>
-  <a href="#kidney-stones"><span>06</span>Indoor Localization<em>2022</em></a>
-  <a href="#style-transfer"><span>07</span>Neural Style Transfer<em>2022</em></a>
+  <a href="#dnd-vtt" data-pic="assets/img/dnd-app/workspace.webp" data-alt="The D&amp;D VTT workspace: a battle map of a rocky cove with tokens and a druid's character sheet, floating over the campaign canvas and its art" data-cap="D&amp;D VTT: the workspace during a game. Every panel is a window you can move, pin or pop out."><span>03</span>D&amp;D VTT<em>2023 – now</em></a>
+  <a href="#mathisfactory" data-pic="assets/img/mathisfactory/lava.webp" data-alt="View through a HoloLens: yellow level curves and red lava flowing over a physical volcano model on a table" data-cap="Mathisfactory: level curves on the real volcano model, and the simulated lava flow."><span>04</span>Mathisfactory<em>2023</em></a>
+  <a href="#kidney-stones" data-dg="kidney-model" data-cap="Kidney Stone Classification: transfer learning from ImageNet, with extra task heads sharing the same features."><span>05</span>Kidney Stone Classification<em>2021</em></a>
+  <a href="#kidney-stones" data-dg="indoor-bayes" data-cap="Indoor Localization: Bayesian localization, illustrated (schematic bar heights)."><span>06</span>Indoor Localization<em>2022</em></a>
+  <a href="#style-transfer" data-pic="assets/img/style-transfer/result-stvae.webp" data-alt="The living room rendered as stained glass" data-cap="Neural Style Transfer: the room in stained glass (ST-VAE)."><span>07</span>Neural Style Transfer<em>2022</em></a>
   <a href="#other"><span>+</span>Smaller work<em>2020 – 22</em></a>
-  <a href="#phd"><span>→</span>PhD research<em>2023 – now</em></a>
+  <a href="#phd" data-dg="health-data" data-cap="PhD research: the records never leave the secure environment, and only checked aggregates do."><span>→</span>PhD research<em>2023 – now</em></a>
 </nav>
+<template id="pv-kidney-model"><svg class="dg dg-kidney" viewBox="0 0 1000 196" role="img" aria-label="An endoscope image passes through a pretrained backbone to shared features, which feed a stone type head and other task heads">
+<defs><marker id="ah-kidney-model-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 L7.5 4 L0 7.5" fill="none" stroke="currentColor" stroke-width="1"/></marker></defs>
+<rect x="30" y="70" width="150" height="56" class="nd"/>
+<text x="42" y="92" class="nm">Endoscope image</text>
+<text x="42" y="110" class="sm">surface or section</text>
+<rect x="240" y="50" width="250" height="96" class="nd fill"/>
+<text x="252" y="72" class="nm">Pretrained backbone</text>
+<text x="252" y="90" class="sm">ResNet152V2 or</text>
+<text x="252" y="108" class="sm">InceptionResNetV2, ImageNet</text>
+<text x="252" y="126" class="sm">weights, fine-tuned</text>
+<rect x="550" y="70" width="140" height="56" class="nd"/>
+<text x="562" y="92" class="nm">Shared features</text>
+<rect x="760" y="20" width="210" height="56" class="nd ac-n"/>
+<text x="772" y="42" class="nm">Stone type</text>
+<text x="772" y="60" class="sm">the main task</text>
+<rect x="760" y="120" width="210" height="56" class="nd dash"/>
+<text x="772" y="142" class="nm">Related tasks</text>
+<text x="772" y="160" class="sm">multi-task heads</text>
+<line x1="180" y1="98" x2="238" y2="98" class="ln" marker-end="url(#ah-kidney-model-c)"/>
+<line x1="490" y1="98" x2="548" y2="98" class="ln" marker-end="url(#ah-kidney-model-c)"/>
+<line x1="690" y1="92" x2="758" y2="52" class="ln ac-l" marker-end="url(#ah-kidney-model-c)"/>
+<line x1="690" y1="104" x2="758" y2="144" class="ln" marker-end="url(#ah-kidney-model-c)"/>
+</svg></template><template id="pv-indoor-bayes"><svg class="dg dg-bayes" viewBox="0 0 1000 314" role="img" aria-label="Bar charts of belief over 13 cells, sharpening with each access point until one cell passes 90 percent">
+<defs><marker id="ah-indoor-bayes-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 L7.5 4 L0 7.5" fill="none" stroke="currentColor" stroke-width="1"/></marker></defs>
+<text x="30" y="92" class="nm">Prior</text>
+<line x1="150" y1="98" x2="688" y2="98" class="ln"/>
+<rect x="150" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="192" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="234" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="276" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="318" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="360" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="402" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="444" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="486" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="528" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="570" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="612" y="94.0" width="34" height="4.0" class="bar"/>
+<rect x="654" y="94.0" width="34" height="4.0" class="bar"/>
+<text x="30" y="156" class="nm">After AP 1</text>
+<line x1="150" y1="162" x2="688" y2="162" class="ln"/>
+<rect x="150" y="157.8" width="34" height="4.2" class="bar"/>
+<rect x="192" y="157.0" width="34" height="5.0" class="bar"/>
+<rect x="234" y="155.3" width="34" height="6.7" class="bar"/>
+<rect x="276" y="151.9" width="34" height="10.1" class="bar"/>
+<rect x="318" y="154.5" width="34" height="7.5" class="bar"/>
+<rect x="360" y="157.8" width="34" height="4.2" class="bar"/>
+<rect x="402" y="159.1" width="34" height="2.9" class="bar"/>
+<rect x="444" y="159.5" width="34" height="2.5" class="bar"/>
+<rect x="486" y="159.9" width="34" height="2.1" class="bar"/>
+<rect x="528" y="159.9" width="34" height="2.1" class="bar"/>
+<rect x="570" y="160.3" width="34" height="1.7" class="bar"/>
+<rect x="612" y="160.3" width="34" height="1.7" class="bar"/>
+<rect x="654" y="160.7" width="34" height="1.3" class="bar"/>
+<text x="30" y="220" class="nm">After AP 2</text>
+<line x1="150" y1="226" x2="688" y2="226" class="ln"/>
+<rect x="150" y="224.5" width="34" height="1.5" class="bar"/>
+<rect x="192" y="223.0" width="34" height="3.0" class="bar"/>
+<rect x="234" y="218.9" width="34" height="7.1" class="bar"/>
+<rect x="276" y="204.8" width="34" height="21.2" class="bar"/>
+<rect x="318" y="214.9" width="34" height="11.1" class="bar"/>
+<rect x="360" y="223.0" width="34" height="3.0" class="bar"/>
+<rect x="402" y="224.5" width="34" height="1.5" class="bar"/>
+<rect x="444" y="225.0" width="34" height="1.0" class="bar"/>
+<rect x="486" y="225.5" width="34" height="0.5" class="bar"/>
+<rect x="528" y="225.5" width="34" height="0.5" class="bar"/>
+<rect x="570" y="225.5" width="34" height="0.5" class="bar"/>
+<rect x="612" y="225.5" width="34" height="0.5" class="bar"/>
+<rect x="654" y="225.5" width="34" height="0.5" class="bar"/>
+<text x="30" y="284" class="nm">After AP n</text>
+<line x1="150" y1="290" x2="688" y2="290" class="ln"/>
+<rect x="150" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="192" y="289.5" width="34" height="0.5" class="bar"/>
+<rect x="234" y="287.9" width="34" height="2.1" class="bar"/>
+<rect x="276" y="242.2" width="34" height="47.8" class="bar ac-n"/>
+<rect x="318" y="288.4" width="34" height="1.6" class="bar"/>
+<rect x="360" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="402" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="444" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="486" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="528" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="570" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="612" y="290.0" width="34" height="0.0" class="bar"/>
+<rect x="654" y="290.0" width="34" height="0.0" class="bar"/>
+<line x1="150" y1="243.2" x2="688" y2="243.2" class="ln dash"/>
+<text x="700" y="247.2" class="sm">90%: stop</text>
+<text x="167" y="308" class="tiny" text-anchor="middle">1</text>
+<text x="209" y="308" class="tiny" text-anchor="middle">2</text>
+<text x="251" y="308" class="tiny" text-anchor="middle">3</text>
+<text x="293" y="308" class="tiny" text-anchor="middle">4</text>
+<text x="335" y="308" class="tiny" text-anchor="middle">5</text>
+<text x="377" y="308" class="tiny" text-anchor="middle">6</text>
+<text x="419" y="308" class="tiny" text-anchor="middle">7</text>
+<text x="461" y="308" class="tiny" text-anchor="middle">8</text>
+<text x="503" y="308" class="tiny" text-anchor="middle">9</text>
+<text x="545" y="308" class="tiny" text-anchor="middle">10</text>
+<text x="587" y="308" class="tiny" text-anchor="middle">11</text>
+<text x="629" y="308" class="tiny" text-anchor="middle">12</text>
+<text x="671" y="308" class="tiny" text-anchor="middle">13</text>
+<text x="150" y="20" class="lb">belief over the 13 cells, updated with Bayes’ rule one access point at a time</text>
+</svg></template><template id="pv-health-data"><svg class="dg dg-health" viewBox="0 0 1000 150" role="img" aria-label="Records go through cohort selection, state building and model training inside the secure environment; only checked aggregate results leave it for the paper">
+<defs><marker id="ah-health-data-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 L7.5 4 L0 7.5" fill="none" stroke="currentColor" stroke-width="1"/></marker></defs>
+<rect x="162.0" y="22" width="672" height="122" class="nd dash"/>
+<text x="172" y="16" class="lb">inside the secure environment</text>
+<rect x="2" y="38" width="152" height="92" class="nd"/>
+<text x="14" y="62" class="nm">Records</text>
+<text x="14" y="88" class="sm">linked, anonymised</text>
+<text x="14" y="106" class="sm">hospital, GP, deaths</text>
+<rect x="170" y="38" width="152" height="92" class="nd"/>
+<text x="182" y="62" class="nm">Cohort</text>
+<text x="182" y="88" class="sm">who is in, and when;</text>
+<text x="182" y="106" class="sm">censoring rules</text>
+<line x1="154" y1="84" x2="168" y2="84" class="ln" marker-end="url(#ah-health-data-c)"/>
+<rect x="338" y="38" width="152" height="92" class="nd"/>
+<text x="350" y="62" class="nm">States</text>
+<text x="350" y="88" class="sm">events on a grid;</text>
+<text x="350" y="106" class="sm">value, mask, gap</text>
+<line x1="322" y1="84" x2="336" y2="84" class="ln" marker-end="url(#ah-health-data-c)"/>
+<rect x="506" y="38" width="152" height="92" class="nd"/>
+<text x="518" y="62" class="nm">Train, test</text>
+<text x="518" y="88" class="sm">split by patient</text>
+<text x="518" y="106" class="sm">or by calendar year</text>
+<line x1="490" y1="84" x2="504" y2="84" class="ln" marker-end="url(#ah-health-data-c)"/>
+<rect x="674" y="38" width="152" height="92" class="nd ac-n"/>
+<text x="686" y="62" class="nm">Output check</text>
+<text x="686" y="88" class="sm">aggregates only,</text>
+<text x="686" y="106" class="sm">small counts removed</text>
+<line x1="658" y1="84" x2="672" y2="84" class="ln" marker-end="url(#ah-health-data-c)"/>
+<rect x="842" y="38" width="152" height="92" class="nd"/>
+<text x="854" y="62" class="nm">Paper</text>
+<text x="854" y="88" class="sm">tables and curves,</text>
+<text x="854" y="106" class="sm">no patient rows</text>
+<line x1="826" y1="84" x2="840" y2="84" class="ln" marker-end="url(#ah-health-data-c)"/>
+</svg></template>
 <footer class="foot"><span>Maxmillan Ries · Portfolio</span><span>Contents</span><span>00</span></footer>
 </section>
 <section class="board" id="chess-arm">
@@ -1603,6 +1737,38 @@
   const close = () => box.classList.remove('open');
   box.addEventListener('click', close);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+</script>
+<script>
+  // cover: hovering a contents entry shows that project's picture; leaving the list brings the cobble walls back
+  const pic = document.querySelector('.cover-pic');
+  if (pic && matchMedia('(hover: hover)').matches) {
+    const img = pic.querySelector('img'), cap = pic.querySelector('figcaption'), nav = document.querySelector('.cover .contents');
+    const home = { pic: img.src, alt: img.alt, cap: cap.textContent };
+    const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let svg = null, shown = home;
+    function set(d) {
+      if (d === shown) return;
+      shown = d;
+      if (svg) { svg.remove(); svg = null; }
+      if (d.dg) {
+        svg = document.getElementById('pv-' + d.dg).content.firstElementChild.cloneNode(true);
+        pic.insertBefore(svg, cap);
+      } else {
+        img.src = d.pic; img.alt = d.alt;
+      }
+      img.hidden = !!d.dg;
+      cap.textContent = d.cap;
+      if (!still) (svg || img).animate([{ opacity: 0 }, { opacity: 1 }], 180);
+    }
+    nav.querySelectorAll('a').forEach(a => {
+      const d = a.dataset.pic || a.dataset.dg ? a.dataset : home;
+      if (d.pic) new Image().src = d.pic;
+      a.addEventListener('mouseenter', () => set(d));
+      a.addEventListener('focus', () => set(d));
+    });
+    nav.addEventListener('mouseleave', () => set(home));
+    nav.addEventListener('focusout', e => { if (!nav.contains(e.relatedTarget)) set(home); });
+  }
 </script>
 
 </body>
