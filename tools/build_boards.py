@@ -96,7 +96,7 @@ chess_hero = (f'<figure class="marked" style="grid-area:1 / 1 / 9 / 7"><svg clas
 def pv(path=None, cap="", dg=None):
     """Data attributes for a cover contents link: hovering it shows this picture or diagram on the cover."""
     if dg:
-        return f' data-dg="{dg}" data-cap="{cap}"'
+        return f' data-pv="{dg}" data-cap="{cap}"'
     return f' data-pic="{IMG}{path}" data-alt="{alt(path)}" data-cap="{cap}"'
 
 
@@ -104,6 +104,13 @@ def pv_svg(name):
     # a separate copy of the diagram (own marker ids) for the cover preview; templates are not rendered until used
     m = re.search(rf"<!--dg:{name}-->.*?(<svg.*?</svg>)", src, re.S)
     return f'<template id="pv-{name}">{m.group(1).replace(f"ah-{name}", f"ah-{name}-c")}</template>'
+
+
+def pv_list():
+    # smaller work has no pictures, so its preview is the list itself: year and title
+    rows = re.findall(r'<span class="y">(.*?)</span><span><strong>(.*?)</strong>', sections["other"])
+    li = "".join(f"<li><span>{y}</span>{t}</li>" for y, t in rows)
+    return f'<template id="pv-other"><div class="pv-list"><p class="meta">Smaller work</p><ul>{li}</ul></div></template>'
 
 
 B = []
@@ -115,20 +122,20 @@ B.append(board("00", "Contents", f'''
   <p class="sum">PhD researcher at the University of Edinburgh working on generative sequence modelling, survival analysis and temporal distribution shift. At UReason, I develop predictive-maintenance models for industrial equipment and local LLM systems combining agent orchestration, computer vision and structured retrieval.</p>
   <p class="meta">PhD University of Edinburgh · MSc TU Delft · BSc University of Groningen<br><a href="https://github.com/TheMaxmillanRies">GitHub</a> · <a href="https://www.linkedin.com/in/maxmillanries">LinkedIn</a></p>
 </div>
-{fig("procedural-world/cobble.webp", "4 / 1 / 9 / 8", "Procedural World: cobble walls and a round tower, every stone laid along a drawn curve.", "cover-pic", text="Procedurally generated cobblestone walls with crenellations, an arched window, a round tower and a wooden fence on grass")}
+{fig("chess-arm/arm-photo.webp", "4 / 1 / 9 / 8", "Robot Chess Arm: the arm over the board, with the depth camera above.", "cover-pic")}
 <nav class="contents" style="grid-area:1 / 8 / 9 / 13">
   <p class="meta">Contents</p>
   <a href="#chess-arm"{pv("chess-arm/arm-photo.webp", "Robot Chess Arm: the arm over the board, with the depth camera above.")}><span>01</span>Robot Chess Arm<em>2020 – 21</em></a>
-  <a href="#procedural-world"><span>02</span>Procedural World<em>2026</em></a>
+  <a href="#procedural-world"{pv("procedural-world/cobble.webp", "Procedural World: cobble walls and a round tower, every stone laid along a drawn curve.")}><span>02</span>Procedural World<em>2026</em></a>
   <a href="#dnd-vtt"{pv("dnd-app/workspace.webp", "D&amp;D VTT: the workspace during a game. Every panel is a window you can move, pin or pop out.")}><span>03</span>D&amp;D VTT<em>2023 – now</em></a>
   <a href="#mathisfactory"{pv("mathisfactory/lava.webp", "Mathisfactory: level curves on the real volcano model, and the simulated lava flow.")}><span>04</span>Mathisfactory<em>2023</em></a>
   <a href="#kidney-stones"{pv(dg="kidney-model", cap="Kidney Stone Classification: transfer learning from ImageNet, with extra task heads sharing the same features.")}><span>05</span>Kidney Stone Classification<em>2021</em></a>
   <a href="#kidney-stones"{pv(dg="indoor-bayes", cap="Indoor Localization: Bayesian localization, illustrated (schematic bar heights).")}><span>06</span>Indoor Localization<em>2022</em></a>
   <a href="#style-transfer"{pv("style-transfer/result-stvae.webp", "Neural Style Transfer: the room in stained glass (ST-VAE).")}><span>07</span>Neural Style Transfer<em>2022</em></a>
-  <a href="#other"><span>+</span>Smaller work<em>2020 – 22</em></a>
+  <a href="#other"{pv(dg="other", cap="Smaller work: course projects, a reproduction study, a data tool and teaching.")}><span>+</span>Smaller work<em>2020 – 22</em></a>
   <a href="#phd"{pv(dg="health-data", cap="PhD research: the records never leave the secure environment, and only checked aggregates do.")}><span>→</span>PhD research<em>2023 – now</em></a>
 </nav>
-{pv_svg("kidney-model")}{pv_svg("indoor-bayes")}{pv_svg("health-data")}''', cls="cover"))
+{pv_svg("kidney-model")}{pv_svg("indoor-bayes")}{pv_svg("health-data")}{pv_list()}''', cls="cover"))
 
 B.append(board("01", "Robot Chess Arm", f'''
 {chess_hero}
@@ -317,35 +324,33 @@ html = f'''<!doctype html>
   document.addEventListener('keydown', e => {{ if (e.key === 'Escape') close(); }});
 </script>
 <script>
-  // cover: hovering a contents entry shows that project's picture; leaving the list brings the cobble walls back
+  // cover: hovering a contents entry shows that project's picture, which stays until another entry is hovered
   const pic = document.querySelector('.cover-pic');
   if (pic && matchMedia('(hover: hover)').matches) {{
-    const img = pic.querySelector('img'), cap = pic.querySelector('figcaption'), nav = document.querySelector('.cover .contents');
-    const home = {{ pic: img.src, alt: img.alt, cap: cap.textContent }};
+    const img = pic.querySelector('img'), cap = pic.querySelector('figcaption');
     const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let svg = null, shown = home;
+    let extra = null, shown = null;
     function set(d) {{
       if (d === shown) return;
       shown = d;
-      if (svg) {{ svg.remove(); svg = null; }}
-      if (d.dg) {{
-        svg = document.getElementById('pv-' + d.dg).content.firstElementChild.cloneNode(true);
-        pic.insertBefore(svg, cap);
+      if (extra) {{ extra.remove(); extra = null; }}
+      if (d.pv) {{
+        extra = document.getElementById('pv-' + d.pv).content.firstElementChild.cloneNode(true);
+        pic.insertBefore(extra, cap);
       }} else {{
         img.src = d.pic; img.alt = d.alt;
       }}
-      img.hidden = !!d.dg;
+      img.hidden = !!d.pv;
       cap.textContent = d.cap;
-      if (!still) (svg || img).animate([{{ opacity: 0 }}, {{ opacity: 1 }}], 180);
+      if (!still) (extra || img).animate([{{ opacity: 0 }}, {{ opacity: 1 }}], 180);
     }}
-    nav.querySelectorAll('a').forEach(a => {{
-      const d = a.dataset.pic || a.dataset.dg ? a.dataset : home;
+    document.querySelectorAll('.cover .contents a').forEach(a => {{
+      const d = a.dataset;
+      if (!d.pic && !d.pv) return;
       if (d.pic) new Image().src = d.pic;
       a.addEventListener('mouseenter', () => set(d));
       a.addEventListener('focus', () => set(d));
     }});
-    nav.addEventListener('mouseleave', () => set(home));
-    nav.addEventListener('focusout', e => {{ if (!nav.contains(e.relatedTarget)) set(home); }});
   }}
 </script>
 

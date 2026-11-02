@@ -30,18 +30,18 @@
   <p class="sum">PhD researcher at the University of Edinburgh working on generative sequence modelling, survival analysis and temporal distribution shift. At UReason, I develop predictive-maintenance models for industrial equipment and local LLM systems combining agent orchestration, computer vision and structured retrieval.</p>
   <p class="meta">PhD University of Edinburgh · MSc TU Delft · BSc University of Groningen<br><a href="https://github.com/TheMaxmillanRies">GitHub</a> · <a href="https://www.linkedin.com/in/maxmillanries">LinkedIn</a></p>
 </div>
-<figure class="cover-pic" style="grid-area:4 / 1 / 9 / 8"><img src="assets/img/procedural-world/cobble.webp" alt="Procedurally generated cobblestone walls with crenellations, an arched window, a round tower and a wooden fence on grass" loading="lazy"><figcaption>Procedural World: cobble walls and a round tower, every stone laid along a drawn curve.</figcaption></figure>
+<figure class="cover-pic" style="grid-area:4 / 1 / 9 / 8"><img src="assets/img/chess-arm/arm-photo.webp" alt="The robot arm leaning over a chessboard, with a depth camera mounted above" loading="lazy"><figcaption>Robot Chess Arm: the arm over the board, with the depth camera above.</figcaption></figure>
 <nav class="contents" style="grid-area:1 / 8 / 9 / 13">
   <p class="meta">Contents</p>
   <a href="#chess-arm" data-pic="assets/img/chess-arm/arm-photo.webp" data-alt="The robot arm leaning over a chessboard, with a depth camera mounted above" data-cap="Robot Chess Arm: the arm over the board, with the depth camera above."><span>01</span>Robot Chess Arm<em>2020 – 21</em></a>
-  <a href="#procedural-world"><span>02</span>Procedural World<em>2026</em></a>
+  <a href="#procedural-world" data-pic="assets/img/procedural-world/cobble.webp" data-alt="Procedurally generated cobblestone walls with crenellations, an arched window, a round tower and a wooden fence on grass" data-cap="Procedural World: cobble walls and a round tower, every stone laid along a drawn curve."><span>02</span>Procedural World<em>2026</em></a>
   <a href="#dnd-vtt" data-pic="assets/img/dnd-app/workspace.webp" data-alt="The D&amp;D VTT workspace: a battle map of a rocky cove with tokens and a druid's character sheet, floating over the campaign canvas and its art" data-cap="D&amp;D VTT: the workspace during a game. Every panel is a window you can move, pin or pop out."><span>03</span>D&amp;D VTT<em>2023 – now</em></a>
   <a href="#mathisfactory" data-pic="assets/img/mathisfactory/lava.webp" data-alt="View through a HoloLens: yellow level curves and red lava flowing over a physical volcano model on a table" data-cap="Mathisfactory: level curves on the real volcano model, and the simulated lava flow."><span>04</span>Mathisfactory<em>2023</em></a>
-  <a href="#kidney-stones" data-dg="kidney-model" data-cap="Kidney Stone Classification: transfer learning from ImageNet, with extra task heads sharing the same features."><span>05</span>Kidney Stone Classification<em>2021</em></a>
-  <a href="#kidney-stones" data-dg="indoor-bayes" data-cap="Indoor Localization: Bayesian localization, illustrated (schematic bar heights)."><span>06</span>Indoor Localization<em>2022</em></a>
+  <a href="#kidney-stones" data-pv="kidney-model" data-cap="Kidney Stone Classification: transfer learning from ImageNet, with extra task heads sharing the same features."><span>05</span>Kidney Stone Classification<em>2021</em></a>
+  <a href="#kidney-stones" data-pv="indoor-bayes" data-cap="Indoor Localization: Bayesian localization, illustrated (schematic bar heights)."><span>06</span>Indoor Localization<em>2022</em></a>
   <a href="#style-transfer" data-pic="assets/img/style-transfer/result-stvae.webp" data-alt="The living room rendered as stained glass" data-cap="Neural Style Transfer: the room in stained glass (ST-VAE)."><span>07</span>Neural Style Transfer<em>2022</em></a>
-  <a href="#other"><span>+</span>Smaller work<em>2020 – 22</em></a>
-  <a href="#phd" data-dg="health-data" data-cap="PhD research: the records never leave the secure environment, and only checked aggregates do."><span>→</span>PhD research<em>2023 – now</em></a>
+  <a href="#other" data-pv="other" data-cap="Smaller work: course projects, a reproduction study, a data tool and teaching."><span>+</span>Smaller work<em>2020 – 22</em></a>
+  <a href="#phd" data-pv="health-data" data-cap="PhD research: the records never leave the secure environment, and only checked aggregates do."><span>→</span>PhD research<em>2023 – now</em></a>
 </nav>
 <template id="pv-kidney-model"><svg class="dg dg-kidney" viewBox="0 0 1000 196" role="img" aria-label="An endoscope image passes through a pretrained backbone to shared features, which feed a stone type head and other task heads">
 <defs><marker id="ah-kidney-model-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 L7.5 4 L0 7.5" fill="none" stroke="currentColor" stroke-width="1"/></marker></defs>
@@ -176,7 +176,7 @@
 <text x="854" y="88" class="sm">tables and curves,</text>
 <text x="854" y="106" class="sm">no patient rows</text>
 <line x1="826" y1="84" x2="840" y2="84" class="ln" marker-end="url(#ah-health-data-c)"/>
-</svg></template>
+</svg></template><template id="pv-other"><div class="pv-list"><p class="meta">Smaller work</p><ul><li><span>2022</span>CenterTrack reproduction</li><li><span>2022</span>Array processing</li><li><span>2021</span>UReason data generator</li><li><span>2020</span>Machine learning clustering</li><li><span>2020</span>Teaching assistant</li></ul></div></template>
 <footer class="foot"><span>Maxmillan Ries · Portfolio</span><span>Contents</span><span>00</span></footer>
 </section>
 <section class="board" id="chess-arm">
@@ -1739,35 +1739,33 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
 </script>
 <script>
-  // cover: hovering a contents entry shows that project's picture; leaving the list brings the cobble walls back
+  // cover: hovering a contents entry shows that project's picture, which stays until another entry is hovered
   const pic = document.querySelector('.cover-pic');
   if (pic && matchMedia('(hover: hover)').matches) {
-    const img = pic.querySelector('img'), cap = pic.querySelector('figcaption'), nav = document.querySelector('.cover .contents');
-    const home = { pic: img.src, alt: img.alt, cap: cap.textContent };
+    const img = pic.querySelector('img'), cap = pic.querySelector('figcaption');
     const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let svg = null, shown = home;
+    let extra = null, shown = null;
     function set(d) {
       if (d === shown) return;
       shown = d;
-      if (svg) { svg.remove(); svg = null; }
-      if (d.dg) {
-        svg = document.getElementById('pv-' + d.dg).content.firstElementChild.cloneNode(true);
-        pic.insertBefore(svg, cap);
+      if (extra) { extra.remove(); extra = null; }
+      if (d.pv) {
+        extra = document.getElementById('pv-' + d.pv).content.firstElementChild.cloneNode(true);
+        pic.insertBefore(extra, cap);
       } else {
         img.src = d.pic; img.alt = d.alt;
       }
-      img.hidden = !!d.dg;
+      img.hidden = !!d.pv;
       cap.textContent = d.cap;
-      if (!still) (svg || img).animate([{ opacity: 0 }, { opacity: 1 }], 180);
+      if (!still) (extra || img).animate([{ opacity: 0 }, { opacity: 1 }], 180);
     }
-    nav.querySelectorAll('a').forEach(a => {
-      const d = a.dataset.pic || a.dataset.dg ? a.dataset : home;
+    document.querySelectorAll('.cover .contents a').forEach(a => {
+      const d = a.dataset;
+      if (!d.pic && !d.pv) return;
       if (d.pic) new Image().src = d.pic;
       a.addEventListener('mouseenter', () => set(d));
       a.addEventListener('focus', () => set(d));
     });
-    nav.addEventListener('mouseleave', () => set(home));
-    nav.addEventListener('focusout', e => { if (!nav.contains(e.relatedTarget)) set(home); });
   }
 </script>
 
