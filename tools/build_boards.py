@@ -106,6 +106,24 @@ def pv_svg(name):
     return f'<template id="pv-{name}">{m.group(1).replace(f"ah-{name}", f"ah-{name}-c")}</template>'
 
 
+# the PhD papers, used by the PhD overview sheet and by the cover preview
+PAPERS = [("tracer", "TraCeR", "Competing risks: which outcome happens first, and when", "Under review"),
+          ("nmsm", "nMSM · ML4H", "States and measurements forecast together", "Accepted"),
+          ("apc", "APC", "Calendar drift: age, period and cohort in neural models", "Under review")]
+
+
+def paper_rows(tag):
+    rows = []
+    for i, (k, t, d, st) in enumerate(PAPERS, 1):
+        attr = f' href="#{k}"' if tag == "a" else ""
+        rows.append(f"  <{tag}{attr}><span>{i:02d}</span><div>{t}<small>{d}</small></div><em>{st}</em></{tag}>\n")
+    return "".join(rows)
+
+
+def pv_phd():
+    return f'<template id="pv-phd"><div class="pv-list"><p class="meta">PhD research · Papers</p><ul>{paper_rows("li")}</ul></div></template>'
+
+
 def pv_list():
     # smaller work has no pictures, so its preview is the list itself: year and title
     rows = re.findall(r'<span class="y">(.*?)</span><span><strong>(.*?)</strong>', sections["other"])
@@ -133,9 +151,9 @@ B.append(board("00", "Contents", f'''
   <a href="#kidney-stones"{pv(dg="indoor-bayes", cap="Indoor Localization: Bayesian localization, illustrated (schematic bar heights).")}><span>06</span>Indoor Localization<em>2022</em></a>
   <a href="#style-transfer"{pv("style-transfer/result-stvae.webp", "Neural Style Transfer: the room in stained glass (ST-VAE).")}><span>07</span>Neural Style Transfer<em>2022</em></a>
   <a href="#other"{pv(dg="other", cap="Smaller work: course projects, a reproduction study, a data tool and teaching.")}><span>+</span>Smaller work<em>2020 – 22</em></a>
-  <a href="#phd"{pv(dg="health-data", cap="PhD research: the records never leave the secure environment, and only checked aggregates do.")}><span>→</span>PhD research<em>2023 – now</em></a>
+  <a href="#phd"{pv(dg="phd", cap="PhD research: forecasting patient trajectories from large databases of health records.")}><span>→</span>PhD research<em>2023 – now</em></a>
 </nav>
-{pv_svg("kidney-model")}{pv_svg("indoor-bayes")}{pv_svg("health-data")}{pv_list()}''', cls="cover"))
+{pv_svg("kidney-model")}{pv_svg("indoor-bayes")}{pv_phd()}{pv_list()}''', cls="cover"))
 
 B.append(board("01", "Robot Chess Arm", f'''
 {chess_hero}
@@ -221,10 +239,7 @@ P.append(board("PhD · 00", "Forecasting Patient Trajectories", f'''
 {diagram("health-data", "1 / 5 / 4 / 13", "How the SAIL work runs: the records never leave the secure environment, and only checked aggregates do")}
 <nav class="contents flat" style="grid-area:4 / 5 / 9 / 13">
   <p class="meta">Papers</p>
-  <a href="#tracer"><span>01</span><div>TraCeR<small>Competing risks: which outcome happens first, and when</small></div><em>Under review</em></a>
-  <a href="#nmsm"><span>02</span><div>nMSM · ML4H<small>States and measurements forecast together</small></div><em>Accepted</em></a>
-  <a href="#apc"><span>03</span><div>APC<small>Calendar drift: age, period and cohort in neural models</small></div><em>Under review</em></a>
-</nav>''', PT) + "\n" + notes(PT, "Working with patient databases", ["Working with large patient databases", "<!--dg:health-data-->"]))
+{paper_rows("a")}</nav>''', PT) + "\n" + notes(PT, "Working with patient databases", ["Working with large patient databases", "<!--dg:health-data-->"]))
 
 STACK = ("Stack", "Python, PyTorch")
 P.append(paper("01", "tracer", "TraCeR", "Competing risks · Under review",

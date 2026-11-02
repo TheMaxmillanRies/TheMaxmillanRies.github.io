@@ -334,3 +334,6 @@ figure { margin: 0; }
 .pv-list ul { list-style: none; margin: 0; padding: 0; }
 .pv-list li { display: flex; gap: calc(var(--u) * 2); padding: calc(var(--u) * 1.1) 0; border-bottom: 1px solid var(--hair); font-size: calc(var(--u) * 1.6); }
 .pv-list li span { min-width: calc(var(--u) * 4); color: var(--accent); font-size: calc(var(--u) * 1.1); padding-top: 0.35em; }
+.pv-list li div { flex: 1; }
+.pv-list small { display: block; margin-top: calc(var(--u) * 0.4); font-size: calc(var(--u) * 1); color: var(--muted); }
+.pv-list em { font-style: normal; font-size: calc(var(--u) * 1); color: var(--muted); padding-top: 0.45em; }

@@ -41,7 +41,7 @@
   <a href="#kidney-stones" data-pv="indoor-bayes" data-cap="Indoor Localization: Bayesian localization, illustrated (schematic bar heights)."><span>06</span>Indoor Localization<em>2022</em></a>
   <a href="#style-transfer" data-pic="assets/img/style-transfer/result-stvae.webp" data-alt="The living room rendered as stained glass" data-cap="Neural Style Transfer: the room in stained glass (ST-VAE)."><span>07</span>Neural Style Transfer<em>2022</em></a>
   <a href="#other" data-pv="other" data-cap="Smaller work: course projects, a reproduction study, a data tool and teaching."><span>+</span>Smaller work<em>2020 – 22</em></a>
-  <a href="#phd" data-pv="health-data" data-cap="PhD research: the records never leave the secure environment, and only checked aggregates do."><span>→</span>PhD research<em>2023 – now</em></a>
+  <a href="#phd" data-pv="phd" data-cap="PhD research: forecasting patient trajectories from large databases of health records."><span>→</span>PhD research<em>2023 – now</em></a>
 </nav>
 <template id="pv-kidney-model"><svg class="dg dg-kidney" viewBox="0 0 1000 196" role="img" aria-label="An endoscope image passes through a pretrained backbone to shared features, which feed a stone type head and other task heads">
 <defs><marker id="ah-kidney-model-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 L7.5 4 L0 7.5" fill="none" stroke="currentColor" stroke-width="1"/></marker></defs>
@@ -143,40 +143,10 @@
 <text x="629" y="308" class="tiny" text-anchor="middle">12</text>
 <text x="671" y="308" class="tiny" text-anchor="middle">13</text>
 <text x="150" y="20" class="lb">belief over the 13 cells, updated with Bayes’ rule one access point at a time</text>
-</svg></template><template id="pv-health-data"><svg class="dg dg-health" viewBox="0 0 1000 150" role="img" aria-label="Records go through cohort selection, state building and model training inside the secure environment; only checked aggregate results leave it for the paper">
-<defs><marker id="ah-health-data-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 L7.5 4 L0 7.5" fill="none" stroke="currentColor" stroke-width="1"/></marker></defs>
-<rect x="162.0" y="22" width="672" height="122" class="nd dash"/>
-<text x="172" y="16" class="lb">inside the secure environment</text>
-<rect x="2" y="38" width="152" height="92" class="nd"/>
-<text x="14" y="62" class="nm">Records</text>
-<text x="14" y="88" class="sm">linked, anonymised</text>
-<text x="14" y="106" class="sm">hospital, GP, deaths</text>
-<rect x="170" y="38" width="152" height="92" class="nd"/>
-<text x="182" y="62" class="nm">Cohort</text>
-<text x="182" y="88" class="sm">who is in, and when;</text>
-<text x="182" y="106" class="sm">censoring rules</text>
-<line x1="154" y1="84" x2="168" y2="84" class="ln" marker-end="url(#ah-health-data-c)"/>
-<rect x="338" y="38" width="152" height="92" class="nd"/>
-<text x="350" y="62" class="nm">States</text>
-<text x="350" y="88" class="sm">events on a grid;</text>
-<text x="350" y="106" class="sm">value, mask, gap</text>
-<line x1="322" y1="84" x2="336" y2="84" class="ln" marker-end="url(#ah-health-data-c)"/>
-<rect x="506" y="38" width="152" height="92" class="nd"/>
-<text x="518" y="62" class="nm">Train, test</text>
-<text x="518" y="88" class="sm">split by patient</text>
-<text x="518" y="106" class="sm">or by calendar year</text>
-<line x1="490" y1="84" x2="504" y2="84" class="ln" marker-end="url(#ah-health-data-c)"/>
-<rect x="674" y="38" width="152" height="92" class="nd ac-n"/>
-<text x="686" y="62" class="nm">Output check</text>
-<text x="686" y="88" class="sm">aggregates only,</text>
-<text x="686" y="106" class="sm">small counts removed</text>
-<line x1="658" y1="84" x2="672" y2="84" class="ln" marker-end="url(#ah-health-data-c)"/>
-<rect x="842" y="38" width="152" height="92" class="nd"/>
-<text x="854" y="62" class="nm">Paper</text>
-<text x="854" y="88" class="sm">tables and curves,</text>
-<text x="854" y="106" class="sm">no patient rows</text>
-<line x1="826" y1="84" x2="840" y2="84" class="ln" marker-end="url(#ah-health-data-c)"/>
-</svg></template><template id="pv-other"><div class="pv-list"><p class="meta">Smaller work</p><ul><li><span>2022</span>CenterTrack reproduction</li><li><span>2022</span>Array processing</li><li><span>2021</span>UReason data generator</li><li><span>2020</span>Machine learning clustering</li><li><span>2020</span>Teaching assistant</li></ul></div></template>
+</svg></template><template id="pv-phd"><div class="pv-list"><p class="meta">PhD research · Papers</p><ul>  <li><span>01</span><div>TraCeR<small>Competing risks: which outcome happens first, and when</small></div><em>Under review</em></li>
+  <li><span>02</span><div>nMSM · ML4H<small>States and measurements forecast together</small></div><em>Accepted</em></li>
+  <li><span>03</span><div>APC<small>Calendar drift: age, period and cohort in neural models</small></div><em>Under review</em></li>
+</ul></div></template><template id="pv-other"><div class="pv-list"><p class="meta">Smaller work</p><ul><li><span>2022</span>CenterTrack reproduction</li><li><span>2022</span>Array processing</li><li><span>2021</span>UReason data generator</li><li><span>2020</span>Machine learning clustering</li><li><span>2020</span>Teaching assistant</li></ul></div></template>
 <footer class="foot"><span>Maxmillan Ries · Portfolio</span><span>Contents</span><span>00</span></footer>
 </section>
 <section class="board" id="chess-arm">
