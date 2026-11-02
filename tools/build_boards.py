@@ -144,12 +144,12 @@ B.append(board("00", "Contents", f'''
 <nav class="contents" style="grid-area:1 / 8 / 9 / 13">
   <p class="meta">Contents</p>
   <a href="#chess-arm"{pv("chess-arm/arm-photo.webp", "Robot Chess Arm: the arm over the board, with the depth camera above.")}><span>01</span>Robot Chess Arm<em>2020 – 21</em></a>
-  <a href="#procedural-world"{pv("procedural-world/cobble.webp", "Procedural World: cobble walls and a round tower, every stone laid along a drawn curve.")}><span>02</span>Procedural World<em>2026</em></a>
-  <a href="#dnd-vtt"{pv("dnd-app/workspace.webp", "D&amp;D VTT: the workspace during a game. Every panel is a window you can move, pin or pop out.")}><span>03</span>D&amp;D VTT<em>2023 – now</em></a>
-  <a href="#mathisfactory"{pv("mathisfactory/lava.webp", "Mathisfactory: level curves on the real volcano model, and the simulated lava flow.")}><span>04</span>Mathisfactory<em>2023</em></a>
+  <a href="#procedural-world"{pv("procedural-world/cave-hall.webp", "Procedural World: a hall of stalactites in a generated cave.")}><span>02</span>Procedural World<em>2026</em></a>
+  <a href="#dnd-vtt"{pv("dnd-app/map-3d.webp", "D&amp;D VTT: a battle map tilted into 3D, with the tokens standing on it.")}><span>03</span>D&amp;D VTT<em>2023 – now</em></a>
+  <a href="#mathisfactory"{pv("mathisfactory/unity-render.webp", "Mathisfactory: the volcano terrain and simulated lava paths in Unity.")}><span>04</span>Mathisfactory<em>2023</em></a>
   <a href="#kidney-stones"{pv(dg="kidney-model", cap="Kidney Stone Classification: transfer learning from ImageNet, with extra task heads sharing the same features.")}><span>05</span>Kidney Stone Classification<em>2021</em></a>
   <a href="#kidney-stones"{pv(dg="indoor-bayes", cap="Indoor Localization: Bayesian localization, illustrated (schematic bar heights).")}><span>06</span>Indoor Localization<em>2022</em></a>
-  <a href="#style-transfer"{pv("style-transfer/result-stvae.webp", "Neural Style Transfer: the room in stained glass (ST-VAE).")}><span>07</span>Neural Style Transfer<em>2022</em></a>
+  <a href="#style-transfer"{pv("style-transfer/archer.webp", "Neural Style Transfer: ST-VAE on a fantasy illustration.")}><span>07</span>Neural Style Transfer<em>2022</em></a>
   <a href="#other"{pv(dg="other", cap="Smaller work: course projects, a reproduction study, a data tool and teaching.")}><span>+</span>Smaller work<em>2020 – 22</em></a>
   <a href="#phd"{pv(dg="phd", cap="PhD research: forecasting patient trajectories from large databases of health records.")}><span>→</span>PhD research<em>2023 – now</em></a>
 </nav>
