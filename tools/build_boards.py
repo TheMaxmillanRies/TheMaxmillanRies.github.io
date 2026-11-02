@@ -99,8 +99,8 @@ B.append(board("00", "Contents", f'''
 <div class="cover-name" style="grid-area:1 / 1 / 4 / 8">
   <p class="meta">Portfolio · Selected work 2020 – 2026</p>
   <h1>Maxmillan Ries</h1>
-  <p class="sum">I build things that see, move and render: a chess-playing robot arm, computer vision and deep learning projects, an augmented reality maths game, research on forecasting patients’ clinical courses from health records, and lately a procedural world engine and a virtual tabletop.</p>
-  <p class="meta">BSc University of Groningen · MSc TU Delft · <a href="https://github.com/TheMaxmillanRies">GitHub</a></p>
+  <p class="sum">PhD researcher at the University of Edinburgh working on generative sequence modelling, survival analysis and temporal distribution shift. At UReason, I develop predictive-maintenance models for industrial equipment and local LLM systems combining agent orchestration, computer vision and structured retrieval.</p>
+  <p class="meta">PhD University of Edinburgh · MSc TU Delft · BSc University of Groningen<br><a href="https://github.com/TheMaxmillanRies">GitHub</a> · <a href="https://www.linkedin.com/in/maxmillanries">LinkedIn</a></p>
 </div>
 {fig("procedural-world/cobble.webp", "4 / 1 / 9 / 8", "Procedural World: cobble walls and a round tower, every stone laid along a drawn curve.", text="Procedurally generated cobblestone walls with crenellations, an arched window, a round tower and a wooden fence on grass")}
 <nav class="contents" style="grid-area:1 / 8 / 9 / 13">
@@ -113,7 +113,7 @@ B.append(board("00", "Contents", f'''
   <a href="#kidney-stones"><span>06</span>Indoor Localization<em>2022</em></a>
   <a href="#style-transfer"><span>07</span>Neural Style Transfer<em>2022</em></a>
   <a href="#other"><span>+</span>Smaller work<em>2020 – 22</em></a>
-  <a href="#phd"><span>→</span>PhD research<em>2025 – 26</em></a>
+  <a href="#phd"><span>→</span>PhD research<em>2023 – now</em></a>
 </nav>''', cls="cover"))
 
 B.append(board("01", "Robot Chess Arm", f'''
@@ -194,7 +194,7 @@ def paper(n, sid, title, meta, summary, num, dl, dg, cap, qmr, keep):
 
 
 P.append(board("PhD · 00", "Forecasting Patient Trajectories", f'''
-{text("PhD", PT, "Forecasting Patient Trajectories", "2025 – 2026 · PhD research",
+{text("PhD", PT, "Forecasting Patient Trajectories", "2023 – present · PhD, University of Edinburgh",
       "My PhD is on forecasting how patients move between clinical states, such as levels of breathing support in intensive care, from large databases of health records. The three papers share the same groundwork: building cohorts and states from raw records, treating missing values as information, and testing on later patients or later years. The SAIL data stays in its secure environment, so these pages show the models, not patients.",
       "1 / 1 / 9 / 5", nums([("≈13M", "people in SAIL, Wales"), ("50,873", "ICU stays, MIMIC-IV")]))}
 {diagram("health-data", "1 / 5 / 4 / 13", "How the SAIL work runs: the records never leave the secure environment, and only checked aggregates do")}
